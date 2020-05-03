@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kay-rottmann.de/authors/admin/</loc>
+    <lastmod>2020-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/authors/</loc>
+    <lastmod>2020-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/</loc>
+    <lastmod>2020-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/post/jupyter/</loc>
+    <lastmod>2020-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/post/</loc>
+    <lastmod>2020-04-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/tags/covid-19/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/project/localandopen/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/project/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/tags/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/tags/website/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://kay-rottmann.de/publication_types/</loc>
+  </url>
+  
+</urlset>
