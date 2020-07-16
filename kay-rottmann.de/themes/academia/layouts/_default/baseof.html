@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default "en-us" }}">
-
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 {{ partial "site_head.html" . }}
 
 <body id="top" data-spy="scroll" data-target="{{ if or .IsHome (eq .Type "widget_page") }}#navbar-main{{else}}#TableOfContents{{end}}" data-offset="71" {{ if not (.Scratch.Get "light") }}class="dark"{{end}}>
