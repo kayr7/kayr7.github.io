@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   title = "Neural Networks Guest Lecturer"
   url = ""
   date_start = "2019-04-01"
-  date_end = "2019-07-01"
+  date_end = "2020-07-01"
   description = """
   Teaching 50% of master course on Neural Networks / Deep Learning. Topics covered 
   * Deep Learning
