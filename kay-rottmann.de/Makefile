@@ -1,5 +1,5 @@
 all:
-	HUGO_THEME=academia hugo --themesDir themes/  --i18n-warnings
+	HUGO_THEME=academia hugo --themesDir themes/ 
 	cp -r public ../deploy/data/
 
 

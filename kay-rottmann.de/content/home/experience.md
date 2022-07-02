@@ -17,13 +17,39 @@ date_format = "Jan 2006"
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
+
+
+[[experience]]
+  title = "Sr. Applied Scientist for Alexa AI"
+  company = "Amazon, LLC."
+  company_url = "https://amazon.com"
+  date_start = "2021-01-01"
+  date_end = ""
+  description = """
+  Working on Artificial Intelligence projects for Alexa with
+  focus on natural language understanding in the internationalization
+  of Alexa.
+  """
+
+[[experience]]
+  title = "Guest Lecturer"
+  company = "Karlsruhe Institute of Technology (KIT)"
+  company_url = "kit.edu"
+  date_start = "2019-04-01"
+  date_end = ""
+  description = """
+  Giving lectures on Deep Neural Networks for Master course "Neural Networks" at KIT.
+  Topics involving: "Parallel Computing for Neural Networks and Deep Learning Frameworks", "Adversarial Attacks", "Generative Adversarial Networks", "Explainability".
+  """
+
+
 [[experience]]
   title = "Head of AI for Manufacturing"
   company = "Bosch GmbH, Center for Artificial Intelligence"
   company_url = "https://bosch-ai.com"
   location = "Renningen, Germany"
   date_start = "2019-01-01"
-  date_end = ""
+  date_end = "2020-11-30"
   description = """
   Supporting teams to apply state of the art Artificial Intelligence methods in the manufacturing domain, 
   besides others, working on
