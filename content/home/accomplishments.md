@@ -26,11 +26,14 @@ date_format = "Jan 2006"
   date_start = "2019-04-01"
   date_end = "2020-07-01"
   description = """
-  Teaching 50% of master course on Neural Networks / Deep Learning. Topics covered 
+  Giving lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT, Topics covered include 
   * Deep Learning
   * Image Recognition / Segmentation / Classification
   * Generative Adversarial Networks
   * Adversarial Attacks
+  * Large Language Models
+  * InstructGPT
+  * Privacy
   """
 
 [[item]]
