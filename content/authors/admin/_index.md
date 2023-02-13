@@ -74,4 +74,4 @@ email: ""
 user_groups: []
 ---
 
-I'm a research engineering manager based in Stuttgart, Germany. I have a passion for building **Products** and **Solutions** with **Artificial Intelligence** to help people and create value.
+I'm a senior scientist in artificial intelligence and natural language understanding based in Stuttgart, Germany. I have a passion for building **Products** and **Solutions** with **Artificial Intelligence** to help people and create value.
