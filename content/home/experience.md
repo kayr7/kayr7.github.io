@@ -39,7 +39,7 @@ date_format = "Jan 2006"
   date_end = ""
   description = """
   Giving lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT.
-  Topics involving: "Parallel Computing for Neural Networks and Deep Learning Frameworks", "Adversarial Attacks", "Generative Adversarial Networks", "Explainability", "InstructGPT", "Large Language Models", "Privacy"
+  Topics involving: "Parallel Computing for Neural Networks and Deep Learning Frameworks", "Adversarial Attacks", "Generative Adversarial Networks", "Explainability", "InstructGPT/ChatGPT", "Large Language Models", "Privacy"
   """
 
 
