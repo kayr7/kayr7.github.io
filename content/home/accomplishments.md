@@ -32,7 +32,7 @@ date_format = "Jan 2006"
   * Generative Adversarial Networks
   * Adversarial Attacks
   * Large Language Models
-  * InstructGPT
+  * InstructGPT/ChatGPT
   * Privacy
   """
 
