@@ -41,4 +41,4 @@ hero_media = "user-2.jpg"
 +++
 ## My name is **Kay Rottmann** and I'm supporting teams in building **Artificial Intelligence** products and solutions
 
-I strongly believe that artificial intelligence can help improving people's life and society. I'm driven by building products and solutions that have positive impact.
+Driven by a passion for utilizing AI for the improving people's lives, I bring a diverse range of experience to the table having worked with both startups as member and founder as well as big tech companies. Throughout my career, I have focused on tackling challenging AI problems in areas such as large language models, NLP, computer vision, and reinforcement learning. With a focus on creating impactful solutions, I am dedicated to pushing the boundaries of what is possible with AI and using technology to make a positive difference.
