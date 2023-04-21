@@ -1,3 +1,4 @@
+---
 title: Unleashing the Power of Generative Models and LLMs
 subtitle: Looking at how Large Language Models and other generative models can empower us.
 summary: Ah, large language models (LLMs), GPT-4, and generative models in general... It seems like everybody's talking about them these days. So, naturally, I felt the unbearable pressure of groupthink to also write about it. As someone who's been in the NLP field for quite some time, I have seen the transformative power of these models firsthand. In this post, we'll explore the potential of LLMs as enablers and force multipliers, transforming what individuals can achieve in various fields. Just imagine the possibilities!
@@ -15,7 +16,7 @@ image:
   caption: 'a 2d aquarell of a programmer typing on a computer while playing an ukulele with the right hand and painting an image with a pencil between his toes'
   focal_point: ''
   preview_only: false
-
+---
 
 ## Introduction
 Ah, large language models (LLMs), GPT-4, and generative models in general... It seems like everybody's talking about them these days. So, naturally, I felt the unbearable pressure of groupthink to also write about it. As someone who's been in the NLP field for quite some time, I have seen the transformative power of these models firsthand. In this post, we'll explore the potential of LLMs as enablers and force multipliers, transforming what individuals can achieve in various fields. Just imagine the possibilities!
