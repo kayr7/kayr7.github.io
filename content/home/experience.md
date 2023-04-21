@@ -26,8 +26,8 @@ date_format = "Jan 2006"
   date_start = "2021-01-01"
   date_end = ""
   description = """
-  Working on Artificial Intelligence projects for Alexa with
-  focus on natural language understanding in the internationalization
+  Working on Artificial Intelligence projects for Alexa together with a team of Scientists from multiple locations worldwide 
+  focusing on massive multilingual natural language understanding.
   of Alexa.
   """
 
