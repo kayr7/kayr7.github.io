@@ -13,7 +13,7 @@ featured: false
 draft: false
 
 image:
-  caption: 'a 2d aquarell of a programmer typing on a computer while playing an ukulele with the right hand and painting an image with a pencil between his toes'
+  caption: 'Aquarell of a computer nerd programming while creating an oil painting and instruments leaning next to him.'
   focal_point: ''
   preview_only: false
 ---
