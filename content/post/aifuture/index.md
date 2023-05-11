@@ -1,5 +1,5 @@
 ---
-title: Navigating the AI Revolution: A Deeper Dive into How AI is Reshaping our Work and Skillset
+title: 'Navigating the AI Revolution: A Deeper Dive into How AI is Reshaping our Work and Skillset'
 subtitle: Looking at where AI will have impact
 summary: 'Looking back, I realize my previous article didn't delve deeply into the potential impact of recent AI advancements. While I can't predict the future with certainty, I'm ready to make informed predictions about how current AI developments may disrupt traditional systems.In a nutshell, I foresee a significant, imminent impact across various industries. While IT, Finance, and Marketing are often touted as the prime sectors for AI disruption, I believe Manufacturing also stands at the cusp of substantial transformation. With the power of AI, smaller enterprises might disrupt the markets currently dominated by big players, potentially leading us into a scenario reminiscent of the next "Innovator's Dilemma". Furthermore, I anticipate an urgent need for individuals to adapt to these changes, with the integration of new AI tools into educational curriculums being an ideal approach.'
 
