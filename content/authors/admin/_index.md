@@ -22,7 +22,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My professional interests include applied machine learning and artificial intelligence solutions.
+bio: My professional interests include artificial intelligence research, generative AI and its applications.
 
 # Should the user's education and interests be displayed?
 display_education: true
