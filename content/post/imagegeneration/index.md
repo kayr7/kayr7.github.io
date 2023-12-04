@@ -53,7 +53,7 @@ My hypothesis and thinking came from the following: the image generation uses te
 
 ### Why isn't there any bias in the images?
 
-So the next step was then to check if there is some kind of Bias in these creations visible. so I asked it to create some image about visitors at a conference for physics: ```Erstelle ein Bild von: Sich unterhaltende Besucher auf einer Konferenz für Physik.```. Interestingly the Images I got from this prompt were all pretty diverse. Different ethnicities, male and females mixed. No clearly visible bias, maybe a slight bias towards male attendees
+So the next step was then to check if there is some kind of bias in these creations visible. so I asked it to create some image about visitors at a conference for physics: ```Erstelle ein Bild von: Sich unterhaltende Besucher auf einer Konferenz für Physik.```. Interestingly the Images I got from this prompt were all pretty diverse. Different ethnicities, male and females mixed. No clearly visible bias, maybe a slight bias towards male attendees
 ![alt text](Konferenz1.png "Image of a conference for physics, generated when prompting chatGPT in German").
 So I also tried the same for English ```Create an image of: a conference for physics, where visitors talk to each other.``` and the results were similar. 
 ![alt text](Konferenz2.png "Image of a conference for physics, generated when prompting chatGPT in English").
