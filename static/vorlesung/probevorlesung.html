@@ -214,10 +214,11 @@
             <section id="title-slide">
         <h1 class="title">Kürzeste Wege in Graphen &amp;
 Tokenization</h1>
-        <p class="subtitle">Schnell reisen &amp; Wie lesen Computer?</p>
+        <p class="subtitle">Schnell zum Ziel &amp; Wie lesen
+Computer?</p>
         <p class="author">Dr. Kay Rottmann</p>
         
-        <p class="date">Thursday, November 07, 2024</p>
+        <p class="date">Donnerstag, 07. November, 2024</p>
       </section>
       
       <!-- Table of Contents -->
@@ -326,7 +327,7 @@ Tokenization</h1>
       </ul>
       <aside class="notes">
       <ul>
-      <li>08:00</li>
+      <li>07:30</li>
       </ul>
       </aside>
       </section>
@@ -347,7 +348,7 @@ Tokenization</h1>
       </ul>
       <aside class="notes">
       <ul>
-      <li>10:00</li>
+      <li>09:00</li>
       </ul>
       </aside>
       </section>
@@ -359,7 +360,7 @@ Tokenization</h1>
       </iframe>
       <aside class="notes">
       <ul>
-      <li>15:00</li>
+      <li>14:00</li>
       </ul>
       </aside>
       </section>
@@ -370,8 +371,8 @@ Tokenization</h1>
       <div style="flex: 1;">
       <div class="spaced">
       <ul>
-      <li class="fragment">Beobachtung: nur optimale Teilwege liegen auf
-      einem kürzesten Pfad</li>
+      <li class="fragment">Beobachtung: kürzeste Wege bestehen selbst
+      nur aus kürzesten Teilwegen</li>
       <li class="fragment">Idee: <strong>Wenn für Knotenteilmenge
       optimale Wege zu ihnen bekannt</strong> und kein Knoten ausserhalb
       der Menge schneller erreichbar ist, <strong>erweitere diese
@@ -401,7 +402,7 @@ Tokenization</h1>
       </div>
       <aside class="notes">
       <ul>
-      <li>18:00</li>
+      <li>17:00</li>
       </ul>
       </aside>
       </section>
@@ -450,39 +451,47 @@ return p, l</code></pre>
       <section id="laufzeitanalyse-dijkstra" class="slide level2">
       <h2>Laufzeitanalyse Dijkstra</h2>
       <ul>
-      <li class="fragment">Hauptschleife:
+      <li class="fragment">Initialisierung: <span
+      class="math inline">\(\mathcal{O} (|V|)\)</span>
       <ul>
-      <li class="fragment">läuft <span class="math inline">\(\mathcal{O}
-      (|V|)\)</span> mal (bis alle Knoten in <span
-      class="math inline">\(X\)</span>)</li>
-      <li class="fragment">für jeden Knoten:
+      <li class="fragment">Jeder Knoten ist wird
+      minimaler-Kosten-Knoten: <span class="math inline">\(\mathcal{O}
+      (|V|) \cdot T_\textrm{deleteMin}\)</span>
       <ol type="1">
       <li class="fragment">update Entfernung zu Nachbarn: <span
-      class="math inline">\(\mathcal{O} (|V|)\)</span></li>
-      <li class="fragment">Knoten mit kürzester Entfernung vom Start:
-      <span class="math inline">\(\mathcal{O} (|V|)\)</span>
-      (naiv!)</li>
+      class="math inline">\(\mathcal{O} (|E|) \cdot
+      T_\textrm{decreaseKey}\)</span></li>
+      <li class="fragment">falls nicht update, dann füg Knoten hinzu:
+      <span class="math inline">\(\mathcal{O} (|V|) \cdot
+      T_\textrm{insert}\)</span></li>
       </ol></li>
       </ul></li>
       <li class="fragment">Gesamtlaufzeit ohne Optimierungen:
       <ul>
-      <li class="fragment"><span class="math inline">\(\mathcal{O} (|V|
-      \cdot (|V| + |V|)) = \mathcal{O} (|V|^2)\)</span></li>
+      <li class="fragment"><span class="math inline">\(\mathcal{O} (|E|
+      \cdot T_\textrm{decreaseKey} + |V| \cdot ( T_\textrm{deleteMin}
+      +  T_\textrm{insert}))\)</span></li>
+      <li class="fragment">Naiv: (<span
+      class="math inline">\(\textrm{deleteMin}\)</span>) kostet <span
+      class="math inline">\(\mathcal{O}(|V|) ~\)</span>): <span
+      class="math inline">\(\mathcal{O} (|E| + |V|^2)\)</span></li>
       </ul></li>
       <li class="fragment">Optimiert:
       <ul>
-      <li class="fragment">Prioritätswarteschlange</li>
-      <li class="fragment">update und finden der Folgeknoten wird zu
-      <span class="math inline">\(\mathcal{O}(\log V)\)</span></li>
+      <li class="fragment">Binary-Heap -&gt; alle Operationen: <span
+      class="math inline">\(\mathcal{O}(\log V)\)</span></li>
       <li class="fragment"><span
       class="math inline">\(\Rightarrow\)</span> Gesamtlaufzeit: <span
-      class="math inline">\(\mathcal{O}((|V|+|V|) \cdot \log
+      class="math inline">\(\mathcal{O}((|E|+|V|) \cdot \log
       V)\)</span></li>
+      <li class="fragment">(Fibonacci Heap noch besser)</li>
       </ul></li>
       </ul>
       <aside class="notes">
       <ul>
       <li>28:00</li>
+      <li>deleteMin in O(N) und rest in O(1)</li>
+      <li>Fibonacci Heap holt E aus dem log raus</li>
       <li>worst case: V^2, da E im Worstcase V^2, haeufig aber
       nicht!</li>
       </ul>
@@ -491,8 +500,8 @@ return p, l</code></pre>
       <section id="zusammenfassung" class="slide level2">
       <h2>Zusammenfassung</h2>
       <ul>
-      <li class="fragment"><p>Dijkstra für Graphen mit nichtnegativen
-      Kanten</p></li>
+      <li class="fragment"><p>Dijkstra findet kürzeste Wege in Graphen
+      mit nichtnegativen Kanten</p></li>
       <li class="fragment"><p>Bei negativen Kanten z.B.
       Bellman-Ford</p></li>
       <li class="fragment"><p>Weitere Optimierungen für Dijkstra in
@@ -604,15 +613,15 @@ return p, l</code></pre>
       style="background-color: #e9d5ff; padding: 0.5rem; border-radius: 0.25rem;">[0.2,
       -0.5, 0.1, …, 0.9]</span></p>
       </div></li>
-      <li class="fragment">Lernbar durch Wortvorhersage: <br> gegeben
+      <li class="fragment">Erlernbar durch Wortvorhersage: <br> gegeben
       Wortfolge <span class="math inline">\(w_1, \ldots, w_n\)</span>
-      lerne Funktion: <span class="math inline">\(p(w_n|w_1, \ldots
-      w_{n-1})\)</span></li>
+      =&gt; lerne Funktion: <span class="math inline">\(p(w_n|w_1,
+      \ldots w_{n-1})\)</span></li>
       </ul></li>
       </ul></li>
       </ul>
       <aside class="notes">
-      <p>33:00</p>
+      <p>33:00 - Next Word Prediction!</p>
       </aside>
       </section>
       <section id="darstellung-von-wörtern-im-vektorraum-wortembeddings"
@@ -651,7 +660,7 @@ return p, l</code></pre>
       <li class="fragment">Neue Wörter (Covid, Blockchain, …),
       Abkürzungen, Namen, Slang</li>
       <li class="fragment">“Schreibfelher”</li>
-      <li class="fragment">häufig “Platzhalter” Wort gelernt: <span
+      <li class="fragment">häufig Platzhalter Wort gelernt: <span
       class="math inline">\(\text{&lt;UNK&gt;}\)</span>
       <ul>
       <li class="fragment">dieser mischt verschiedene Bedeutungen!</li>
@@ -708,11 +717,6 @@ return p, l</code></pre>
       style="background-color: #93c5fd; padding: 0.25rem; border-radius: 0.25rem;">möglich</span>
       → Verneinung</p>
       </div></li>
-      <li class="fragment"><div
-      style="display: flex; align-items: center; gap: 0.5rem;">
-      <p><span
-      style="background-color: #93c5fd; padding: 0.25rem; border-radius: 0.25rem;">freund</span></p>
-      </div></li>
       </ul></li>
       <li class="fragment">Auch ungesehene Kombinationen
       “verarbeitbar”</li>
@@ -726,16 +730,10 @@ return p, l</code></pre>
       <div
       style="display: grid; grid-template-columns: 3fr 1.5fr; gap: 0.1rem; text-align: center; height: 95vh">
       <div>
-      <ul>
-      <li class="fragment">Häufig: Byte Pair Encoding (BPE) von Korpus
-      gelern
-      <ul>
-      <li class="fragment">Starte mit einzelnen Zeichen als Tokens</li>
-      <li class="fragment">Finde häufigstes Token-Paar im Korpus</li>
-      <li class="fragment">Füge Paar zu neuem Token zusammen</li>
-      <li class="fragment">Wiederhole bis gewünsche Vokabulargröße</li>
-      </ul></li>
-      </ul>
+      <p>Häufig: Byte Pair Encoding (BPE) von Korpus gelernt - Starte
+      mit einzelnen Zeichen als Tokens - Finde häufigstes Token-Paar im
+      Korpus - Füge Paar zu neuem Token zusammen - Wiederhole bis
+      gewünsche Vokabulargröße</p>
       </div>
       <div style="height: 100%;">
       <iframe src="bpe.html" width="100%" height="100%" frameborder="0">
@@ -816,11 +814,16 @@ return p, l</code></pre>
       <p>44:30</p>
       </aside>
       </section></section>
+      <section>
       <section id="danke-für-ihre-aufmerksamkeit"
       class="title-slide slide level1">
       <h1>Danke für Ihre Aufmerksamkeit <br> (🫗🧖🏼‍♂🧗🏿‍♀️🤦🏼◻️🇫🇷👴👰🏻‍♀)</h1>
 
       </section>
+      <section id="slides" class="slide level2">
+      <h2>Slides</h2>
+      <p>https://www.kay-rottmann.de/vorlesung/probevorlesung.html</p>
+      </section></section>
     </div>
   </div>
 
