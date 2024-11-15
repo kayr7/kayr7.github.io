@@ -14,11 +14,11 @@
   <title>Kürzeste Wege in Graphen &amp; Tokenization</title>
 
   <!-- RevealJS Core CSS -->
-  <link rel="stylesheet" href="../reveal.js/dist/reset.css">
-  <link rel="stylesheet" href="../reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js//dist/reveal.css">
   
   <!-- Theme CSS -->
-    <link rel="stylesheet" href="../reveal.js/dist/theme/sky.css" id="theme">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js//dist/theme/sky.css" id="theme">
   
   <!-- Custom CSS -->
   
@@ -731,10 +731,13 @@ return p, l</code></pre>
       <div
       style="display: grid; grid-template-columns: 3fr 1.5fr; gap: 0.1rem; text-align: center; height: 95vh">
       <div>
-      <p>Häufig: Byte Pair Encoding (BPE) von Korpus gelernt - Starte
-      mit einzelnen Zeichen als Tokens - Finde häufigstes Token-Paar im
-      Korpus - Füge Paar zu neuem Token zusammen - Wiederhole bis
-      gewünsche Vokabulargröße</p>
+      <p>Häufig: Byte Pair Encoding (BPE) von Korpus gelernt</p>
+      <ul>
+      <li class="fragment">Starte mit einzelnen Zeichen als Tokens</li>
+      <li class="fragment">Finde häufigstes Token-Paar im Korpus</li>
+      <li class="fragment">Füge Paar zu neuem Token zusammen</li>
+      <li class="fragment">Wiederhole bis gewünsche Vokabulargröße</li>
+      </ul>
       </div>
       <div style="height: 100%;">
       <iframe src="bpe.html" width="100%" height="100%" frameborder="0">
@@ -815,6 +818,24 @@ return p, l</code></pre>
       <aside class="notes">
       <p>44:30</p>
       </aside>
+      </section>
+      <section id="zusammenfassung-1" class="slide level2">
+      <h2>Zusammenfassung</h2>
+      <ul>
+      <li class="fragment">Texte werden in Tokens zerlegt um sie im
+      Computer zu verarbeiten</li>
+      <li class="fragment">Vektorraumembedding von Tokens erlauben LLMs
+      zu generalisieren</li>
+      <li class="fragment">Tokenization löst Problem unbekannter Wörter
+      durch Zerlegung</li>
+      <li class="fragment">Trainingsdaten für Tokenization bewirken
+      Bias!</li>
+      <li class="fragment">Tokenization hat großen Einfluss auf Kosten
+      und Performance von LLMs</li>
+      </ul>
+      <aside class="notes">
+      <p>45:00</p>
+      </aside>
       </section></section>
       <section>
       <section id="danke-für-ihre-aufmerksamkeit"
@@ -830,14 +851,14 @@ return p, l</code></pre>
   </div>
 
   <!-- RevealJS Core -->
-  <script src="../reveal.js/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js//dist/reveal.js"></script>
 
   <!-- RevealJS Plugins -->
-  <script src="../reveal.js/plugin/notes/notes.js"></script>
-  <script src="../reveal.js/plugin/search/search.js"></script>
-  <script src="../reveal.js/plugin/zoom/zoom.js"></script>
-  <script src="../reveal.js/plugin/chalkboard/plugin.js"></script>
-    <script src="../reveal.js/plugin/math/math.js"></script>
+  <script src="https://unpkg.com/reveal.js//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js//plugin/chalkboard/plugin.js"></script>
+    <script src="https://unpkg.com/reveal.js//plugin/math/math.js"></script>
   
   <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
