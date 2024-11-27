@@ -61,9 +61,9 @@ transition: fade
 
 </style>
 
-- In der nähe der Pyramiden wurde eine alte Drone gefunden!
+- In der Nähe der Pyramiden wurde eine alte Drone gefunden!
   ![](drone2.webp){.inline-image-small}
-- Nun zu sehen im Ägyptischen Museum.
+- Nun im Ägyptischen Museum ausgestellt
   ![](Drone5.jpeg){.inline-image-large}
 
 
@@ -247,7 +247,7 @@ FALSCH
 
 ## Der Computer kann "sprechen" - sogar mit beliebiger Stimme
 
-- Für Menschen die Ihre Stimme durch Krankheit verlieren
+- Für Menschen die ihre Stimme durch Krankheit verlieren
 - Spielfilme in anderen Sprachen mit der "original" Schauspielerstimme
 - Simultanübersetzung
 - Hörbücher
@@ -370,7 +370,7 @@ Fotos automatisch bearbeiten (geschlossene Augen, störender Müll am Traumstran
   - Morgen früh gehe ich zur ???
   - Mein Lieblingsessen ist ???
   - Gestern war ich mit ??? im Kino.
-  - Timo ist ein guter Freund. Zum Beispiel gester war ich mit ??? im Kino.
+  - Timo ist ein guter Freund. Zum Beispiel gestern war ich mit ??? im Kino.
 
 
 ::: notes 
@@ -606,7 +606,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 - Von wem kommt die Information (bekannte Zeitung? Jemand auf TikTok?)
 - Wer profitiert davon, wenn das wahr wäre?
 - Gibt es andere Quellen?
-- "Macht es Sinn?"
+- "Ergibt es Sinn?"
 
 
 ::: notes 
@@ -648,7 +648,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 <ul>
 <li class="fragment" data-fragment-index="2">unnatürliche Details (Hände, Ohren, Haare)</li>
 <li class="fragment" data-fragment-index="2">Schrift</li>
-<li class="fragment" data-fragment-index="2">Logikfehler  (Spiegelungen, komische Details)</li>
+<li class="fragment" data-fragment-index="2">Logikfehler (Spiegelungen, komische Details)</li>
 <li class="fragment" data-fragment-index="2">"zu perfekt" (weiche Bilder, "10 nach 10")</li>
 </ul>
 <li class="fragment" data-fragment-index="3">Videos</li>
@@ -1109,7 +1109,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Vielen Dank <br> glaubt nicht alles was ihr auf dem Bildschirm seht oder hört
+## Vielen Dank <br> glaubt nicht alles, was ihr auf dem Bildschirm seht oder hört
 
 ![](Echtheit%20im%20digitalen%20Zeitalter.mp4)
 
