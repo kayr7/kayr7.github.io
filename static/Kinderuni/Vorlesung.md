@@ -236,7 +236,7 @@ GELOGEN
 :::
 
 
-# Erstellende Künstliche Intelligenz <br> <p style="font-size: 0.6em;">"Computer erzeugen selbst Neues"</p>
+# Erstellende Künstliche Intelligenz
 
 
 ## Computer können Texte erzeugen

@@ -232,8 +232,10 @@ FAKE
 
 :::
 
+---
 
-# Generative Artificial Intelligence <br> <p style="font-size: 0.6em;">"Computers Creating Something New"</p>
+
+# Generative Artificial Intelligence
 
 
 ## Computers Can Generate Text
