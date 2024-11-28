@@ -135,13 +135,13 @@ transition: fade
 ![](Nachrichten.png){style="display: block; margin: 0 auto;"}
 
 ::: {.stamp .fragment data-fragment-index="1"}
-FALSCH
+GELOGEN
 :::
 
 ::: notes
 
 - 07:00
-- alles hiervon ist falsch!
+- alles hiervon ist nicht echt!
 - die Bilder sind keine echten Fotos, sondern wurden vom Computer erzeugt! Sogar der kleine Begrüßungssong wurde von einem Computer erzeugt - inklusive Gesang.
 
 :::
@@ -231,14 +231,41 @@ FALSCH
 
 ## Computer können Texte erzeugen
 
-- Automatisch Wettervorhersage schreiben
-- Zusammenfassungen erstellen
-- Übersetzungen von Texten
-- Fragen beantworten
-- kaum zu unterscheiden von menschlichen Texten
-- "ChatGPT, Claude, LLama,..."
+<style>
+.slide-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.text-content {
+    width: 60%;
+    padding-right: 20px;
+}
+.slide-image {
+    position: absolute;
+    right: 0%;
+    top: 10%;
+    transform: translateY(-45%);
+    width: 20vw !important;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+}
+</style>
+<div class="slide-content">
+<div class="text-content">
+<ul>
+<li class="fragment" data-fragment-index="1">Automatisch Wettervorhersage schreiben</li>
+<li class="fragment" data-fragment-index="2">Zusammenfassungen erstellen</li>
+<li class="fragment" data-fragment-index="3">Übersetzungen von Texten</li>
+<li class="fragment" data-fragment-index="4">Fragen beantworten</li>
+<li class="fragment" data-fragment-index="5"><strong>kaum zu unterscheiden von menschlichen Texten</strong></li>
+</ul>
+</div>
+<img src="RobotTyping.webp" alt="Distance to moon visualization" class="slide-image">
+</div>
   
-- ![](Nachrichten.png)
+![](Nachrichten.png){.fragment}
 
 ::: notes
 
