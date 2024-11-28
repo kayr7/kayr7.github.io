@@ -10,7 +10,9 @@ width: 1600
 height: 1000
 transition: fade
 
+
 ---
+
 
 # Gab es im alten Ägypten schon Dronen?
 
@@ -561,27 +563,27 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ## Aber... KI ist nicht perfekt und macht Fehler!
 
-<p class="fragment">Der Computer "lernt sachen auswendig".</p>
-<p class="fragment">Der Computer "halluziniert".</p>
+<p class="fragment" data-fragment-index="3">Der Computer "lernt sachen auswendig".</p>
+<p class="fragment" data-fragment-index="5">Der Computer "halluziniert".</p>
 
 
 <div style="display: flex;">
-<div style="flex: 1;" class="fragment">
+<div style="flex: 1;" class="fragment" data-fragment-index="1">
   Mensch, Ziege, Kohlkopf und Wolf über Fluss, in das Boot passen immer höchstens zwei Sachen gleichzeitig.<br>
 <video controls height="400" muted>
     <source src="./MannZiegeWolfKohl.mov" />
 </video>
 </div>
-<div style="flex: 1;"  class="fragment">
+<div style="flex: 1;" class="fragment" data-fragment-index="2">
   Mensch und Ziege über Fluss, in das Boot passen immer höchstens zwei Sachen gleichzeitig.<br>
 <video controls height="400" muted>
 <source src="./MannZiege.mov" />
 </video>
 </div>
-<div style="flex: 1;"  class="fragment">
-  Beruf von Sandra, der Tochter vom Sohn von Albert Einstein<br>
+<div style="flex: 1;" class="fragment" data-fragment-index="4">
+  Was machte Indrina Potter, die Halbschwester von Harry Potter nachdem sie die Kerzen gestohlen hatte?<br>
 <video controls height="400" muted>
-<source src="./MannZiege.mov" />
+<source src="./IndrinaPotter.mov" />
 </video>
 </div>
 </div>
@@ -591,7 +593,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 - 42:00
 - Halluziniert
-  - Albert Einstein hatte keine Enkelin mit dem Namen Sandra
+  - Es gibt keine Halbschwester Indrina Potter bei Harry Potter
 
 :::
 
@@ -725,7 +727,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -776,7 +778,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -827,7 +829,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -879,7 +881,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -931,7 +933,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -983,7 +985,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
@@ -1035,7 +1037,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Welches photo ist echt? {.slide-title}
+## Welches Foto ist echt? {.slide-title}
 
 <style>
 .image-container {
