@@ -641,19 +641,19 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 <div style="display: flex;">
 <div style="flex: 1;" class="fragment" data-fragment-index="1">
   Mensch, Ziege, Kohlkopf und Wolf über Fluss, in das Boot passen immer höchstens zwei Sachen gleichzeitig.<br>
-<video controls height="400" muted>
+<video controls height="400">
     <source src="./MannZiegeWolfKohl.mov" />
 </video>
 </div>
 <div style="flex: 1;" class="fragment" data-fragment-index="2">
   Mensch und Ziege über Fluss, in das Boot passen immer höchstens zwei Sachen gleichzeitig.<br>
-<video controls height="400" muted>
+<video controls height="400">
 <source src="./MannZiege.mov" />
 </video>
 </div>
 <div style="flex: 1;" class="fragment" data-fragment-index="4">
   Was machte Indrina Potter, die Halbschwester von Harry Potter nachdem sie die Kerzen gestohlen hatte?<br>
-<video controls height="400" muted>
+<video controls height="400">
 <source src="./IndrinaPotter.mov" />
 </video>
 </div>

@@ -634,19 +634,19 @@ with listening and speaking about 250km (Stuttgart Frankfurt)
 <div style="display: flex;">
 <div style="flex: 1;" class="fragment" data-fragment-index="1">
   Man, goat, cabbage head and wolf need to cross river, the boat can only fit two things at a time.<br>
-<video controls height="400" muted>
+<video controls height="400">
     <source src="./EnManGoatCabbageWolf.mov" />
 </video>
 </div>
 <div style="flex: 1;" class="fragment" data-fragment-index="2">
   Man and goat need to cross river, the boat can only fit two things at a time.<br>
-<video controls height="400" muted>
+<video controls height="400">
 <source src="./EnManGoat.mov" />
 </video>
 </div>
 <div style="flex: 1;" class="fragment" data-fragment-index="4">
   What was Sandra Einstein's profession?<br>
-<video controls height="400" muted>
+<video controls height="400">
 <source src="./EnSandraEinstein.mov" />
 </video>
 </div>
