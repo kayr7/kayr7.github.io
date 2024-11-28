@@ -717,9 +717,6 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="titantic_true.png" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="titantic_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
-
 
 ::: notes
 
@@ -771,8 +768,6 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="frog_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="frog_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
 
 ::: notes
 
@@ -824,8 +819,6 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="launch_true.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="launch_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
 
 ::: notes
 
@@ -877,8 +870,6 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="kids_doing_art_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="kids_doing_art_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
 
 ::: notes
 
@@ -931,8 +922,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="Pangolin_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="pangolin_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
+
 
 ::: notes
 
@@ -984,8 +974,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="hongkong_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="hongkong_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
+
 
 ::: notes
 
@@ -1037,8 +1026,6 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="womens_suffrage_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="womens_suffrage_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
 
 ::: notes
 
@@ -1091,8 +1078,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="egyptian_papyrus_true.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="egyptian_papyrus_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
-</p>
+
 
 ::: notes
 
