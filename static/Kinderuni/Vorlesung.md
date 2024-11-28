@@ -16,9 +16,19 @@ transition: fade
 
 # Gab es im alten Ägypten schon Dronen?
 
+
 ## Song zum Einstieg
 
 ![](Logik%20und%20Magie.mp4)
+
+
+::: notes
+
+- schnelle Intro
+- seit fast 20 Jahren beschäftige ich mich mit KI
+- heute will ich das Thema ein wenig vorstellen und auch zu Vorsicht mahnen
+
+:::
 
 
 ---
@@ -524,16 +534,43 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 ---
 
-## Das funktioniert auch mit Musik
+## Ganz ähnlich mit Musik
 
-- Der Computer "hört" alle Musik der Welt
-- Er "lernt" wie ein Musikstück weitergeht
-- Musik erzeugen: Fang mit einem beliebigen Ton an und dann erzeuge den nächsten
-- schau immer wieder was für Töne schon gespielt wurden damit es "gut" klingt
-- Aber: "gut klingen" ist in diesem Fall "so wie es gelernt wurde"
-- Viele Computergenerierte Lieder hören sich bekannt an
-- Stimmen erinnern an berühmte Künstler
 
+<style>
+.slide-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.text-content {
+    width: 60%;
+    padding-right: 20px;
+}
+.slide-image {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-35%);
+    width: 40vw !important;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+}
+</style>
+<div class="slide-content">
+<div class="text-content">
+<ul>
+<li class="fragment">Der Computer "hört" alle Musik der Welt</li>
+<li class="fragment">Er "lernt" wie ein Musikstück weitergeht</li>
+<li class="fragment">Musik erzeugen: Fang mit einem beliebigen Ton an und dann erzeuge immer den nächsten</li>
+<li class="fragment">schau immer wieder was für Töne schon gespielt wurden damit es "gut" klingt</li>
+<li style="padding-top: 1em" class="fragment">Aber: "gut klingen" ist in diesem Fall "so wie es gelernt wurde"</li>
+<li class="fragment">Viele computergenerierte Lieder hören sich bekannt an</li>
+</ul>
+</div>
+<img src="SingingRobot.webp" alt="Distance to moon visualization" class="slide-image">
+</div>
 
 
 ::: notes 
