@@ -16,6 +16,12 @@ transition: fade
 
 # Gab es im alten Ägypten schon Dronen?
 
+## Song zum Einstieg
+
+![](Logik%20und%20Magie.mp4)
+
+
+---
 
 ## Fantastischer Fund in Ägypten
 
