@@ -7,7 +7,7 @@ published: false
 slideNumber: true
 theme: dracula
 width: 1600
-height: 1000
+height: 1200
 transition: fade
 
 
@@ -299,17 +299,17 @@ GELOGEN
 - "Vorlesende Schulbücher"
 - "Telefon Roboter"
 
-<div>
+<div class="fragment">
   <audio controls>
     <source src="Halloo-Mein Name ist Ky 2.wav" type="audio/wav">
   </audio> 
 </div>
-<div>
+<div class="fragment">
   <audio controls>
     <source src="Hello everybody I-m real 1.wav" type="audio/wav">
   </audio>
 </div>
-<div> 
+<div class="fragment"> 
   <audio controls>
     <source src="Dies habe ich niemals ges 3.wav" type="audio/wav">
   </audio> 
@@ -446,8 +446,8 @@ Fotos automatisch bearbeiten (geschlossene Augen, störender Müll am Traumstran
 
 .stacked-photo {
     position: absolute;
-    width: 90vh;
-    height: 90vh;
+    width: 50vh;
+    height: 50vh;
     object-fit: contain;
     box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
@@ -459,8 +459,8 @@ Fotos automatisch bearbeiten (geschlossene Augen, störender Müll am Traumstran
     position: absolute;
     top: 0 !important;
     left: 0 !important;
-    min-height: 150vh;
-    min-width: 150vh;
+    min-height: 100vh;
+    min-width: 100vh;
     transform: scale(5.0) translate(0 0 0);
     z-index: 9999 !important;
 }
@@ -603,7 +603,8 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 
 - Der Computer lernt aus "Rauschen" Bilder zu erzeugen
 ![](Generation-with-Diffusion-Models.png)
-
+<p style="font-size: 0.5em; margin-top: 0;" >(<a href="https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/">https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/</a>)
+</p>
 
 ::: notes 
 
@@ -787,7 +788,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="titantic_true.png" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="titantic_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 
@@ -841,7 +842,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="frog_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="frog_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -894,7 +895,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="launch_true.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="launch_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -947,7 +948,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="kids_doing_art_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="kids_doing_art_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -1001,7 +1002,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="Pangolin_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="pangolin_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -1054,7 +1055,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="hongkong_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="hongkong_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -1107,7 +1108,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="womens_suffrage_ai.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="womens_suffrage_true.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
@@ -1161,7 +1162,7 @@ mit hören und sprechen etwa 250km (Stuttgart Frankfurt)
 }
 </style>
 <div class="image-container"><div class="image-wrapper"><img class="hover-image" src="egyptian_papyrus_true.jpg" alt="Image 1"></div><div class="image-wrapper"><img class="hover-image" src="egyptian_papyrus_ai.jpg" alt="Image 2"></div></div>
-<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Brittannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
+<p style="font-size: 0.5em; margin-top: 0;" >(Encyclopedia Britannica: <br> <a href="https://elearn.eb.com/real-vs-ai-images/">https://elearn.eb.com/real-vs-ai-images/</a>)
 </p>
 
 ::: notes
