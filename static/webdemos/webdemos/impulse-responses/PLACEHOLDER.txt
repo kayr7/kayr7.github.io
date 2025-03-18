@@ -1,0 +1,8 @@
+Place your impulse response files in this directory:
+
+- small-room.wav: A small room impulse response
+- concert-hall.wav: A concert hall impulse response
+- cathedral.wav: A cathedral impulse response
+- simple-impulse.wav: A simple impulse response for demonstration
+
+See the README.md in the parent directory for more information. 

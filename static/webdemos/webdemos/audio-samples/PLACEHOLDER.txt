@@ -1,0 +1,8 @@
+Place your audio samples in this directory:
+
+- voice.mp3: A spoken voice recording
+- drums.mp3: A drum kit recording 
+- flute_music.wav: A flute music recording
+- short-sample.wav: A short audio sample for quick calculations
+
+See the README.md in the parent directory for more information. 
