@@ -1,0 +1,160 @@
+---
+title: "Kay Rottmann: Vorstellung"
+author: "Dr. Kay Rottmann"
+date: "March 2024"
+format:
+  revealjs:
+    theme: dark
+    slide-number: true
+    preview-links: auto
+    footer: "Generative AI for Social Media Content | 2025"
+    transition: slide
+    background-transition: fade
+    highlight-style: github
+    code-fold: true
+    incremental: true
+    logo: "images/ai-logo.png"
+    css: styles.css
+---
+
+# Persönliche Vorstellung
+
+## Dr. Kay Rottmann
+:::: {.columns}
+::: {.column width="50%"}
+
+**Founder & CTO | University Lecturer**
+
+- Standort: Weil der Stadt, Germany
+- Kontakt: mail@kay-rottmann.de | +49 151 6796 8529
+- Web: [www.kay-rottmann.de](https://www.kay-rottmann.de)
+
+:::
+
+::: {.column width="30%"}
+![](ich.jpg){width=400px style="border-radius: 50%;"}
+:::
+::::
+
+::: {.notes}
+- 0:20 (20 Sekunden)
+Stelle dich freundlich und professionell vor. Betone kurz dein breites Wissen im Bereich KI und deine Führungsqualitäten.
+:::
+
+
+## Beruflicher Werdegang {auto-animate=true}
+
+::: {.r-stack}
+![](r7net.jpeg){id="company-logo" style="width: 350px; height: 350px;"}
+:::
+
+::: {.notes}
+- 0:30 (10 Sekunden)
+Kurze Überleitung zum beruflichen Werdegang, Hinweis auf r7net als aktuelle Firma.
+:::
+
+## Beruflicher Werdegang {auto-animate=true}
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Co-Founder & CTO, r7net GmbH** (seit 2024)
+  - KI-Beratung für KMU
+  - Strategische KI-Adoption, Agentic AI, Siena.cx
+
+- **Lecturer, DHBW Karlsruhe** (seit 2024), **Guest Lecturer, KIT Karlsruhe** (seit 2018)
+  - Digitale Sprachverarbeitung, Deep Learning, NLP
+
+- **Vergangenheit**
+  - Senior Applied Scientist, **Amazon Alexa AI**
+  - Head of AI for Manufacturing, **Bosch**
+  - Engineering Manager, **Facebook**
+  - Startups, **Jibbigo (acqd by Facebook)**
+:::
+
+::: {.column width="35%"}
+![](r7net.jpeg){id="company-logo" style="width: 350px; height: 350px;"}
+:::
+::::
+
+::: {.notes}
+- 1:30 (60 Sekunden)
+Beschreibe hier deine vielfältigen Erfahrungen und erläutere kurz, wie sie für die Professur relevant sind.
+:::
+
+
+
+## SienaCX & r7net GmbH
+
+:::: {.columns}
+::: {.column width="60%"}
+- **Evaluation von Customer Service Bots**
+  - Einsatz virtueller Personas, keine gold-labeled Daten
+
+- **Agentenbasierter Sales-Bot**
+  - Beratung und Upselling basierend auf Produktkatalogen
+
+- **Insights-Chat-Tool**
+  - Automatisierte Chat-Abfrage von Company Insights
+:::
+
+::: {.column width="35%"}
+![](Siena.png)
+![](Analysis.png)
+:::
+::::
+
+::: {.notes}
+- 2:45 (75 Sekunden)
+Konkretes Beispiel aus der aktuellen Arbeit anführen, Betonung auf Innovation und Mehrwert für Kunden.
+:::
+
+## Facebook
+- **Multilingual Text Processing**
+  - Automatische Verarbeitung und Klassifikation von multilingualen Anzeigen und Posts
+  - Ausbau der maschinellen Übersetzung auf 1.2Mrd Nutzer täglich
+
+<br>
+
+- :::: {.columns}
+::: {.column width="45%"}
+![](Yann1.jpg){width="400px"}
+:::
+::: {.column width="45%"}
+![](Yann2.jpg){width="400px"}
+:::
+::::
+
+::: {.notes}
+- 4:00 (75 Sekunden)
+Translation zu mehr als 90% für Ads / moderation used.
+:::
+
+
+
+# Motivation
+
+
+- Großer Spaß an Lehre und Zusammenarbeit mit Studenten
+- Angewandte Forschung ist meine große Leidenschaft
+- Derzeitige Transformation der Wirtschaft mit KI ist einmalig
+- Ich freue mich dies mit Studenten zusammen zu gestalten
+
+::: {.notes}
+- 4:50 (50 Sekunden)
+Erläutere, warum du dich speziell für diese Professur interessierst und welche Akzente du setzen willst.
+:::
+
+---
+
+
+# Vielen Dank für Ihre Aufmerksamkeit!
+
+![](https://images.unsplash.com/photo-1513258496099-48168024aec0?fit=crop&w=1200&q=80)
+
+**Kontakt:** mail@kay-rottmann.de | [www.kay-rottmann.de](https://www.kay-rottmann.de)
+
+::: {.notes}
+- 5:00 (10 Sekunden)
+Schließe freundlich und offen ab und biete Raum für Rückfragen.
+:::
+
