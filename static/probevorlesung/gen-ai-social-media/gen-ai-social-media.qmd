@@ -124,9 +124,8 @@ csl: apa.csl
 <div class="code-box">
 <strong>Example Prompt:</strong>
 ```
-I need you to analyze and cluster the following {context} into meaningful groups. 
-Please identify {num_clusters} distinct clusters or segments based on content, themes, style, or 
-other relevant factors.
+For the brand {brand} that does {brand_description} I need you to analyze and cluster the following {context} into meaningful groups. 
+Identify {num_clusters} distinct clusters or segments based on content, themes, style, or other relevant factors.
 
 Here's the data to cluster:
 {data}
