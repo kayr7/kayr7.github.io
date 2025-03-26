@@ -2,6 +2,7 @@
 title: "Leveraging Generative AI for Social Media Content Creation"
 subtitle: "A Practical Approach"
 author: Dr. Kay Rottmann
+date: "today"
 format:
   revealjs:
     theme: sky

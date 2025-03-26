@@ -2,6 +2,7 @@
 title: "AI Research Trends in Marketing Analytics"
 subtitle: "From Data to Strategic Insights"
 author: Dr. Kay Rottmann
+date: "today"
 format:
   revealjs:
     theme: sky
