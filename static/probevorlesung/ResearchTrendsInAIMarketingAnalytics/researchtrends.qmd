@@ -75,7 +75,7 @@ AI is reshaping marketing by enabling unprecedented customer insights:
 
 - Hyper-Personalization
 - Real-Time Predictive and Prescriptive Analytics
-- AI-Powered Content Generation
+- Generative AI for Analytics Communication
 - Social Listening
 
 </div>
@@ -177,42 +177,37 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 
 ---
 
-## Research Trend 3: AI-Powered Content Creation {background-color="#cfe2f3"}
+## Research Trend 3: Generative AI for Analytics Communication {background-color="#cfe2f3"}
 
 <div class="columns">
 <div class="column" width="60%">
 
-**Key Ideas**:
+**Key Analytics Applications**:
 
-- Usage of Analytics and Predictive Modeling for Targeting [@AIPersonalization2024]
-- Natural language generation
-- Multimodal content creation
-- Automated A/B testing
+- **Insights Translation**: Converting complex data patterns into natural language reports [@datastorytellingtools]
+- **Automated Analysis**: Generating hypotheses and explanations from data anomalies
+- **Query-Based Analytics**: Using natural language to query and visualize complex datasets
+- **Analytics Democratization**: Making data insights accessible to non-technical stakeholders
 
-**Business Application**: Amarra (2020(!)-Present)
-
-- GPT for product descriptions
-- 60% reduction in content creation time
-- 40% decrease in overstock [@Amarra_AI_2020]
-
-
+**Research Example**: Automated Insight Generation (2023)
+- AI models analyzing e-commerce data patterns 
+- Generating natural language explanations of trends
+- Democratization of data analytics [@genAIAnalytics]
 
 </div>
 <div class="column" width="30%">
 <div style="text-align: center; max-width: 400px; margin: 0 auto; padding_top: 0">
-  <img src="ContentCreation.jpg" alt="Reasons for AI revolution in marketing" style="width: 400px; height: auto;">
+  <img src="ContentCreation.jpg" alt="Generative AI translating data to insights" style="width: 400px; height: auto;">
 </div>
 </div>
 </div>
-
-
-
 
 ::: {.notes}
 - **TIME: 9:00**
-- Discuss the evolution from rule-based to generative content systems
-- Note how this is changing marketing communications research
-- Emphasize measurement of effectiveness through controlled experiments
+- Explain how generative AI is transforming how organizations derive and communicate insights from data
+- Discuss the research on human-AI collaboration for analytics interpretation
+- Note how this bridges the gap between technical data analysis and business decision-making
+- This represents a key shift from AI as just an analysis tool to AI as an insights communication partner
 :::
 
 ---
