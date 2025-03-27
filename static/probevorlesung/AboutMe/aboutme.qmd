@@ -45,7 +45,7 @@ Stelle dich freundlich und professionell vor. Betone kurz dein breites Wissen im
 ## Beruflicher Werdegang {auto-animate=true}
 
 ::: {.r-stack}
-![](r7net.jpeg){id="company-logo" style="width: 350px; height: 350px;"}
+![](r7net.png){id="company-logo" style="width: 350px; height: 350px;"}
 :::
 
 ::: {.notes}
@@ -72,7 +72,7 @@ Kurze Überleitung zum beruflichen Werdegang, Hinweis auf r7net als aktuelle Fir
 :::
 
 ::: {.column width="35%"}
-![](r7net.jpeg){id="company-logo" style="width: 350px; height: 350px;"}
+![](r7net.png){id="company-logo" style="width: 350px; height: 350px;"}
 :::
 ::::
 
@@ -148,7 +148,7 @@ Erläutere, warum du dich speziell für diese Professur interessierst und welche
 
 # Vielen Dank für Ihre Aufmerksamkeit!
 
-![](thankyou.jpg)
+![](thankyou.png)
 
 **Kontakt:** mail@kay-rottmann.de | [www.kay-rottmann.de](https://www.kay-rottmann.de)
 

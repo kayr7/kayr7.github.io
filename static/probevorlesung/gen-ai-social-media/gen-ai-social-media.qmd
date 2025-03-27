@@ -580,10 +580,7 @@ FORMAT AS:
 
 ::: {.column width="47%"}
 ### Best Practices
-- <i class="fas fa-check-circle"></i> **Fact-check all AI-generated claims**
 - <i class="fas fa-users"></i> **Maintain human oversight** in content approval
-- <i class="fas fa-fingerprint"></i> **Develop a distinctive brand voice** AI enhances
-- <i class="fas fa-shield-alt"></i> **Create ethical guidelines** for AI use
 :::
 ::::
 
