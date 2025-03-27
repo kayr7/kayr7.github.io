@@ -190,7 +190,8 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 - **Query-Based Analytics**: Using natural language to query and visualize complex datasets
 - **Analytics Democratization**: Making data insights accessible to non-technical stakeholders
 
-**Research Example**: Automated Insight Generation (2023)
+**Research Example**: Automated Insight Generation
+
 - AI models analyzing e-commerce data patterns 
 - Generating natural language explanations of trends
 - Democratization of data analytics [@genAIAnalytics]
