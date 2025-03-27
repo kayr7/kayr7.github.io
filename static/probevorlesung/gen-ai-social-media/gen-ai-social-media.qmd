@@ -71,12 +71,6 @@ csl: apa.csl
 
 
 
-# GenAI and Social Media {background-image="Background2.jpg" background-opacity="0.2"}
-
-![](image.webp)
-
-
-
 
 ## GenAI and Social Media - Step-by-Step Content Creation 
 

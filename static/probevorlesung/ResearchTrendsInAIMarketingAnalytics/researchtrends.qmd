@@ -259,8 +259,6 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 
 ## Ethical Considerations in AI Marketing Research {background-color="#cfe2f3"}
 
-<div class="columns">
-<div class="column" width="47%">
 
 **Current Research Focus Areas**:
 
@@ -270,18 +268,6 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 - Regulatory compliance frameworks
 - Integration of Ethical Considerations into AI application [@AIEthicsSupplyChain2024]
 
-</div>
-<div class="column" width="47%">
-
-**Research-Practice Gap**:
-
-- Academic insights vs. implementation
-- Cross-disciplinary ethical frameworks
-- Balancing innovation and responsibility
-- Impact measurement methodologies
-
-</div>
-</div>
 
 <div style="text-align: center; max-width: 400px; margin: 0 auto; padding_top: 0">
   <img src="Ethics.jpg" alt="Reasons for AI revolution in marketing" style="width: 400px; height: auto;">
@@ -293,6 +279,7 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 - Emphasize that ethical considerations are central to current research, not peripheral
 - Note the growing body of literature on responsible AI in marketing
 - Discuss the need for interdisciplinary approaches between marketing, computer science, and ethics
+- maybe also tracking in brick'n mortar stores
 :::
 
 ---
@@ -303,7 +290,6 @@ Use this slide to clearly outline the flow of your presentation. Highlight how e
 
 - AI is fundamentally **transforming marketing analytics**
 - The field is moving from **descriptive to prescriptive** approaches
-- Research increasingly spans **technical implementation and strategic impact**
 - **Ethical considerations** are becoming central to research design
 - Marketing analytics research requires **cross-disciplinary collaboration**
 
