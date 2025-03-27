@@ -99,13 +99,15 @@ Beschreibe hier deine vielfältigen Erfahrungen und erläutere kurz, wie sie fü
 
 ::: {.column width="35%"}
 ![](Siena.png)
-![](Analysis.png)
 :::
 ::::
 
+![](Analysis.png){height="300px"}
+
+
 ::: {.notes}
 - 2:45 (75 Sekunden)
-Konkretes Beispiel aus der aktuellen Arbeit anführen, Betonung auf Innovation und Mehrwert für Kunden.
+- Insights Chat: surprisingly useful! you can't build all insights!
 :::
 
 ## Facebook
