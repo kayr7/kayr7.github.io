@@ -78,13 +78,14 @@ csl: apa.csl
 
 
 
-## Step-by-Step Content Creation 
+## GenAI and Social Media - Step-by-Step Content Creation 
 
 1. <i class="fas fa-users"></i> **Understand audience**: Demographics and psychographics → personas for target groups, social listening
 2. <i class="fas fa-pen-fancy"></i> **Generate Targeted Content**: Based on audience insights and personas
 3. <i class="fas fa-share-alt"></i> **Publication**: Strategic scheduling and targeting across platforms
 4. <i class="fas fa-chart-line"></i> **Monitoring & Optimization**: Track performance, sentiment analysis, continuous improvement
 
+![](image.webp){width="400px"}
 
 :::notes
 - **TIMING: Complete by 4 minutes (240 seconds) into presentation**
