@@ -8,7 +8,7 @@ active = true  # Activate this widget? true/false
 weight = 60  # Order that this section will appear.
 
 title = "Recent Posts"
-subtitle = "Just some things I tried out"
+subtitle = "Thoughts on AI, technology, and things I tried out"
 
 [content]
   # Page type to display. E.g. post, talk, or publication.

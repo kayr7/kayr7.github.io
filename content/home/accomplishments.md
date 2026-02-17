@@ -24,9 +24,9 @@ date_format = "Jan 2006"
   title = "Neural Networks Guest Lecturer"
   url = ""
   date_start = "2019-04-01"
-  date_end = "2020-07-01"
+  date_end = "2024-07-01"
   description = """
-  Giving lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT, Topics covered include 
+  Guest lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT, Topics covered include
   * Deep Learning
   * Image Recognition / Segmentation / Classification
   * Generative Adversarial Networks
