@@ -14,24 +14,24 @@ authors:
 superuser: true
 
 # Role/position
-role:
+role: Professor for Applied Artificial Intelligence
 
 # Organizations/Affiliations
 organizations:
-- name: 
-  url: ""
+- name: Hochschule der Medien Stuttgart
+  url: "https://www.hdm-stuttgart.de"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My professional interests include artificial intelligence research, generative AI and its applications.
+bio: Professor for Applied AI at HdM Stuttgart. My interests include artificial intelligence, generative AI, NLP, and bringing AI into practice through teaching and consulting.
 
 # Should the user's education and interests be displayed?
 display_education: true
 
 interests:
-- Artificial Intelligence
+- Applied Artificial Intelligence
 - Natural Language Processing
-- Optimization
-- Forecasting
+- Generative AI & Large Language Models
+- AI in Industry
 
 education:
   courses:
@@ -39,7 +39,7 @@ education:
     institution: Karlsruhe Institute of Technology
     year: 2015
   - course: Diploma (Master) in Computer Science
-    institution: Karlsruhe Institute of Technologt
+    institution: Karlsruhe Institute of Technology
     year: 2007
 
 # Social/academia Networking
@@ -58,20 +58,20 @@ social:
   link: https://github.com/kayr7
 - icon: linkedin
   icon_pack: fab
-  link:  https://www.linkedin.com/in/kay-rottmann-5279798a/
+  link: https://www.linkedin.com/in/kay-rottmann-5279798a/
 
 # Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
-#   icon_pack: ai 
+#   icon_pack: ai
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
-  
+
 # Organizational groups that you belong to (for People widget)
-#   Set this to `[]` or comment out if you are not using People widget.  
+#   Set this to `[]` or comment out if you are not using People widget.
 user_groups: []
 ---
 
-I'm a senior scientist in artificial intelligence and natural language understanding based in Stuttgart, Germany. I have a passion for building **Products** and **Solutions** with **Artificial Intelligence** to help people and create value.
+I'm a Professor for Applied Artificial Intelligence at Hochschule der Medien Stuttgart, Germany. With experience spanning big tech, startups, and research, I'm passionate about **teaching**, **researching**, and **applying AI** to solve real-world problems and create value.

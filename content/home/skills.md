@@ -9,17 +9,17 @@ title = "Skills and interests"
 subtitle = "If you ask me about my skills and interests, I would probably answer:"
 
 # Showcase personal skills or business features.
-# 
+#
 # Add/remove as many `[[feature]]` blocks below as you like.
-# 
+#
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 
 [[feature]]
-  icon = "code"
+  icon = "chalkboard-teacher"
   icon_pack = "fas"
-  name = "Software Engineering"
+  name = "Teaching"
   parcent = "90%"
-  
+
 [[feature]]
   icon = "flask"
   icon_pack = "fas"
@@ -27,11 +27,11 @@ subtitle = "If you ask me about my skills and interests, I would probably answer
   parcent = "90%"
 
 [[feature]]
-  icon = "user-secret"
+  icon = "code"
   icon_pack = "fas"
-  name = "Leadership"
-  parcent = "90%"  
-  
+  name = "Software Engineering"
+  parcent = "90%"
+
 [[feature]]
   icon = "camera-retro"
   icon_pack = "fas"
@@ -41,7 +41,7 @@ subtitle = "If you ask me about my skills and interests, I would probably answer
 [[feature]]
   icon = "hammer"
   icon_pack = "fas"
-  name = "Diy / Maker"
+  name = "DIY / Maker"
   parcent = "70%"
 
 [[feature]]
