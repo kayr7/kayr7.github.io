@@ -18,7 +18,7 @@ image:
   preview_only: false
 ---
 
-
+> **Note (2023):** This post was written in May 2023, during the early wave of excitement around generative AI. Since then, the field has evolved rapidly — many of the predictions made here have either materialized, been surpassed, or taken unexpected turns. The tools, models, and capabilities referenced (e.g., DALL-E, Make-A-Video, Point-E) have been succeeded by significantly more advanced versions. While the broader themes around AI's impact on industries and skills remain relevant, the specific details and examples should be read with this context in mind.
 
 # Navigating the AI Revolution: A Deeper Dive into How AI is Reshaping our Work and Skillset
 

@@ -53,6 +53,8 @@ gallery_item:
     image: theme-strawberry.png
 ---
 
+> **Note (2022):** This post was written in June 2022. The reverse engineering approach and findings described here are specific to the Paradigma Systacomfort II controller and its app as they existed at that time. Firmware updates or app changes since then may have altered the communication protocol. The general approach to reverse engineering network communication remains applicable, but your results may differ if you attempt to replicate this today.
+
 ## Introduction
 In 2022 we installed a new heating in our house, including panels for solar thermal energy. The manufacturer Paradigma, (I'm in no way related with them and I also do not take any responsibility for any experiments you might be doing based on this) built a nice controller the Systacomfort II, which actually has an onboard ethernet jack.
 As the data nerd that I am I was curious to log the information from the system and look at it over time. Excited that there was an ethernet plug on the controller board I thought this would be directly accessible. However as it turned out, the manufacturer of the system prefers their customers to have a subscription for logging the data and giving access to it based on that. The only alternative access was via an app, that only extracted the current state of the system, but didn't allow longer term data logging.

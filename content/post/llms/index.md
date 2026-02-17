@@ -18,6 +18,8 @@ image:
   preview_only: false
 ---
 
+> **Note (2023):** This post was written in April 2023, shortly after GPT-4 was released. The AI and LLM landscape has changed dramatically since then. Many of the capabilities described here as novel or emerging have become mainstream, and the tools, models, and best practices have evolved considerably. The general observations about LLMs as enablers and force multipliers still hold, but the specific examples and state of technology described reflect an early snapshot of a rapidly moving field.
+
 ## Introduction
 Ah, large language models (LLMs), GPT-4, and generative models in general... It seems like everybody's talking about them these days. So, naturally, I felt the unbearable pressure of groupthink to also write about it. As someone who's been in the NLP field for quite some time, I have seen the transformative power of these models firsthand. In this post, we'll explore the potential of LLMs as enablers and force multipliers, transforming what individuals can achieve in various fields. Just imagine the possibilities!
 
