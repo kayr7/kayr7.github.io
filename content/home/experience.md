@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   company = "Hochschule der Medien Stuttgart"
   company_url = "https://www.hdm-stuttgart.de"
   location = "Stuttgart, Germany"
-  date_start = "2024-11-01"
+  date_start = "2025-09-01"
   date_end = ""
   description = """
   Teaching and researching Applied Artificial Intelligence at the University of Applied Sciences.
@@ -57,12 +57,23 @@ date_format = "Jan 2006"
   company = "Karlsruhe Institute of Technology (KIT)"
   company_url = "https://kit.edu"
   date_start = "2019-04-01"
-  date_end = "2024-07-01"
+  date_end = "2025-04-01"
   description = """
   Giving lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT.
   Topics involving: "Parallel Computing for Neural Networks and Deep Learning Frameworks", "Adversarial Attacks", "Generative Adversarial Networks", "Explainability", "InstructGPT/ChatGPT", "Large Language Models", "Privacy"
   """
 
+
+[[experience]]
+  title = "Lecturer for Digital Speech Processing"
+  company = "DHBW Karlsruhe"
+  company_url = "https://www.karlsruhe.dhbw.de"
+  location = "Karlsruhe, Germany"
+  date_start = "2024-02-01"
+  date_end = "2025-04-01"
+  description = """
+  Lecturing on Digital Speech Processing with focus on Large Language Models, Speech Recognition, and Digital Signal Processing.
+  """
 
 [[experience]]
   title = "Head of AI for Manufacturing"

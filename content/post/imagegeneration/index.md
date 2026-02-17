@@ -26,9 +26,9 @@ image:
   preview_only: false
 ---
 
+> **Note (2023):** This post was written in December 2023 using ChatGPT and DALL-E as they existed at that time. Both models have received significant updates since then, and the specific behaviors, biases, and prompt handling described here may no longer be reproducible. In particular, OpenAI has continued to refine prompt rewriting, bias mitigation, and multilingual support. The broader points about language-specific biases and the importance of inclusive language in training data remain relevant, but the specific examples and observations reflect a snapshot in time.
 
-
-# Observations when playing around with ChatGPT + DALL-E image generation 
+# Observations when playing around with ChatGPT + DALL-E image generation
 
 After two posts by Jim Kring about hard working cats I became curious on some other biases in the data used for building Dall-e (I can’t say how much is true for other models like Midjourney but I assume similar results will come out). So I started playing around with it. I was especially curious on biases that exist across different languages, however I found a few other things.
 tl;dr:

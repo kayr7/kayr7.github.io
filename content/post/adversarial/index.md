@@ -53,6 +53,8 @@ gallery_item:
     image: theme-strawberry.png
 ---
 
+> **Note (2020):** This post was written in July 2020 as part of a lecture at KIT. While the fundamental concepts of adversarial attacks remain relevant, the field has advanced significantly since then. Newer attack methods and defense mechanisms have been developed, and some of the PyTorch APIs used in the code examples (e.g., `Variable`, `zero_gradients`) have since been deprecated. The core idea — that neural networks can be fooled by small, targeted perturbations — still holds, but the state of the art in both attacks and defenses has moved well beyond what is shown here.
+
 # Example for Adversarial attack
 
 This notebook shows, how with relatively little code we can change the classification of a neural network without it being visible for humans.

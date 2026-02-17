@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   title = "Neural Networks Guest Lecturer"
   url = ""
   date_start = "2019-04-01"
-  date_end = "2024-07-01"
+  date_end = "2025-04-01"
   description = """
   Guest lectures on Deep Neural Networks and Natural Language Processing for Master students at KIT, Topics covered include
   * Deep Learning
@@ -34,6 +34,20 @@ date_format = "Jan 2006"
   * Large Language Models
   * InstructGPT/ChatGPT
   * Privacy
+  """
+
+[[item]]
+  organization = "DHBW Karlsruhe"
+  organization_url = "https://www.karlsruhe.dhbw.de"
+  title = "Lecturer for Digital Speech Processing"
+  url = ""
+  date_start = "2024-02-01"
+  date_end = "2025-04-01"
+  description = """
+  Lecturing on Digital Speech Processing with focus on:
+  * Large Language Models
+  * Speech Recognition
+  * Digital Signal Processing
   """
 
 [[item]]
