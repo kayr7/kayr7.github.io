@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied'
     });
-    window.dataLayer.push({
-      'event': 'consent_update',
-      'analytics_granted': analyticsGranted
-    });
+window.dataLayer.push({
+    'event': 'consent_update',
+    'analytics_granted': analyticsGranted ? 'true' : 'false'
+});
 }
   CookieConsent.run({
     guiOptions: {
