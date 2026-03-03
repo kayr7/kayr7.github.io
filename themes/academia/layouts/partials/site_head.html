@@ -19,12 +19,7 @@
   gtag('set', 'ads_data_redaction', true);
 </script>
 
-<!-- 2. Load gtag.js and configure GA4 (respects consent mode natively) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-49P45T2V1R"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-49P45T2V1R');
-</script>
+
 
 <!-- 3. Google Tag Manager (for additional tags) -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -50,11 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied'
     });
+
+    // Re-send page_view so GA4 picks up UTMs after consent
+    if (analyticsGranted) {
+      gtag('event', 'page_view', {
+        page_location: window.location.href,
+        page_title: document.title
+      });
+    }
+
     window.dataLayer.push({
       'event': 'consent_update',
       'analytics_granted': analyticsGranted
     });
-  }
+}
 
   CookieConsent.run({
     guiOptions: {
