@@ -33,58 +33,92 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KK862N76');</script>
 
-<!-- 4. Load Cookie Consent CSS/JS (Osano Open Source version) -->
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
+<!-- 4. Load Cookie Consent v3 (Orestbida) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+<script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
 
-<!-- 5. Configure Banner & Link to Consent Mode -->
+<!-- 5. Configure GDPR-compliant Consent Banner -->
 <script>
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": { "background": "#252e39" },
-    "button": { "background": "#14a7d0" }
-  },
-  "type": "opt-in", // REQUIRED: blocks cookies until accepted
-  "content": {
-    "message": "This website uses cookies to ensure you get the best experience.",
-    "dismiss": "Decline",
-    "allow": "Allow Cookies"
-  },
-  // EVENT: Triggered when user clicks "Allow"
-  onInitialise: function (status) {
-    var type = this.options.type;
-    var didConsent = this.hasConsented();
-    if (type == 'opt-in' && didConsent) {
-      updateGTMConsent('granted');
-    }
-  },
-  onStatusChange: function(status, chosenBefore) {
-    var type = this.options.type;
-    var didConsent = this.hasConsented();
-    if (type == 'opt-in' && didConsent) {
-      updateGTMConsent('granted');
-    } else {
-      updateGTMConsent('denied');
-    }
-  }
-})});
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof CookieConsent === 'undefined') return;
 
-// Helper function to update GTM Consent Mode
-function updateGTMConsent(state) {
-  gtag('consent', 'update', {
-    'ad_storage': state,
-    'ad_user_data': state,
-    'ad_personalization': state,
-    'analytics_storage': state
+  function updateConsent() {
+    var analyticsGranted = CookieConsent.acceptedCategory('analytics');
+    gtag('consent', 'update', {
+      'analytics_storage': analyticsGranted ? 'granted' : 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+    window.dataLayer.push({
+      'event': 'consent_update',
+      'analytics_granted': analyticsGranted
+    });
+  }
+
+  CookieConsent.run({
+    guiOptions: {
+      consentModal: {
+        layout: 'box',
+        position: 'bottom left'
+      }
+    },
+    categories: {
+      necessary: {
+        enabled: true,
+        readOnly: true
+      },
+      analytics: {
+        autoClear: {
+          cookies: [
+            { name: /^_ga/ },
+            { name: '_gid' }
+          ]
+        }
+      }
+    },
+    onFirstConsent: function() { updateConsent(); },
+    onConsent: function() { updateConsent(); },
+    onChange: function() { updateConsent(); },
+    language: {
+      default: 'en',
+      translations: {
+        en: {
+          consentModal: {
+            title: 'This website uses cookies',
+            description: 'We use essential cookies to make this site work. With your consent, we also use analytics cookies (Google Analytics) to understand how you interact with our site in order to improve it. You can accept all cookies, reject non-essential cookies, or manage your preferences individually. For more details, see our <a href="/privacy">Privacy Policy</a>.',
+            acceptAllBtn: 'Accept all',
+            acceptNecessaryBtn: 'Reject non-essential',
+            showPreferencesBtn: 'Manage preferences'
+          },
+          preferencesModal: {
+            title: 'Cookie Preferences',
+            acceptAllBtn: 'Accept all',
+            acceptNecessaryBtn: 'Reject non-essential',
+            savePreferencesBtn: 'Save preferences',
+            closeIconLabel: 'Close',
+            sections: [
+              {
+                title: 'Cookie Usage',
+                description: 'We use cookies to ensure the basic functionality of this website and to enhance your experience. You can choose which categories of cookies to allow below. For details on each category and the specific cookies used, please refer to our <a href="/privacy">Privacy Policy</a>.'
+              },
+              {
+                title: 'Strictly Necessary Cookies',
+                description: 'These cookies are essential for the website to function properly. They enable basic features such as remembering your cookie consent preference. These cookies do not store any personally identifiable information and cannot be disabled.',
+                linkedCategory: 'necessary'
+              },
+              {
+                title: 'Analytics Cookies',
+                description: 'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use Google Analytics (GA4), which sets cookies such as _ga and _gid to distinguish unique users and track page views. This data helps us improve our site. The collected data is processed in aggregated form.',
+                linkedCategory: 'analytics'
+              }
+            ]
+          }
+        }
+      }
+    }
   });
-  
-  // Push a custom event to GTM (optional, but useful for triggers)
-  window.dataLayer.push({
-    'event': 'consent_update',
-    'consent_status': state
-  });
-}
+});
 </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
