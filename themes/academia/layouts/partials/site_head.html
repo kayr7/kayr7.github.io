@@ -19,18 +19,25 @@
   gtag('set', 'ads_data_redaction', true);
 </script>
 
-<!-- 2. Your Google Tag Manager Code -->
+<!-- 2. Load gtag.js and configure GA4 (respects consent mode natively) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-49P45T2V1R"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-49P45T2V1R');
+</script>
+
+<!-- 3. Google Tag Manager (for additional tags) -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KK862N76');</script>
 
-<!-- 3. Load Cookie Consent CSS/JS (Osano Open Source version) -->
+<!-- 4. Load Cookie Consent CSS/JS (Osano Open Source version) -->
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>
 
-<!-- 4. Configure Banner & Link to GTM -->
+<!-- 5. Configure Banner & Link to Consent Mode -->
 <script>
 window.addEventListener("load", function(){
 window.cookieconsent.initialise({
