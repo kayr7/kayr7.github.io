@@ -1,13 +1,84 @@
 <head>
 
   <meta charset="utf-8">
- <!-- Google Tag Manager -->
+<!-- 1. Define DataLayer and Consent Mode Defaults (MUST be first) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  
+  // Default to denied for GDPR compliance
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  
+  // Optional: Redact ads data until consent is given
+  gtag('set', 'ads_data_redaction', true);
+</script>
+
+<!-- 2. Your Google Tag Manager Code -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KK862N76');</script>
-<!-- End Google Tag Manager -->
+'https://www.googletagmanager.com;
+})(window,document,'script','dataLayer','YOUR-GTM-ID-HERE');</script>
+
+<!-- 3. Load Cookie Consent CSS/JS (Osano Open Source version) -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com" />
+<script src="https://cdnjs.cloudflare.com"></script>
+
+<!-- 4. Configure Banner & Link to GTM -->
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": { "background": "#252e39" },
+    "button": { "background": "#14a7d0" }
+  },
+  "type": "opt-in", // REQUIRED: blocks cookies until accepted
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience.",
+    "dismiss": "Decline",
+    "allow": "Allow Cookies"
+  },
+  // EVENT: Triggered when user clicks "Allow"
+  onInitialise: function (status) {
+    var type = this.options.type;
+    var didConsent = this.hasConsented();
+    if (type == 'opt-in' && didConsent) {
+      updateGTMConsent('granted');
+    }
+  },
+  onStatusChange: function(status, chosenBefore) {
+    var type = this.options.type;
+    var didConsent = this.hasConsented();
+    if (type == 'opt-in' && didConsent) {
+      updateGTMConsent('granted');
+    } else {
+      updateGTMConsent('denied');
+    }
+  }
+})});
+
+// Helper function to update GTM Consent Mode
+function updateGTMConsent(state) {
+  gtag('consent', 'update', {
+    'ad_storage': state,
+    'ad_user_data': state,
+    'ad_personalization': state,
+    'analytics_storage': state
+  });
+  
+  // Push a custom event to GTM (optional, but useful for triggers)
+  window.dataLayer.push({
+    'event': 'consent_update',
+    'consent_status': state
+  });
+}
+</script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
