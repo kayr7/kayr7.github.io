@@ -6,7 +6,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   
-  // Default to denied for GDPR compliance
   gtag('consent', 'default', {
     'ad_storage': 'denied',
     'ad_user_data': 'denied',
@@ -15,13 +14,17 @@
     'wait_for_update': 500
   });
   
-  // Optional: Redact ads data until consent is given
   gtag('set', 'ads_data_redaction', true);
 </script>
 
+<!-- 2. Load gtag.js (library only, NO config yet) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-49P45T2V1R"></script>
+<script>
+  gtag('js', new Date());
+  // DO NOT call gtag('config', ...) here — it will fire in updateConsent()
+</script>
 
-
-<!-- 3. Google Tag Manager (for additional tags) -->
+<!-- 3. Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -46,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
       'ad_personalization': 'denied'
     });
 
-    // Re-send page_view so GA4 picks up UTMs after consent
     if (analyticsGranted) {
-      gtag('event', 'page_view', {
+      // NOW configure and send the first page_view with full URL (including UTMs)
+      gtag('config', 'G-49P45T2V1R', {
         page_location: window.location.href,
         page_title: document.title
       });
