@@ -1,7 +1,7 @@
 <head>
 
   <meta charset="utf-8">
-<!-- 1. Define DataLayer and Consent Mode Defaults (MUST be first) -->
+<!-- 1. DataLayer + Consent Defaults -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -17,14 +17,7 @@
   gtag('set', 'ads_data_redaction', true);
 </script>
 
-<!-- 2. Load gtag.js (library only, NO config yet) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-49P45T2V1R"></script>
-<script>
-  gtag('js', new Date());
-  // DO NOT call gtag('config', ...) here — it will fire in updateConsent()
-</script>
-
-<!-- 3. Google Tag Manager -->
+<!-- 2. Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -48,21 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
       'ad_user_data': 'denied',
       'ad_personalization': 'denied'
     });
-
-    if (analyticsGranted) {
-      // NOW configure and send the first page_view with full URL (including UTMs)
-      gtag('config', 'G-49P45T2V1R', {
-        page_location: window.location.href,
-        page_title: document.title
-      });
-    }
-
     window.dataLayer.push({
       'event': 'consent_update',
       'analytics_granted': analyticsGranted
     });
 }
-
   CookieConsent.run({
     guiOptions: {
       consentModal: {
