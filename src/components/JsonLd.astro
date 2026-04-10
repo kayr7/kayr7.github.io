@@ -1,0 +1,24 @@
+---
+// JsonLd.astro
+//
+// Renders a JSON-LD <script type="application/ld+json"> block from an
+// arbitrary object. Use this for structured data:
+//   - Person (site-wide, in Layout)
+//   - Organization / ProfessionalService (consulting page)
+//   - Article (blog post pages)
+//   - FAQPage (any page with an FAQ block)
+//
+// Why JSON-LD instead of Microdata: it's the format Google, Bing, and
+// LLM crawlers actually consume, and it keeps the markup clean.
+
+interface Props {
+  data: Record<string, unknown>;
+}
+const { data } = Astro.props;
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(data)}
+/>

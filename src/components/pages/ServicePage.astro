@@ -1,0 +1,212 @@
+---
+// ServicePage.astro
+//
+// Reusable layout for individual service pages under /consulting/*.
+// Each service page is a thin wrapper that imports this component and
+// passes its content as structured props.
+//
+// Why this layout exists:
+//   - Consistent on-page SEO structure across all service pages
+//   - One place to update if we change service-page conventions
+//   - Centralized Service + FAQPage JSON-LD
+//
+// SEO conventions enforced:
+//   - H1 contains the target keyword
+//   - First paragraph contains the keyword in the first 100 words
+//   - Author byline + credentials box for E-E-A-T
+//   - Last-updated date for freshness
+//   - FAQ block at the bottom (FAQPage schema via <Faq>)
+//   - Service JSON-LD with provider linked to r7net
+//   - 2+ internal links
+
+import Layout from "../../layouts/Layout.astro";
+import Faq from "../Faq.astro";
+import JsonLd from "../JsonLd.astro";
+import { serviceSchema } from "../../lib/schema";
+import { siteConfig } from "../../lib/site";
+import { localizedPath } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Section {
+  title: string;
+  body: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  lang: Lang;
+
+  /** Cross-language slugs (for hreflang and the language switcher).
+   *  Service pages have different slugs in DE and EN to target localized
+   *  keywords, so we can't auto-derive the alternate path. */
+  alternates: { de: string; en: string };
+
+  /** Used in <title>, schema, and the H1's accessible name */
+  serviceName: string;
+
+  /** Short metadescription, also used as og:description and Service.description */
+  metaDescription: string;
+
+  /** Eyebrow text above H1 (small uppercase) */
+  eyebrow: string;
+
+  /** Main H1. Should contain the target keyword. */
+  headline: string;
+
+  /** Italicized accent phrase inside the headline (optional) */
+  headlineAccent?: string;
+
+  /** Hero subtitle / lead paragraph. Must contain the keyword. */
+  lead: string;
+
+  /** Last-updated date (ISO string), shown to users and used for freshness signals */
+  lastUpdated: string;
+
+  /** Body sections rendered as <h2> + paragraph */
+  sections: Section[];
+
+  /** FAQ items at the bottom of the page (FAQPage schema is auto-generated) */
+  faqs: FaqItem[];
+
+  /** Localized FAQ heading (e.g. "Häufige Fragen" / "FAQ") */
+  faqTitle: string;
+
+  /** CTA button label */
+  ctaLabel: string;
+
+  /** Lead-with-credibility byline label, e.g. "Geschrieben von" / "Written by" */
+  bylinePrefix: string;
+}
+
+const {
+  lang,
+  alternates,
+  serviceName,
+  metaDescription,
+  eyebrow,
+  headline,
+  headlineAccent,
+  lead,
+  lastUpdated,
+  sections,
+  faqs,
+  faqTitle,
+  ctaLabel,
+  bylinePrefix,
+} = Astro.props;
+
+const pageUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+const updatedLocale = lang === "de" ? "de-DE" : "en-US";
+const updatedLabel = new Date(lastUpdated).toLocaleDateString(updatedLocale, {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Layout
+  lang={lang}
+  title={serviceName}
+  description={metaDescription}
+  alternates={alternates}
+>
+  {/* Service JSON-LD: ties this page to r7net as the provider */}
+  <JsonLd
+    data={serviceSchema({
+      name: serviceName,
+      description: metaDescription,
+      url: pageUrl,
+      areaServed: "DE",
+    })}
+  />
+
+  <!-- Hero -->
+  <section class="py-16">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1 class="mt-6 text-5xl sm:text-6xl">
+      {
+        headlineAccent ? (
+          <>
+            {headline.split(headlineAccent)[0]}
+            <span class="italic text-[var(--color-accent)]">
+              {headlineAccent}
+            </span>
+            {headline.split(headlineAccent)[1] ?? ""}
+          </>
+        ) : (
+          headline
+        )
+      }
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg text-[var(--color-fg-soft)]">
+      {lead}
+    </p>
+
+    {/* Author byline + credentials box. Critical for E-E-A-T and GEO. */}
+    <div
+      class="mt-10 flex flex-col gap-1 border-l-2 border-[var(--color-accent)] pl-4 text-sm text-[var(--color-muted)]"
+    >
+      <p>
+        <span class="text-[var(--color-fg-soft)]">{bylinePrefix} </span>
+        <a
+          href={localizedPath(lang, "/about")}
+          class="font-medium text-[var(--color-fg)] no-underline"
+          >Prof. Dr. Kay Rottmann</a
+        >
+      </p>
+      <p>Professor of Applied AI · HdM Stuttgart · ex-Meta, Bosch, Amazon</p>
+      <p>
+        {lang === "de" ? "Stand: " : "Last updated: "}
+        <time datetime={lastUpdated}>{updatedLabel}</time>
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <a href={localizedPath(lang, "/contact")} class="btn-primary">
+        {ctaLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Body sections -->
+  <article
+    class="prose-content max-w-3xl border-t border-[var(--color-border)] py-12"
+  >
+    {
+      sections.map((section) => (
+        <>
+          <h2>{section.title}</h2>
+          <p set:html={section.body} />
+        </>
+      ))
+    }
+  </article>
+
+  <!-- FAQ block (also emits FAQPage schema) -->
+  <Faq title={faqTitle} items={faqs} />
+
+  <!-- Final CTA -->
+  <section class="border-t border-[var(--color-border)] py-16">
+    <div class="card sm:p-12">
+      <h2 class="text-3xl sm:text-4xl">
+        {lang === "de" ? "Lassen Sie uns reden." : "Let's talk."}
+      </h2>
+      <p class="mt-4 max-w-2xl text-[var(--color-fg-soft)]">
+        {
+          lang === "de"
+            ? "Schreiben Sie mir kurz, woran Sie arbeiten - ich melde mich innerhalb weniger Tage zurück."
+            : "Drop me a short note about what you're working on - I'll get back to you within a few days."
+        }
+      </p>
+      <a href={localizedPath(lang, "/contact")} class="btn-primary mt-8">
+        {ctaLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</Layout>

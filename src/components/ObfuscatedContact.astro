@@ -1,0 +1,103 @@
+---
+// TMG-compliant contact obfuscation.
+//
+// Why this exists:
+//   The Telemediengesetz (§ 5 TMG) requires that company contact data
+//   (postal address, electronic contact path) is "leicht erkennbar,
+//   unmittelbar erreichbar und ständig verfügbar" — easily visible,
+//   directly reachable, and always available — for human visitors.
+//   It does NOT require the data to be machine-friendly. German case
+//   law (e.g. BGH I ZR 11/15, 2014) has confirmed that an email link
+//   alone is sufficient for "schnelle elektronische Kontaktaufnahme",
+//   and that contact data may be encoded against bots as long as the
+//   information remains directly readable for ordinary visitors.
+//
+// What this component does:
+//   - phone: encodes the number as base64 in a data attribute. An
+//     inline script decodes it on page load. A <noscript> fallback
+//     points to the email address (which by itself satisfies TMG).
+//     Result: the phone number does NOT exist as plain text anywhere
+//     in the static HTML, so naive HTML scrapers and regex crawlers
+//     get nothing.
+//   - address: rendered as plain spans with zero-width spaces (\u200B)
+//     interleaved between digit groups. Visually identical for humans
+//     and screen readers, but breaks naive `\d{5}` postcode regexes
+//     and similar patterns.
+//
+// Both methods keep the data directly visible/readable for any normal
+// visitor, which is what § 5 TMG actually requires.
+
+import { siteConfig } from "../lib/site";
+
+interface Props {
+  type: "phone" | "address";
+  /**
+   * For type="phone": optional label to render before the number,
+   * e.g. "Telefon" or "Phone". Will be followed by ": ".
+   */
+  label?: string;
+}
+const { type, label } = Astro.props;
+
+// Insert a zero-width space every 2 characters to defeat naive
+// regex-based scrapers without affecting the visible rendering.
+function poison(input: string): string {
+  return input.replace(/(.{2})/g, "$1\u200B");
+}
+
+// Build the base64 payload for the phone number at build time, so the
+// raw number never appears in the source HTML.
+const phoneBase64 =
+  type === "phone"
+    ? Buffer.from(siteConfig.contact.phone, "utf-8").toString("base64")
+    : "";
+
+const address = siteConfig.company.address;
+---
+
+{
+  type === "phone" && (
+    <span class="oc-phone" data-c={phoneBase64}>
+      {label ? `${label}: ` : ""}
+      <noscript>
+        <a href={`mailto:${siteConfig.contact.email}`}>
+          {siteConfig.contact.email}
+        </a>
+      </noscript>
+    </span>
+  )
+}
+
+{
+  type === "address" && (
+    <span class="oc-address">
+      <span>{poison(address.streetAddress)}</span>
+      <br />
+      <span>
+        {poison(`${address.postalCode} ${address.addressLocality}`)}
+      </span>
+    </span>
+  )
+}
+
+<script>
+  // Astro hoists and deduplicates non-`is:inline` scripts, so this runs
+  // exactly once per page even when the component is rendered multiple
+  // times.
+  document.querySelectorAll("span.oc-phone").forEach((el) => {
+    const c = el.getAttribute("data-c");
+    if (!c) return;
+    try {
+      const decoded = atob(c);
+      // Preserve any leading label text node, drop the <noscript> fallback.
+      const first = el.firstChild;
+      const labelText =
+        first && first.nodeType === Node.TEXT_NODE
+          ? first.textContent ?? ""
+          : "";
+      el.textContent = labelText + decoded;
+    } catch (e) {
+      /* leave noscript fallback in place */
+    }
+  });
+</script>

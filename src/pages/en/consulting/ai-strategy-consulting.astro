@@ -1,0 +1,80 @@
+---
+// English mirror of /consulting/ki-strategie-beratung.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What is an AI strategy - and when do you need one?",
+    body: "An AI strategy is the answer to three questions: <em>where</em> in our business does AI actually create value? <em>How</em> do we implement it pragmatically? And <em>how</em> do we know it worked? A good AI strategy is short, concrete, and honest. It doesn't replace PowerPoint slides - it replaces gut feel about which AI initiatives to invest in next. You need one as soon as the number of possible AI use cases exceeds your budget for experiments.",
+  },
+  {
+    title: "How our AI strategy consulting works",
+    body: "In three steps. <strong>Discovery</strong> (1 to 2 weeks): we learn your business - model, processes, data landscape, existing AI attempts. <strong>Use-case workshop</strong> (1 day, on-site or remote): together with your team we identify AI use cases and prioritize them by effort and value. <strong>Roadmap</strong> (1 week): you get a 10 to 15 page strategy document with prioritized roadmap, technology recommendation, effort estimate, and concrete next steps - no slides, no buzzword bingo.",
+  },
+  {
+    title: "What you walk away with",
+    body: "A prioritized list of 5 to 10 AI use cases, each with business value, complexity, required data, and a realistic effort estimate. A 6 to 12 month roadmap showing where to start and why. A pragmatic technology recommendation (which models, which providers, build vs. buy). Clear recommendations on what <em>not</em> to do - often as valuable as the positive list. And an evaluation framework so you can assess future AI initiatives yourself.",
+  },
+  {
+    title: "Why an external AI strategy consultant is worth it",
+    body: "Because it's hard to see your own business with fresh eyes. We bring 15+ years of AI engineering experience from Meta, Bosch, and Amazon - and at the same time the outside view your team lacks because it's too close. We don't sell software, we have no affiliate deals with cloud providers, and we don't profit from talking you into the largest possible project. Our only interest is that your AI strategy actually works.",
+  },
+  {
+    title: "Format and investment",
+    body: "Standard engagement: 3 to 4 weeks, including 1 day on-site or remote workshop. Investment typically in the mid four-figure euro range - a fraction of what large consulting firms charge for comparable strategy work. Optionally extends into implementation support. On request we provide a concrete proposal tailored to your situation.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does AI strategy consulting cost?",
+    answer:
+      "Typically in the mid four-figure euro range for a standard 3 to 4 week engagement including the use-case workshop and strategy document. On request we provide a concrete quote.",
+  },
+  {
+    question: "How long does it take to produce the strategy?",
+    answer:
+      "Standard is 3 to 4 weeks: 1 to 2 weeks discovery, 1 day workshop, 1 week roadmap creation. Faster or more in-depth variants are possible.",
+  },
+  {
+    question: "Do we need existing data or AI experience?",
+    answer:
+      "No. A good AI strategy works precisely when you're starting from zero. During discovery we check what data is available and which use cases are realistically feasible with it.",
+  },
+  {
+    question: "How is this different from consulting by a large firm?",
+    answer:
+      "Three things: our team has personally built AI systems in production for 15+ years - most consultants at large firms haven't. You work directly with Prof. Dr. Kay Rottmann, not a junior team. And we're a fraction of the cost because there's no consulting pyramid to fund.",
+  },
+  {
+    question: "Do we get just a document or also implementation support?",
+    answer:
+      "Both options. By default, the strategy engagement ends with the roadmap document. On request, we support implementation of the prioritized use cases - from prototype to production.",
+  },
+  {
+    question: "What if the strategy concludes we don't need AI yet?",
+    answer:
+      "Then that's the result - and we just saved you a lot of money on failed pilot projects. An honest \"not yet\" recommendation is more valuable than a forced project. That said, it's rare: most companies have 2 to 3 sensible entry-level use cases.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/ki-strategie-beratung",
+    en: "/en/consulting/ai-strategy-consulting",
+  }}
+  serviceName="AI Strategy Consulting"
+  metaDescription="AI strategy consulting by r7net GmbH (Prof. Dr. Kay Rottmann). Pragmatic AI roadmap in 3 to 4 weeks, no buzzwords. Use-case prioritization, technology selection, clear next steps."
+  eyebrow="Service · AI Strategy"
+  headline="AI Strategy Consulting"
+  lead="Pragmatic AI strategy consulting that turns your business into a concrete, prioritized AI roadmap in 3 to 4 weeks. No slides, no buzzword bingo - an honest answer to where AI actually creates value in your company."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request strategy consulting"
+  bylinePrefix="Consulting and content:"
+/>

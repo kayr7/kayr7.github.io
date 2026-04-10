@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { siteConfig } from "../../lib/site";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout lang={lang} title={t.contact.title}>
+  <section class="py-16">
+    <p class="eyebrow">{t.contact.eyebrow}</p>
+    <h1 class="mt-6 text-5xl sm:text-6xl">{t.contact.headline}</h1>
+    <p class="mt-8 max-w-2xl text-lg text-[var(--color-fg-soft)]">
+      {t.contact.lead}
+    </p>
+
+    <div class="card mt-12 max-w-2xl">
+      <p
+        class="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)]"
+      >
+        {t.contact.emailLabel}
+      </p>
+      <a
+        href={`mailto:${siteConfig.contact.email}`}
+        class="mt-3 block font-serif text-2xl sm:text-3xl"
+        style="font-family: var(--font-serif);"
+      >
+        {siteConfig.contact.email}
+      </a>
+      <p class="mt-6 text-sm text-[var(--color-muted)]">{t.contact.hint}</p>
+    </div>
+  </section>
+</Layout>

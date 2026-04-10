@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ObfuscatedContact from "../ObfuscatedContact.astro";
+import { siteConfig } from "../../lib/site";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout lang={lang} title={t.impressum.title}>
+  <article class="prose-content">
+    <h1 class="text-4xl font-bold tracking-tight">{t.impressum.title}</h1>
+    <p class="mt-4 text-sm text-[var(--color-muted)]">{t.impressum.subtitle}</p>
+
+    <h2>{t.impressum.provider}</h2>
+    <p>
+      {t.impressum.providerName}<br />
+      <ObfuscatedContact type="address" />
+      <br />{t.impressum.providerCountry}
+    </p>
+
+    <h2>{t.impressum.contactHeading}</h2>
+    <p>
+      {t.impressum.contactEmailLabel}: <a
+        href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a
+      ><br />
+      <ObfuscatedContact type="phone" label={t.impressum.contactPhoneLabel} />
+    </p>
+
+    <h2>{t.impressum.responsibleHeading}</h2>
+    <p>
+      {t.impressum.responsibleName}<br />
+      <ObfuscatedContact type="address" />
+      <br />{t.impressum.responsibleCountry}
+    </p>
+
+    <h2>{t.impressum.disclaimerHeading}</h2>
+    <p>{t.impressum.disclaimerBody}</p>
+
+    <h2>{t.impressum.linksHeading}</h2>
+    <p>{t.impressum.linksBody}</p>
+  </article>
+</Layout>

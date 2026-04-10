@@ -1,0 +1,80 @@
+---
+// Service page targeting "KI Strategie Beratung" (170/mo, KD 18 - Easy).
+// Also catches "ki strategie" (480/mo, KD 39) and "ki strategie erstellen"
+// long-tail. High commercial intent.
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was ist eine KI-Strategie - und wann brauchen Sie eine?",
+    body: "Eine KI-Strategie ist die Antwort auf drei Fragen: <em>Wo</em> in unserem Geschäft schafft KI tatsächlich Wert? <em>Wie</em> setzen wir das pragmatisch um? Und <em>woher</em> wissen wir, ob es funktioniert hat? Eine gute KI-Strategie ist kurz, konkret und ehrlich. Sie ersetzt das Bauchgefühl bei der Frage, in welche KI-Initiativen Sie als nächstes investieren sollten. Sie brauchen eine, sobald die Anzahl möglicher KI-Use-Cases größer wird als Ihr Budget für Experimente.",
+  },
+  {
+    title: "Wie eine KI-Strategie-Beratung bei uns abläuft",
+    body: "In drei Schritten. <strong>Discovery</strong> (1-2 Wochen): Wir lernen Ihr Geschäft kennen - Geschäftsmodell, Prozesse, Datenlandschaft, bestehende KI-Versuche. <strong>Use-Case-Workshop</strong> (1 Tag, vor Ort oder remote): Mit Ihrem Team identifizieren wir gemeinsam KI-Use-Cases und priorisieren sie nach Aufwand und Wert. <strong>Roadmap</strong> (1 Woche): Sie bekommen ein 10-15-seitiges Strategiedokument mit priorisierter Roadmap, Technologieempfehlung, Aufwandsschätzung und konkreten nächsten Schritten - keine Folien, kein Buzzword-Bingo.",
+  },
+  {
+    title: "Was Sie am Ende in der Hand haben",
+    body: "Eine priorisierte Liste von KI-Use-Cases, jeweils mit Geschäftsnutzen, Komplexität, benötigten Daten und realistischer Aufwandsschätzung. Eine 6-12-Monats-Roadmap, die zeigt, womit Sie anfangen sollten und warum. Eine pragmatische Technologie-Empfehlung (welche Modelle, welche Anbieter, Build vs. Buy). Klare Empfehlungen, was Sie <em>nicht</em> tun sollten - oft genauso wertvoll wie die positive Liste. Und ein Bewertungsrahmen, mit dem Sie zukünftige KI-Initiativen selbst beurteilen können.",
+  },
+  {
+    title: "Warum eine externe KI-Strategie-Beratung sinnvoll ist",
+    body: "Weil es schwer ist, das eigene Geschäft mit frischen Augen zu sehen. Wir bringen 15+ Jahre Erfahrung aus AI-Engineering bei Meta, Bosch und Amazon mit - und gleichzeitig die Außensicht, die Ihrem Team fehlt, weil es zu nah dran ist. Wir verkaufen keine Software, wir haben keine Affiliate-Deals mit Cloud-Anbietern, und wir profitieren nicht davon, wenn Sie das größtmögliche Projekt starten. Unser einziges Interesse ist, dass Ihre KI-Strategie funktioniert.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Standard-Engagement: 3-4 Wochen, davon 1 Tag Workshop vor Ort oder remote. Investition typischerweise im mittleren vierstelligen Eurobereich - also ein Bruchteil dessen, was große Beratungen für vergleichbare Strategiearbeit verlangen. Auf Wunsch erweiterbar zu Begleitung der Umsetzung. Auf Anfrage erstellen wir ein konkretes Angebot, das auf Ihre Situation zugeschnitten ist.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Wie lange dauert es, bis die KI-Strategie steht?",
+    answer:
+      "Standardmäßig 3-4 Wochen. Discovery 1-2 Wochen, Workshop 1 Tag, Roadmap-Erstellung 1 Woche. Schnellere oder ausführlichere Varianten sind möglich.",
+  },
+  {
+    question: "Brauchen wir bereits eigene Daten oder KI-Erfahrung?",
+    answer:
+      "Nein. Eine gute KI-Strategie funktioniert auch, wenn Sie noch am Anfang stehen. Wir prüfen, welche Daten verfügbar sind und welche Use-Cases damit überhaupt realistisch umsetzbar wären.",
+  },
+  {
+    question:
+      "Was ist der Unterschied zur Beratung durch eine große Unternehmensberatung?",
+    answer:
+      "Drei Dinge: Bei uns arbeitet jemand, der selbst 15+ Jahre AI-Systeme in Produktion gebaut und gebracht hat - die meisten Berater großer Häuser nicht. Sie sprechen direkt mit Prof. Dr. Kay Rottmann, kein Junior-Team. Und wir verursachen nur einen Bruchteil der Kosten, weil keine Pyramide zu finanzieren ist.",
+  },
+  {
+    question:
+      "Bekommen wir am Ende nur ein Dokument oder auch Umsetzungsbegleitung?",
+    answer:
+      "Beides möglich. Standardmäßig endet die Strategie-Beratung mit dem Roadmap-Dokument. Auf Wunsch begleiten wir die Umsetzung der priorisierten Use-Cases - vom Prototyp bis zum produktiven Betrieb.",
+  },
+  {
+    question:
+      "Was ist, wenn die Strategie ergibt, dass wir KI noch nicht brauchen?",
+    answer:
+      'Dann ist genau das das Ergebnis - und Sie haben sehr viel Geld für gescheiterte Pilotprojekte gespart. Eine ehrliche "noch nicht jetzt"-Empfehlung ist uns lieber als ein erzwungenes Projekt. Das passiert allerdings selten: in den meisten Unternehmen gibt es 2-3 sinnvolle Einstiegs-Use-Cases.',
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/ki-strategie-beratung",
+    en: "/en/consulting/ai-strategy-consulting",
+  }}
+  serviceName="KI Strategie Beratung"
+  metaDescription="KI Strategie Beratung mit Prof. Dr. Kay Rottmann. Pragmatische KI-Roadmap in 3-4 Wochen, ohne Buzzwords. Use-Case-Priorisierung, Technologie-Auswahl, klare nächste Schritte."
+  eyebrow="Leistung · KI Strategie"
+  headline="KI Strategie Beratung"
+  lead="Eine pragmatische KI Strategie Beratung, die in 3-4 Wochen für Ihr Geschäft eine konkrete, priorisierte KI-Roadmap macht. Keine Folien, kein Buzzword-Bingo - eine ehrliche Antwort auf die Frage, wo KI in Ihrem Unternehmen tatsächlich Wert schaffen kann."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur KI Strategie Beratung"
+  ctaLabel="Strategie-Beratung anfragen"
+  bylinePrefix="Beratung und Inhalt:"
+/>

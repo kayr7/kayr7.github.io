@@ -1,0 +1,64 @@
+---
+// Faq.astro
+//
+// Reusable FAQ block. Renders a styled accordion-free Q&A list AND
+// emits a FAQPage JSON-LD block, which is what makes this component
+// genuinely valuable for GEO/SEO:
+//
+//   1. Google rich-result eligibility (FAQ rich snippets)
+//   2. Direct extraction by LLMs (ChatGPT, Claude, Perplexity, AI Overviews)
+//      preferentially cite Q&A-structured content
+//
+// Usage:
+//   <Faq
+//     title="Häufige Fragen"
+//     items={[
+//       { question: "...", answer: "..." },
+//       ...
+//     ]}
+//   />
+//
+// Keep answers definitive and 1 to 4 sentences. LLMs extract concise answers
+// far more reliably than verbose ones.
+
+import JsonLd from "./JsonLd.astro";
+import { faqSchema } from "../lib/schema";
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  items: FaqItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="border-t border-[var(--color-border)] py-16">
+  {
+    title && (
+      <h2 class="text-3xl sm:text-4xl">{title}</h2>
+    )
+  }
+
+  <dl class="mt-10 divide-y divide-[var(--color-border)]">
+    {
+      items.map((item) => (
+        <div class="py-6">
+          <dt
+            class="font-serif text-xl text-[var(--color-fg)]"
+            style="font-family: var(--font-serif);"
+          >
+            {item.question}
+          </dt>
+          <dd class="mt-3 text-[var(--color-fg-soft)]">{item.answer}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>
+
+<JsonLd data={faqSchema(items)} />

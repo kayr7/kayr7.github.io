@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ObfuscatedContact from "../ObfuscatedContact.astro";
+import { siteConfig } from "../../lib/site";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout lang={lang} title={t.datenschutz.title}>
+  <article class="prose-content">
+    <h1 class="text-4xl font-bold tracking-tight">{t.datenschutz.title}</h1>
+    <p class="mt-4 text-sm text-[var(--color-muted)]">{t.datenschutz.stand}</p>
+
+    <h2>{t.datenschutz.controllerHeading}</h2>
+    <p>{t.datenschutz.controllerIntro}</p>
+    <p>
+      {t.datenschutz.controllerName}<br />
+      <ObfuscatedContact type="address" />
+      <br />{t.datenschutz.controllerCountry}<br />
+      {t.datenschutz.controllerEmailLabel}: <a
+        href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a
+      ><br />
+      <ObfuscatedContact
+        type="phone"
+        label={t.datenschutz.controllerPhoneLabel}
+      />
+    </p>
+
+    <h2>{t.datenschutz.generalHeading}</h2>
+    <p>{t.datenschutz.generalBody}</p>
+
+    <h2>{t.datenschutz.logfilesHeading}</h2>
+    <p>{t.datenschutz.logfilesBody}</p>
+
+    <h2>{t.datenschutz.cookiesHeading}</h2>
+    <p>{t.datenschutz.cookiesP1}</p>
+    <p>{t.datenschutz.cookiesP2}</p>
+
+    <h2>{t.datenschutz.gaHeading}</h2>
+    <p>{t.datenschutz.gaP1}</p>
+    <p>{t.datenschutz.gaP2}</p>
+    <p>{t.datenschutz.gaP3}</p>
+    <p>{t.datenschutz.gaP4}</p>
+    <p>{t.datenschutz.gaP5}</p>
+
+    <h2>{t.datenschutz.rightsHeading}</h2>
+    <p>{t.datenschutz.rightsBody}</p>
+
+    <h2>{t.datenschutz.contactHeading}</h2>
+    <p>
+      {t.datenschutz.contactBodyPre}
+      <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a
+      >.
+    </p>
+  </article>
+</Layout>

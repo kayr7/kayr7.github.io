@@ -1,0 +1,83 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import JsonLd from "../../../components/JsonLd.astro";
+import { articleSchema } from "../../../lib/schema";
+import { siteConfig } from "../../../lib/site";
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { useTranslations, localizedPath } from "../../../i18n/utils";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getCollection(
+    "blog",
+    ({ data }) => !data.draft && data.lang === "en",
+  );
+  return posts.map((post) => ({
+    params: { slug: post.data.slug ?? post.id },
+    props: { post },
+  }));
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const lang = "en" as const;
+const t = useTranslations(lang);
+
+const articleUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+
+// Find the matching German post via translationKey so the language
+// switcher points to the actual translation instead of a 404. Falls
+// back to the DE blog index if there's no translation.
+const dePosts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft && (data.lang ?? "de") === "de",
+);
+const deMatch = post.data.translationKey
+  ? dePosts.find((p) => p.data.translationKey === post.data.translationKey)
+  : undefined;
+const dePath = deMatch
+  ? `/blog/${deMatch.data.slug ?? deMatch.id}/`
+  : "/blog/";
+const enPath = `/en/blog/${post.data.slug ?? post.id}/`;
+---
+
+<Layout
+  lang={lang}
+  title={post.data.title}
+  description={post.data.description}
+  alternates={{ de: dePath, en: enPath }}
+>
+  <JsonLd
+    data={articleSchema({
+      title: post.data.title,
+      description: post.data.description,
+      pubDate: post.data.pubDate,
+      updatedDate: post.data.updatedDate,
+      url: articleUrl,
+      lang,
+    })}
+  />
+  <article class="mx-auto max-w-3xl py-16">
+    <p class="text-sm uppercase tracking-wider text-[var(--color-muted)]">
+      {
+        post.data.pubDate.toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }
+    </p>
+    <h1 class="mt-4 text-4xl sm:text-5xl">{post.data.title}</h1>
+    <p class="mt-6 text-xl text-[var(--color-fg-soft)]">
+      {post.data.description}
+    </p>
+
+    <div class="prose-content mt-12 border-t border-[var(--color-border)] pt-12">
+      <Content />
+    </div>
+
+    <p class="mt-16">
+      <a href={localizedPath(lang, "/blog")} class="no-underline">{t.blog.back}</a>
+    </p>
+  </article>
+</Layout>

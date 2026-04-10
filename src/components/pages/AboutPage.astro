@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import portraitKay from "../../assets/kayhochkant.jpg";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout
+  lang={lang}
+  title={t.about.title}
+  description={t.about.lead}
+>
+  <!-- Hero -->
+  <section class="grid items-start gap-12 py-16 md:grid-cols-[1.4fr_1fr]">
+    <div>
+      <p class="eyebrow">{t.about.eyebrow}</p>
+      <h1 class="mt-6 text-5xl sm:text-6xl">
+        {t.about.headlinePre}{" "}
+        <span class="italic text-[var(--color-accent)]"
+          >{t.about.headlineAccent}</span
+        >{t.about.headlinePost}
+      </h1>
+      <p class="mt-8 max-w-xl text-lg text-[var(--color-fg-soft)]">
+        {t.about.lead}
+      </p>
+    </div>
+    <Image
+      src={portraitKay}
+      alt={t.about.portraitLabel}
+      widths={[400, 600, 900]}
+      sizes="(min-width: 768px) 400px, 100vw"
+      format="webp"
+      class="rounded-xl"
+    />
+  </section>
+
+  <!-- Story -->
+  <section class="border-t border-[var(--color-border)] py-16">
+    <div class="prose-content max-w-3xl">
+      <h2>{t.about.shortTitle}</h2>
+      <p>{t.about.shortP1}</p>
+      <p>{t.about.shortP2}</p>
+      <p>{t.about.shortP3}</p>
+    </div>
+  </section>
+
+  <!-- Career timeline -->
+  <section class="border-t border-[var(--color-border)] py-16">
+    <p class="eyebrow">{t.about.careerEyebrow}</p>
+    <h2 class="mt-4 text-3xl sm:text-4xl">{t.about.careerTitle}</h2>
+
+    <ul class="mt-12 divide-y divide-[var(--color-border)]">
+      {
+        t.about.career.map((item) => (
+          <li class="grid gap-2 py-6 sm:grid-cols-[10rem_1fr] sm:gap-8">
+            <p class="text-sm text-[var(--color-muted)]">{item.period}</p>
+            <div>
+              <h3 class="text-lg text-[var(--color-fg)]">
+                {item.role}
+                <span class="text-[var(--color-muted)]"> · {item.org}</span>
+              </h3>
+              <p class="mt-1 text-[var(--color-fg-soft)]">{item.note}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- Teaching -->
+  <section class="border-t border-[var(--color-border)] py-16">
+    <div class="grid gap-12 md:grid-cols-[1fr_1.2fr]">
+      <div>
+        <p class="eyebrow">{t.about.teachingEyebrow}</p>
+        <h2 class="mt-4 text-3xl sm:text-4xl">{t.about.teachingTitle}</h2>
+        <p class="mt-6 text-[var(--color-fg-soft)]">{t.about.teachingLead}</p>
+      </div>
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {
+          t.about.teaching.map((course) => (
+            <li class="card !p-4">
+              <p
+                class="font-serif text-base text-[var(--color-fg)]"
+                style="font-family: var(--font-serif);"
+              >
+                {course}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="border-t border-[var(--color-border)] py-16">
+    <div class="prose-content max-w-3xl">
+      <h2>{t.about.researchTitle}</h2>
+      <p>{t.about.researchP1}</p>
+      <p>
+        {t.about.researchP2Pre}
+        {
+          t.about.researchTopics.map((topic, i) => (
+            <>
+              <em>{topic}</em>
+              {i < t.about.researchTopics.length - 1 ? ", " : "."}
+            </>
+          ))
+        }
+      </p>
+    </div>
+  </section>
+</Layout>

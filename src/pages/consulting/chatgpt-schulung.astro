@@ -1,0 +1,82 @@
+---
+// Service page targeting "ChatGPT Schulung" (210/mo, KD 22 Easy)
+// + "prompt engineering schulung" (110/mo) + "ki schulung mitarbeiter".
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was ist eine AI-Schulung - und was bringt sie wirklich?",
+    body: 'Eine AI-Schulung ist ein Training, in dem Ihre Mitarbeitenden lernen, ChatGPT (oder Claude, Gemini, Copilot) so zu nutzen, dass sie damit wirklich Zeit sparen und bessere Ergebnisse bekommen. Eine gute Schulung ist nicht „so klickt man auf die Buttons". Sie zeigt ganz konkret, wie man einen Prompt gut formuliert, wann man AI-Modellen trauen darf und wann nicht, wie man Halluzinationen erkennt und verringert, wie man gezielt mit eigenen Dokumenten arbeitet und welche typischen Anwendungsfälle Sinn ergeben. Mit anderen Worten: Eine gute AI-Schulung macht aus „ich habe es mal ausprobiert" ein produktives Werkzeug.',
+  },
+  {
+    title: "Für welche Teams lohnt sich eine AI-Schulung?",
+    body: "Besonders für: <strong>Wissensarbeiter*innen</strong> (Vertrieb, Marketing, HR, Recht, Beratung) - sie haben den größten Hebel und holen erfahrungsgemäß die grösste Zeitersparnis heraus. <strong>Führungskräfte</strong>, die AI-Assistenten in ihrem Team einführen wollen und vorher selbst verstehen müssen, was geht und was nicht. <strong>IT- und Entwicklungs-Teams</strong>, die Agentic-Coding und Prompt Engineering allgemein systematisch lernen wollen. <strong>Ganze Abteilungen</strong>, die einen einheitlichen Standard für AI-Nutzung etablieren wollen - inklusive verständnis von Datenschutz und Compliance.",
+  },
+  {
+    title: "Was Sie nach der AI-Schulung können",
+    body: "Sie lernen <strong>strukturierte Prompts schreiben</strong>, die zuverlässige und vertrauenswertere Ergebnisse liefern. Sie kennen <strong>typische Anwendungsmuster</strong> für Ihre jeweilige Rolle: Texte umschreiben, zusammenfassen, übersetzen, recherchieren, Code generieren, Daten strukturieren. Sie wissen, wann AI-Modelle halluzinieren und wie Sie das erkennen. Sie können <strong>eigene Dokumente</strong> einbeziehen (per Upload, Coding Agents, RAG) und verstehen, was dabei mit Ihren Daten passiert. Sie kennen die wichtigsten <strong>Datenschutz-Fallstricke</strong> und wie man sie vermeidet - Geschäftsgeheimnisse, sensible Personendaten.",
+  },
+  {
+    title: "Was diese Schulung anders macht",
+    body: "Die meisten AI-Schulungen auf dem Markt sind oberflächliche Demos von Trainer*innen, die nie ein produktives KI-System gebaut haben. Unsere Schulungen kommen aus 15+ Jahren AI-Engineering bei Meta, Bosch und Amazon und der Lehrerfahrung an der HdM Stuttgart. Sie bekommen also nicht nur Tipps, sondern verstehen auch <em>warum</em> AI-Prompts funktionieren und wie Agentic AI funktioniert - und können das Wissen auf neue Modelle übertragen, selbst wenn sich GPT, Claude oder Gemini in 6 Monaten wieder ändern.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Standard-Format: 1 Tag (8 Stunden) mit etwa 50 % Theorie und 50 % Hands-on-Übungen an realen Aufgaben aus Ihrem Arbeitsalltag. Optional an einem zweiten Tag vertiefende Themen wie Custom GPTs, RAG oder Prompt Engineering für Entwickler*innen. Gruppengröße 4-15 Personen. Format vor Ort oder remote. Kosten typischerweise im niedrigen bis mittleren vierstelligen Eurobereich pro Tag - auf Anfrage erstellen wir ein Angebot, das auf Ihre Branche und Rollen zugeschnitten ist.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine AI-Schulung für Unternehmen?",
+    answer:
+      "Typischerweise im niedrigen bis mittleren vierstelligen Eurobereich pro Tagesschulung für eine Gruppe von 4-15 Personen. Auf Anfrage erstellen wir ein konkretes Angebot.",
+  },
+  {
+    question: "Brauchen die Teilnehmenden Vorkenntnisse?",
+    answer:
+      "Nein. Die Schulung holt jede*n Teilnehmende*n dort ab, wo er oder sie steht. Auch Personen ohne ChatGPT-Erfahrung können nach der Schulung produktiv damit arbeiten.",
+  },
+  {
+    question: "Welche Tools werden in der Schulung behandelt?",
+    answer:
+      "Hauptsächlich Claude (Anthropic) und ChatGPT (OpenAI). Auf Wunsch auch Gemini (Google) oder Coding Agents (Claude Code oder OpenAI Codex). Wir erklären die Unterschiede und zeigen, welches Tool für welche Aufgabe am besten passt - ohne Affiliate-Bias.",
+  },
+  {
+    question: "Wird auch Datenschutz und Privacy behandelt?",
+    answer:
+      "Ja. Uns ist wichtig, dass ein Verständnis für Datenschutz und Privacy entsteht. Wir behandeln, welche Daten wo landen, wie man Geschäftsgeheimnisse schützt und welche Modi (Enterprise, API, lokal) welche Risiken haben.",
+  },
+  {
+    question:
+      "Was unterscheidet eine AI-Schulung von einem KI-Workshop für Unternehmen?",
+    answer:
+      "Eine AI-Schulung ist Tool-Training: Ihre Mitarbeitenden lernen, ChatGPT &amp; Co. produktiv zu nutzen. Ein KI-Workshop für Unternehmen ist Strategie-Arbeit: Ihre Führungskräfte identifizieren konkrete KI-Use-Cases im eigenen Geschäft. Beides kann sinnvoll sein - oft ergänzen sie sich.",
+  },
+  {
+    question: "Findet die Schulung vor Ort oder remote statt?",
+    answer:
+      "Beides möglich. Vor Ort funktioniert für Hands-on-Übungen erfahrungsgemäß etwas besser, weil Diskussionen schneller fließen. Remote (via Zoom oder Teams) ist eine vollwertige Alternative.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/chatgpt-schulung",
+    en: "/en/consulting/chatgpt-training",
+  }}
+  serviceName="AI Schulung für Unternehmen"
+  metaDescription="AI Schulung für Unternehmen mit Prof. Dr. Kay Rottmann (HdM-Dozent für Prompt Engineering). Hands-on, praxisnah, mit Datenschutz-Fokus. Vor Ort oder remote."
+  eyebrow="Leistung · AI Schulung"
+  headline="AI Schulung für Unternehmen"
+  lead="Eine praxisnahe AI Schulung, in der Ihre Mitarbeitenden lernen, ChatGPT & Co. wirklich produktiv zu nutzen - mit strukturierten Prompts, sicherer Datennutzung und konkreten Anwendungsfällen für ihre Rolle. Hands-on, ohne Buzzwords, mit Datenschutz-Fokus."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur ChatGPT Schulung"
+  ctaLabel="Schulung anfragen"
+  bylinePrefix="Schulung und Inhalt:"
+/>

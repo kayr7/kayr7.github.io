@@ -1,0 +1,221 @@
+---
+// ConsentManager.astro
+//
+// Loads Klaro and wires it up with Google Consent Mode v2.
+//
+// How this works end-to-end:
+//
+// 1. BEFORE anything else, we initialize the gtag dataLayer and call
+//    `gtag('consent', 'default', { ...denied })`. This MUST run before the
+//    GA4 script tag is parsed by the browser, so Google's tag respects the
+//    denied state from the very first hit.
+//
+// 2. We render the GA4 <script> tag with `type="text/plain"` and a
+//    `data-name="google-analytics"` attribute. Klaro will only rewrite this
+//    to `type="text/javascript"` (and thereby execute it) AFTER the user
+//    consents to the "google-analytics" service.
+//
+// 3. Klaro's `onAccept` / `onDecline` callbacks for the google-analytics
+//    service fire `gtag('consent', 'update', { ... })` so Google switches
+//    from cookieless pings to full measurement (or back).
+//
+// 4. Necessary cookies (Klaro's own consent storage) need no consent -
+//    they are required for the banner itself to function and are not used
+//    for tracking.
+//
+// To change the GA4 measurement ID, edit src/lib/site.ts.
+
+import { siteConfig } from "../lib/site";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const gaId = siteConfig.gaMeasurementId;
+---
+
+<!--
+  STEP 1: Consent Mode v2 defaults.
+  Set BEFORE the GA tag is parsed. Region scoped to EEA + UK + CH so that
+  visitors outside that region get the same protection (you can narrow this
+  if you want region-specific defaults).
+-->
+<script is:inline define:vars={{ gaId, lang }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  // Expose gtag for the Klaro callbacks below.
+  window.gtag = gtag;
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+    functionality_storage: "denied",
+    personalization_storage: "denied",
+    security_storage: "granted",
+    wait_for_update: 500,
+  });
+
+  // Enable URL passthrough so GA can still measure across pages without
+  // setting cookies when consent is denied (cookieless pings).
+  gtag("set", "url_passthrough", true);
+  // Redact ad data when consent is denied.
+  gtag("set", "ads_data_redaction", true);
+
+  // STEP 2: Klaro config.
+  // Lives on window.klaroConfig so the Klaro script picks it up automatically.
+  window.klaroConfig = {
+    version: 1,
+    elementID: "klaro",
+    storageMethod: "cookie",
+    cookieName: "klaro-consent",
+    cookieExpiresAfterDays: 180,
+    htmlTexts: true,
+    default: false,
+    mustConsent: false,
+    acceptAll: true,
+    hideDeclineAll: false,
+    hideLearnMore: false,
+    noticeAsModal: false,
+    // Driven by the current page's language.
+    lang: lang,
+    translations: {
+      de: {
+        consentModal: {
+          title: "Datenschutz-Einstellungen",
+          description:
+            "Wir verwenden Cookies und ähnliche Technologien, um diese Website zu betreiben und zu verstehen, wie sie genutzt wird. Du kannst frei entscheiden, welche Kategorien du zulassen möchtest. Weitere Informationen findest du in der <a href='/datenschutz'>Datenschutzerklärung</a>.",
+        },
+        consentNotice: {
+          title: "Datenschutz",
+          description:
+            "Diese Website verwendet Cookies, um die Nutzung zu analysieren. Du kannst frei entscheiden, ob du dies erlaubst. {purposes}",
+          learnMore: "Einstellungen anpassen",
+        },
+        purposes: {
+          analytics: { title: "Analyse" },
+        },
+        ok: "Alle akzeptieren",
+        acceptAll: "Alle akzeptieren",
+        acceptSelected: "Auswahl bestätigen",
+        decline: "Ablehnen",
+        close: "Schließen",
+        save: "Speichern",
+        poweredBy: "",
+        service: {
+          disableAll: {
+            title: "Alle Dienste aktivieren oder deaktivieren",
+            description:
+              "Verwende diesen Schalter, um alle Dienste auf einmal zu aktivieren oder zu deaktivieren.",
+          },
+          required: { title: "Immer erforderlich" },
+          purposes: "Zwecke",
+          purpose: "Zweck",
+        },
+        "google-analytics": {
+          title: "Google Analytics 4",
+          description:
+            "Anonymisierte Statistiken zur Nutzung dieser Website. Hilft uns zu verstehen, welche Inhalte für Studierende und Kund*innen relevant sind.",
+        },
+      },
+      en: {
+        consentModal: {
+          title: "Privacy settings",
+          description:
+            "We use cookies and similar technologies to operate this site and to understand how it is used. You are free to decide which categories you want to allow. See the <a href='/en/datenschutz'>privacy policy</a> for details.",
+        },
+        consentNotice: {
+          title: "Privacy",
+          description:
+            "This website uses cookies to analyze usage. You are free to decide whether to allow this. {purposes}",
+          learnMore: "Customize",
+        },
+        purposes: { analytics: { title: "Analytics" } },
+        ok: "Accept all",
+        acceptAll: "Accept all",
+        acceptSelected: "Accept selected",
+        decline: "Decline",
+        close: "Close",
+        save: "Save",
+        poweredBy: "",
+        "google-analytics": {
+          title: "Google Analytics 4",
+          description:
+            "Anonymized statistics about how this site is used.",
+        },
+      },
+    },
+    services: [
+      {
+        name: "google-analytics",
+        title: "Google Analytics 4",
+        purposes: ["analytics"],
+        cookies: [
+          [/^_ga.*/, "/", ".kay-rottmann.de"],
+          [/^_ga.*/, "/", "kay-rottmann.de"],
+          [/^_gid$/, "/", ".kay-rottmann.de"],
+        ],
+        // STEP 3: Hook into accept/decline to drive Consent Mode v2.
+        callback: function (consent) {
+          if (typeof window.gtag !== "function") return;
+          window.gtag("consent", "update", {
+            analytics_storage: consent ? "granted" : "denied",
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+          });
+        },
+        required: false,
+        optOut: false,
+        onlyOnce: true,
+      },
+    ],
+  };
+</script>
+
+<!--
+  STEP 4: GA4 tag, blocked by Klaro until consent is given.
+  type="text/plain" + data-type tells Klaro: do not execute until allowed.
+-->
+<script
+  is:inline
+  type="text/plain"
+  data-type="application/javascript"
+  data-name="google-analytics"
+  async
+  src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+></script>
+<script
+  is:inline
+  type="text/plain"
+  data-type="application/javascript"
+  data-name="google-analytics"
+  define:vars={{ gaId }}
+>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", gaId, { anonymize_ip: true });
+</script>
+
+<!-- Klaro container target -->
+<div id="klaro"></div>
+
+<!--
+  Load Klaro itself. We import the bundled distribution from node_modules
+  via Astro/Vite so it ships through the normal asset pipeline.
+-->
+<script>
+  import "klaro/dist/klaro.css";
+  import * as Klaro from "klaro/dist/klaro-no-css";
+  // Klaro reads window.klaroConfig that we set above.
+  (window as any).klaro = Klaro;
+  Klaro.setup((window as any).klaroConfig);
+</script>

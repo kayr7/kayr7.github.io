@@ -1,0 +1,89 @@
+---
+// Service page targeting "KI Workshop für Unternehmen" (110/mo, KD 5
+// - easiest commercial keyword in our research).
+//
+// SEO notes:
+//   - Keyword in URL slug, H1, first paragraph, and 2 of the 4 H2s.
+//   - 1,200+ words of substantive content (no fluff).
+//   - 6 FAQ items with short, definitive answers (FAQPage schema).
+//   - Service JSON-LD links to r7net as provider.
+//   - Author byline with credentials (E-E-A-T + GEO).
+//   - Internal links to /about and /contact.
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was ist ein KI-Workshop für Unternehmen?",
+    body: "Ein KI-Workshop für Unternehmen ist ein 1- oder 2-tägiges Format, in dem Ihr Team gemeinsam mit einem KI-Experten lernt, was KI heute praktisch leisten kann, welche Use-Cases im eigenen Unternehmen Sinn ergeben, und welche nicht. Ziel ist nicht ein Hype-Vortrag, sondern eine konkrete Use-Case-Liste mit Priorisierung am Ende des Tages. Wir kombinieren Theorie-Inputs (KI-Grundlagen, LLMs, Agenten) mit Hands-on-Übungen an realen Daten und Prozessen aus Ihrem Unternehmen.",
+  },
+  {
+    title: "Für welche Unternehmen lohnt sich ein KI-Workshop?",
+    body: "Besonders für kleine und mittelständische Unternehmen, die KI ernst nehmen wollen, aber noch keine klare Roadmap haben. Typische Teilnehmende: Geschäftsführung, Bereichsleitung, IT-Verantwortliche, sowie fachliche Schlüsselpersonen aus Vertrieb, Service oder Produktion. Vorkenntnisse sind nicht nötig - der Workshop holt jede Teilnehmerin und jeden Teilnehmer dort ab, wo sie oder er gerade steht. Wichtig ist nur die Bereitschaft, eigene Prozesse offen zu diskutieren.",
+  },
+  {
+    title: "Was Sie nach dem Workshop in der Hand haben",
+    body: "Konkret: eine priorisierte Liste mit KI-Use-Cases für Ihr Unternehmen, jeweils mit grober Aufwand-/Nutzen-Schätzung. Eine geteilte Sprache im Team - alle wissen jetzt, was ein LLM ist, was ein KI-Agent kann, wo die Grenzen liegen und wo welche Gefahren lauern. Eine realistische Einschätzung, welche Use-Cases als nächstes prototypisch umgesetzt werden sollten und welche besser noch warten. Und ein Foliensatz mit allen Infos zur Nachbereitung.",
+  },
+  {
+    title: "Warum dieser Workshop anders ist",
+    body: "Die meisten KI-Workshops am Markt sind Marketing-Veranstaltungen großer Beratungen. Unser Workshop kommt aus 15+ Jahren echter AI-Engineering-Erfahrung bei Meta, Bosch und Amazon. Wir verkaufen Ihnen keine generischen Use-Cases aus einem Pitchdeck - wir diskutieren mit Ihrem Team konkrete Prozesse aus Ihrem Unternehmen und sagen Ihnen ehrlich, was funktioniert und was nicht sowie welche Risiken durch zum Beispiel Prompt-Injection oder Halluzinationen bestehen. Kein Buzzword-Bingo, keine Hype-Folien.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Standardformat: 1 Tag vor Ort bei Ihnen oder remote. Optional ein zweiter Tag für Hands-on-Prototyping mit ChatGPT, Claude und Open-Source-Modellen. Gruppengröße 4-12 Personen. Kosten auf Anfrage - typischerweise im niedrigen bis mittleren vierstelligen Bereich für einen Tagesworkshop, also deutlich weniger als ein Beratungsmandat einer großen Unternehmensberatung. Inklusive Vor- und Nachbereitung sowie der finalen Use-Case-Roadmap.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Wie lange dauert ein KI-Workshop für Unternehmen?",
+    answer:
+      "Standardmäßig 1 Tag (8 Stunden inklusive Pausen). Bei Bedarf erweitern wir auf 2 Tage, wenn Hands-on-Prototyping gewünscht ist. Halbtagsformate funktionieren erfahrungsgemäß nicht - für eine echte Use-Case-Priorisierung braucht es genug Zeit für Diskussion.",
+  },
+  {
+    question: "Was kostet ein KI-Workshop?",
+    answer:
+      "Die Kosten hängen von Format, Dauer und Vorbereitung ab. Typischerweise im niedrigen bis mittleren vierstelligen Eurobereich für einen Tag. Auf Anfrage erstellen wir ein konkretes Angebot.",
+  },
+  {
+    question: "Brauchen die Teilnehmenden Vorkenntnisse?",
+    answer:
+      "Nein. Der Workshop ist so aufgebaut, dass sowohl KI-Neulinge als auch erfahrene Personen davon profitieren. Wichtig ist nur, dass die Teilnehmenden bereit sind, eigene Prozesse offen zu diskutieren.",
+  },
+  {
+    question: "Findet der Workshop vor Ort oder remote statt?",
+    answer:
+      "Beides möglich. Vor Ort funktioniert für die Use-Case-Erarbeitung erfahrungsgemäß etwas besser, weil Diskussionen und Whiteboard-Arbeit reibungsloser laufen. Remote ist eine vollwertige Alternative, wenn Reise nicht möglich ist.",
+  },
+  {
+    question: "Was unterscheidet diesen Workshop von einer AI-Schulung?",
+    answer:
+      "Eine AI-Schulung vermittelt vor allem Tool-Bedienung. Ein KI-Workshop für Unternehmen geht weiter: Es geht um die Frage, an welchen Stellen in Ihrem Geschäft KI tatsächlich Wert schafft - und wie eine Roadmap dafür aussieht. Beides kann sinnvoll sein, je nach Ziel.",
+  },
+  {
+    question: "Bieten Sie auch Folge-Beratung nach dem Workshop?",
+    answer:
+      "Ja. Über die r7net GmbH unterstützen wir Unternehmen bei der Umsetzung der Use-Cases, vom Prototyp bis zur Produktion. Der Workshop ist oft der Einstieg, kann aber auch eine eigenständige Leistung sein.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/ki-workshop-fuer-unternehmen",
+    en: "/en/consulting/ai-workshop-for-companies",
+  }}
+  serviceName="KI Workshop für Unternehmen"
+  metaDescription="KI Workshop für Unternehmen mit Prof. Dr. Kay Rottmann (ex-Meta, Bosch, Amazon). 1–2 Tage Hands-on, konkrete Use-Case-Roadmap. Pragmatisch, ohne Buzzwords."
+  eyebrow="Leistung · KI Workshop"
+  headline="KI Workshop für Unternehmen"
+  lead="Ein 1- bis 2-tägiger KI Workshop für Unternehmen, in dem Ihr Team lernt, welche KI-Use-Cases in Ihrem Geschäft tatsächlich funktionieren - und welche nicht. Hands-on, ohne Hype, mit konkreter Use-Case-Roadmap am Ende des Tages."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zum KI Workshop"
+  ctaLabel="Workshop anfragen"
+  bylinePrefix="Workshop und Inhalt:"
+/>

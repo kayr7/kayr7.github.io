@@ -1,0 +1,59 @@
+---
+import { siteConfig } from "../lib/site";
+import { useTranslations, localizedPath, switchLangPath } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  /** Explicit URL for the language switcher. Falls back to the auto-derived
+   *  one when not provided (used by Layout for pages with localized slugs). */
+  switchLangHref?: string;
+}
+const { lang, switchLangHref } = Astro.props;
+const t = useTranslations(lang);
+
+const nav = [
+  { href: localizedPath(lang, "/"), label: t.nav.home },
+  { href: localizedPath(lang, "/about"), label: t.nav.about },
+  { href: localizedPath(lang, "/consulting"), label: t.nav.consulting },
+  { href: localizedPath(lang, "/blog"), label: t.nav.blog },
+  { href: localizedPath(lang, "/contact"), label: t.nav.contact },
+];
+
+const otherLang: Lang = lang === "de" ? "en" : "de";
+const switchHref = switchLangHref ?? switchLangPath(Astro.url.pathname, otherLang);
+---
+
+<header class="border-b border-[var(--color-border)] bg-[var(--color-bg)]">
+  <div
+    class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-6"
+  >
+    <a
+      href={localizedPath(lang, "/")}
+      class="font-serif text-lg font-semibold tracking-tight text-[var(--color-fg)] no-underline"
+      style="font-family: var(--font-serif);"
+    >
+      {siteConfig.name}
+    </a>
+    <nav class="flex items-center gap-7 text-sm">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="hidden text-[var(--color-fg-soft)] no-underline transition hover:text-[var(--color-accent)] sm:inline"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={switchHref}
+        class="rounded-md border border-[var(--color-border-strong)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-fg-soft)] no-underline transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+        aria-label={t.languageSwitcher.switchTo}
+        hreflang={otherLang}
+      >
+        {otherLang === "de" ? "DE" : "EN"}
+      </a>
+    </nav>
+  </div>
+</header>

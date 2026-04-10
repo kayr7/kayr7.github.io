@@ -1,0 +1,86 @@
+---
+// Service page targeting "KI Implementierung" (210/mo, KD 29 Easy)
+// + "ki implementierung im unternehmen", "ki implementierung service".
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was bedeutet KI-Implementierung im Unternehmen?",
+    body: "Die KI-Implementierung ist der Schritt vom Prototyp oder PoC zum produktiven, von Ihrem Team betreibbaren System. Es ist der Teil, den die meisten KI-Projekte unterschätzen - und an dem die meisten scheitern. Ein Modell auf einem Notebook funktionieren zu lassen oder einen ChatGPT-Prompt zu nutzen ist einfach. Es so in Ihre Systeme einzubetten, dass es zuverlässig läuft, kontrollierbar ist, Fehler erkennt, sich aktualisieren lässt und Ihren Anforderungen genügt - das ist die eigentliche Arbeit.",
+  },
+  {
+    title: "Wann lohnt sich eine KI-Implementierung?",
+    body: "Wenn Sie einen Use-Case haben, der einen klaren Business-Wert hat, in einem Prototyp belegt funktioniert und den Sie nicht nur einmal, sondern dauerhaft betreiben wollen. Typische Indikatoren: Sie haben einen funktionierenden ChatGPT-Prompt oder ein Skript, das gute Ergebnisse liefert - aber jedes Mal manuell ausgeführt werden muss. Ein Fachbereich nutzt ein KI-Tool ad-hoc und will es jetzt für 50 Kolleg*innen verfügbar machen. Ein PoC aus einem KI-Workshop hat Sie überzeugt, und der nächste Schritt ist die saubere Umsetzung.",
+  },
+  {
+    title: "Wie eine KI-Implementierung mit uns abläuft",
+    body: "In vier Phasen. <strong>Architektur</strong> (1 Woche): Wie integriert sich die KI in Ihre derzeitige Systemlandschaft? Welche Datenquellen, welche Schnittstellen, welche Berechtigungen sollen benutzt werden? <strong>Entwicklung</strong> (3-8 Wochen): Wir bauen das produktive System inklusive Fehlerbehandlung, Logging, Monitoring und Eval-Framework. <strong>Testen &amp; Hardening</strong> (1-2 Wochen): Realistische Belastungstests, Edge-Case-Coverage, Sicherheits-Review. <strong>Übergabe &amp; Betrieb</strong>: Schulung Ihrer Mitarbeiter, Dokumentation, optional laufende Wartung.",
+  },
+  {
+    title: "Was bei einer guten KI-Implementierung zwingend dazugehört",
+    body: "Drei Dinge, die in Pilotprojekten oft vergessen werden, in Produktion aber nicht fehlen dürfen: <strong>Eval-Framework</strong> - Automatisierte Tests, die regelmäßig prüfen, ob das System noch gut funktioniert. Zu Grunde liegende Modelle ändern sich, Eingabedaten driften, Anforderungen verschieben sich. Ohne Überwachung der Modelle wissen Sie nicht, wann etwas nicht mehr gut funktioniert. <strong>Monitoring &amp; Alerting</strong> - wenn der KI-Service ausfällt oder falsche Antworten liefert, wollen Sie davon erfahren, bevor es Ihre Kund*innen tun. <strong>Fail-Safe-Mechanismen</strong> - was passiert, wenn das Modell unsicher ist, kritische Fehler vorkommen oder ein Tool nicht antwortet? Klare Fallbacks statt Halluzinationen.",
+  },
+  {
+    title: "Build vs. Buy: Wann lohnt sich Eigenentwicklung?",
+    body: "Es ist wichtig zu verstehen, dass nicht jeder Use-Case eine eigene Implementierung braucht. Wenn eine Standard-Lösung (Microsoft Copilot, Notion AI, Zendesk AI) Ihren Use-Case zu 80% abdeckt, kaufen Sie es. Eigenentwicklung lohnt sich, wenn: (a) Sie den Use-Case integriert in Ihre eigenen Daten/Systeme brauchen, (b) Compliance-/Datenschutz-Anforderungen einen externen Dienst ausschließen, (c) der Use-Case spezifisch genug ist, dass kein Standardprodukt passt, oder (d) die laufenden SaaS-Kosten ab einer gewissen Größe Eigenentwicklung wirtschaftlicher machen. Im Discovery prüfen wir genau diese Fragen - und sagen Ihnen ehrlich, wenn eine Eigenentwicklung keine gute Idee ist.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Typisches Engagement: 6-12 Wochen vom Architektur-Workshop bis zum produktiven System, abhängig von Komplexität und Integrationen. Investition typischerweise im fünfstelligen Eurobereich - mit klarer Aufschlüsselung nach Phase. Inklusive Eval-Framework, Monitoring-Setup, Dokumentation und Übergabe an Ihr Team. Auf Anfrage erstellen wir ein konkretes Angebot.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Was kostet eine KI-Implementierung?",
+    answer:
+      "Typischerweise im fünfstelligen Eurobereich für ein produktives System, abhängig von Komplexität, Integrationen und ob ein Prototyp bereits existiert. Auf Anfrage erstellen wir ein konkretes, phasenweise aufgeschlüsseltes Angebot.",
+  },
+  {
+    question: "Wie lange dauert eine KI-Implementierung?",
+    answer:
+      "Standardmäßig 6-12 Wochen vom Architektur-Workshop bis zum Go-Live. Abhängig von Komplexität, Anzahl der Integrationen und Verfügbarkeit Ihrer Daten und Schnittstellen.",
+  },
+  {
+    question: "Setzen Sie auf bestimmte Technologien oder Cloud-Anbieter?",
+    answer:
+      "Wir sind technologieneutral. In der Praxis nutzen wir häufig OpenAI, Anthropic, Google oder Open-Source-Modelle (Qwen, Gemma, Mistral) - je nach Use-Case. Cloud: AWS, Azure, GCP oder On-Prem. Die Wahl treffen wir anhand Ihrer bestehenden Infrastruktur und Compliance-Anforderungen, nicht anhand von Affiliate-Verträgen.",
+  },
+  {
+    question:
+      "Was passiert, wenn das implementierte System später nicht mehr funktioniert?",
+    answer:
+      "Genau dafür gehört zu jeder Implementierung ein Eval-Framework, das regelmäßig prüft, ob das System noch tut, was es soll, plus Monitoring und Alerting. Optional bieten wir laufende Wartung an - alternativ ist Ihr Team nach der Übergabe in der Lage, das System selbst zu betreiben.",
+  },
+  {
+    question: "Brauchen wir vorher einen Prototyp oder Workshop?",
+    answer:
+      "Nicht zwingend, aber sehr empfehlenswert. Ohne validierte Use-Case-Hypothese ist die Wahrscheinlichkeit hoch, dass am Ende ein technisch sauberes System steht, das niemand benutzt. Wenn Sie noch keinen Prototyp haben, fangen wir mit einem KI-Workshop oder einem Strategie-Engagement an.",
+  },
+  {
+    question: "Was unterscheidet Sie von einer klassischen Software-Agentur?",
+    answer:
+      "Klassische Software-Agenturen können API-Calls integrieren, kennen aber meistens die Eigenheiten von LLM-basierten Systemen nicht - Halluzinationen, Eval, Prompt-Drift, Modell-Updates, Cost-Management. Wir bringen 15+ Jahre AI-spezifische Engineering-Erfahrung von Meta, Bosch und Amazon in jedes Projekt ein.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/ki-implementierung",
+    en: "/en/consulting/ai-implementation",
+  }}
+  serviceName="KI Implementierung im Unternehmen"
+  metaDescription="KI Implementierung im Unternehmen mit der r7net GmbH (Prof. Dr. Kay Rottmann). Vom Prototyp zum produktiven, messbaren System in 6-12 Wochen. Inklusive Eval, Monitoring und Übergabe."
+  eyebrow="Leistung · KI Implementierung"
+  headline="KI Implementierung im Unternehmen"
+  lead="Pragmatische KI-Implementierung vom Prototyp zum produktiven System. Mit Eval-Framework, Monitoring und sauberer Übergabe an Ihr Team - basierend auf 15+ Jahren AI-Engineering bei Meta, Bosch und Amazon."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur KI Implementierung"
+  ctaLabel="Implementierung anfragen"
+  bylinePrefix="Implementierung und Inhalt:"
+/>
