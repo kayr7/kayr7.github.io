@@ -1,0 +1,52 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations, localizedPath } from "../../i18n/utils";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Suggest a few useful destinations from the 404 - turns lost traffic
+// into navigation rather than a dead end.
+const suggestions = [
+  { href: localizedPath(lang, "/"), label: t.nav.home },
+  { href: localizedPath(lang, "/about"), label: t.nav.about },
+  { href: localizedPath(lang, "/consulting"), label: t.nav.consulting },
+  { href: localizedPath(lang, "/blog"), label: t.nav.blog },
+  { href: localizedPath(lang, "/contact"), label: t.nav.contact },
+];
+---
+
+<Layout lang={lang} title={t.notFound.title}>
+  <section class="py-24 text-center">
+    <p class="eyebrow justify-center" style="display:inline-flex;">
+      {t.notFound.eyebrow}
+    </p>
+    <h1 class="mt-6 text-5xl sm:text-6xl">{t.notFound.headline}</h1>
+    <p class="mx-auto mt-8 max-w-xl text-lg text-[var(--color-fg-soft)]">
+      {t.notFound.lead}
+    </p>
+
+    <ul class="mx-auto mt-12 flex max-w-xl flex-wrap justify-center gap-3">
+      {
+        suggestions.map((s) => (
+          <li>
+            <a href={s.href} class="btn-secondary">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-12">
+      <a href={localizedPath(lang, "/")} class="btn-primary">
+        {t.notFound.backHome}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</Layout>

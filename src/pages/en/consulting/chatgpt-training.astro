@@ -1,0 +1,80 @@
+---
+// English mirror of /consulting/chatgpt-schulung.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What is a ChatGPT training - and what does it actually deliver?",
+    body: "A ChatGPT training is a 1- to 2-day workshop where your employees learn to use ChatGPT (or Claude, Gemini, Copilot) in a way that genuinely saves time and produces better work. A good training isn't \"this is how you click the buttons.\" It teaches how to write a good prompt, when to trust the model and when not to, how to spot hallucinations, how to work with your own documents, and which use cases make sense for which role. In other words: it turns \"I tried it once\" into a productive tool.",
+  },
+  {
+    title: "Which teams benefit most from ChatGPT training?",
+    body: "Especially: <strong>knowledge workers</strong> (sales, marketing, HR, legal, consulting) - they have the biggest leverage and typically save 20 to 40 % on routine writing. <strong>Leaders</strong> who want to introduce ChatGPT in their team and need to understand first what works and what doesn't. <strong>IT and engineering teams</strong> who want to learn prompt engineering systematically before building their own LLM features. <strong>Whole departments</strong> looking to establish a unified standard for AI use - including data protection and compliance.",
+  },
+  {
+    title: "What you'll be able to do after the training",
+    body: "You'll be able to <strong>write structured prompts</strong> that produce reliable results, instead of drowning in trial-and-error. You'll know <strong>typical usage patterns</strong> for your role: rewriting, summarizing, translating, researching, generating code, structuring data. You'll know when ChatGPT hallucinates and how to spot it. You'll be able to <strong>work with your own documents</strong> (uploads, custom GPTs, RAG) and understand what happens to your data. You'll know the most important <strong>data-protection pitfalls</strong> and how to avoid them - GDPR, trade secrets, sensitive personal data.",
+  },
+  {
+    title: "What makes this training different",
+    body: "Most ChatGPT trainings on the market are surface-level tool demos by trainers who've never built a production AI system themselves. Ours come from 15+ years of AI engineering at Meta, Bosch, and Amazon, plus teaching experience at HdM Stuttgart. You don't just get tips - you understand <em>why</em> certain prompts work, so you can transfer that knowledge to new models when GPT, Claude, or Gemini change again in 6 months.",
+  },
+  {
+    title: "Format and investment",
+    body: "Standard format: 1 day (8 hours) with about 50 % theory and 50 % hands-on exercises on real tasks from your day-to-day work. Optional day 2 for deeper topics like custom GPTs, RAG, or prompt engineering for developers. Group size 4 to 15 people. On-site or remote. Cost typically in the low to mid four-figure euro range per day - on request we provide a quote tailored to your industry and roles.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does a ChatGPT training for companies cost?",
+    answer:
+      "Typically in the low to mid four-figure euro range per day for a group of 4 to 15 people. On request we provide a concrete quote.",
+  },
+  {
+    question: "Do participants need prior experience?",
+    answer:
+      "No. The training meets each participant where they are. Even people with no ChatGPT experience can work productively with it after the training.",
+  },
+  {
+    question: "Which tools does the training cover?",
+    answer:
+      "Mainly Claude (Anthropic) and ChatGPT (OpenAI). On request, also Gemini (Google) or coding agents (Claude Code, OpenAI Codex). We explain the differences and show which tool fits which task best - with no affiliate bias.",
+  },
+  {
+    question: "Is GDPR and data protection covered?",
+    answer:
+      "Yes. Data protection is a mandatory topic in every training we run - especially in Germany. We cover what data ends up where, how to protect trade secrets, and what risks the different modes (Enterprise, API, local) carry.",
+  },
+  {
+    question: "How is a ChatGPT training different from an AI workshop for companies?",
+    answer:
+      "A ChatGPT training is tool training: your employees learn to use ChatGPT &amp; co. productively. An AI workshop for companies is strategy work: your leaders identify concrete AI use cases in your business. Both can be useful - they often complement each other.",
+  },
+  {
+    question: "Is the training on-site or remote?",
+    answer:
+      "Both work. On-site usually flows a bit better for hands-on exercises because discussions move faster. Remote (via Zoom or Teams) is a fully equivalent alternative.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/chatgpt-schulung",
+    en: "/en/consulting/chatgpt-training",
+  }}
+  serviceName="ChatGPT Training for Companies"
+  metaDescription="ChatGPT training for companies with Prof. Dr. Kay Rottmann (HdM lecturer in prompt engineering). Hands-on, practical, with data protection focus. On-site or remote."
+  eyebrow="Service · ChatGPT Training"
+  headline="ChatGPT Training for Companies"
+  lead="A hands-on ChatGPT training where your employees learn to use ChatGPT &amp; co. productively - with structured prompts, secure data handling, and concrete use cases for their role. No buzzwords, with a data protection focus."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request training"
+  bylinePrefix="Training and content:"
+/>

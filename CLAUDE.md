@@ -1,24 +1,23 @@
-# CLAUDE.md - Hugo Website Project Guide
+# CLAUDE.md - Astro Website Project Guide
 
-## Build & Deploy Commands
-- Build site locally: `HUGO_THEME=academia hugo --themesDir themes/`
-- Clean build artifacts: `rm -rf public`
-- Start local server: `hugo server -D`
-- Deploy changes: Build then run `cp -r public deploy/data/`
+This repo is the source for https://www.kay-rottmann.de, built with Astro and
+deployed to GitHub Pages via `.github/workflows/deploy.yml` on every push to
+`master`.
 
-## Content Management
-- Add new post: Create Markdown file in `content/post/[category]/index.md`
-- Add images: Place in same directory as post's index.md file
-- Reference images: `![Alt text](image-name.jpg)`
+## Build & Dev Commands
+- Install deps: `npm ci` (requires Node >= 22.12.0)
+- Dev server: `npm run dev`
+- Production build: `npm run build` (outputs `dist/`)
+- Preview build: `npm run preview`
 
-## Code Style Guidelines
-- Markdown formatting: Use standard Markdown syntax
-- Front matter: Include title, date, draft status, featured image path
-- Image optimization: Compress images before adding to repository
-- Naming conventions: Use lowercase with hyphens for filenames
-- Content structure: Follow existing patterns in content organization
+## Project Layout
+- `src/` — Astro pages, components, layouts, content
+- `public/` — static assets copied verbatim into `dist/`
+- `public/webdemos/` — legacy reveal.js slide decks, audio samples, and
+  impulse-response demos; ships untouched as part of the build output
+- `scripts/` — Node helpers (`generate-og-image.mjs`, `generate-favicons.mjs`)
+- `astro.config.mjs` — site config (i18n: de default, en secondary)
 
-## Reveal.js Presentations
-- Build slide decks: `cd static/vorlesung && npm run build`
-- Start presentation server: `cd static/vorlesung && npm run start`
-- Use standard HTML syntax for slides following existing examples
+## Deployment
+GitHub Actions builds with `npm run build` and publishes `./dist` via
+`actions/upload-pages-artifact` + `actions/deploy-pages`. No manual steps.

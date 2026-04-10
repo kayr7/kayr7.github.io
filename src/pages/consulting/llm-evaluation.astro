@@ -1,0 +1,91 @@
+---
+// Service page for LLM Evaluation. Low German search volume but a
+// genuine differentiator: Kay actively researches agent evaluation
+// at HdM Stuttgart. This page targets long-tail terms like
+// "llm evaluation", "ki system testen", "agent evaluation framework"
+// and serves as the credibility anchor for technical readers.
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title:
+      "Warum LLM-Evaluation / AI-Evaluation der unterschätzteste Teil jedes KI-Projekts ist",
+    body: "Ein Modell, das in einer Demo gut aussieht, ist noch lange kein Modell, das in Produktion funktioniert. Sobald Sie AI ernsthaft einsetzen, brauchen Sie eine Antwort auf die Frage: <em>Wie wissen wir, ob es gut ist?</em> Und vor allem: <em>Wie wissen wir, ob es <strong>besser</strong> geworden ist?</em> Genau hier scheitern die meisten KI-Projekte. Nicht am Modell. Nicht am Prompt. Sondern daran, dass niemand systematisch misst, ob das System das tut, was es soll. Evaluation ist die Disziplin, die diese Frage beantwortet - und sie ist genauso wichtig wie das System selbst. Insbesondere wenn bereits ein System im Einsatz ist, ist Evaluation essenziell, um sicherzustellen, dass ein neues AI-Modell oder ein neuer Prompt nicht zu unerwarteten Problemen führt.",
+  },
+  {
+    title: "Was eine gute AI-Evaluation umfasst",
+    body: "Eine belastbare AI-Evaluation hat mindestens drei Schichten. <strong>Offline-Evaluation</strong>: Test-Sets mit bekannten richtigen Antworten, automatisiert auswertbar (Genauigkeit, Success Rate, F1, BLEU, ROUGE - je nach Aufgabe). Außerdem semantische Bewertungen mit LLM-as-a-judge, wo deterministische Metriken nicht reichen. <strong>Online-Evaluation</strong>: A/B-Tests in Produktion, die echte Nutzersignale messen - Conversion, Zufriedenheit, Effizienz. <strong>Monitoring &amp; Drift-Detection</strong>: laufende Beobachtung, ob sich das System unerwartet verändert (Modell-Update, Daten-Drift, Prompt-Regression). Erst zusammen ergibt sich ein verlässliches Bild.",
+  },
+  {
+    title: "Evaluation für KI-Agenten - wo es richtig schwierig wird",
+    body: 'Bei einfachen LLM-Aufgaben (Klassifikation, Zusammenfassung) sind Standardmetriken ausreichend. Bei <strong>Agenten</strong>, die mehrere Schritte planen, Werkzeuge aufrufen und sich selbst korrigieren, reicht das nicht. Sie müssen messen: Erreicht der Agent das Ziel überhaupt? Hält er sich an Policies (z. B. "frage immer nach, bevor du löschst")? Arbeitet er effizient (nicht 50 Tool-Calls, wenn 5 reichen)? Verhält er sich konsistent über vergleichbare Anfragen? Genau hier bringen wir langjährige Praxiserfahrung mit der Evaluation produktiver AI-Systeme ein.',
+  },
+  {
+    title: "Welche Frameworks und Tools wir typischerweise einsetzen",
+    body: "Je nach Use-Case: <strong>DeepEval</strong> für strukturierte LLM-Tests mit semantischen Metriken. <strong>Langfuse</strong> oder <strong>Phoenix (Arize)</strong> für Observability und Trace-Analyse in Produktion. <strong>τ²-bench</strong> für Agenten-Simulation und policy-konforme Bewertung. <strong>Promptfoo</strong> für leichtgewichtiges A/B-Testing von Prompts. <strong>Eigenes Test-Set</strong> aus Ihren echten Daten - ohne das ist alles andere wertlos. Wir helfen Ihnen, das richtige Framework für Ihre Situation auszuwählen, ohne Sie auf eine bestimmte Tool-Bindung festzulegen.",
+  },
+  {
+    title: "Wie wir Sie bei LLM-Evaluation unterstützen",
+    body: "Drei typische Engagements. <strong>Evaluation-Audit</strong> (1-2 Wochen): Wir prüfen Ihr bestehendes KI-System und sagen Ihnen, was Ihre aktuelle Eval-Strategie kann und was sie übersieht. Ergebnis: konkrete Empfehlungen mit Aufwandsabschätzung. <strong>Eval-Framework-Aufbau</strong> (3-6 Wochen): Wir bauen ein automatisiertes Eval-Framework für Ihren spezifischen Use-Case, inklusive Test-Set-Aufbau, Metrik-Definition und CI-Integration. <strong>Eval als Teil einer Implementierung</strong>: Bei jeder von uns umgesetzten KI-Implementierung gehört das Eval-Framework von Anfang an dazu - nicht als Nachgedanke.",
+  },
+  {
+    title: "Was diese LLM-Evaluation-Beratung anders macht",
+    body: "Sie bekommen ein Team, das nicht nur über Evaluation redet, sondern echte Erfahrung mitbringt. Wir haben bei Amazon Alexa, Bosch und Meta produktive AI-Systeme aufgebaut und dabei jedes Mal die schmerzhafte Erfahrung gemacht, was passiert, wenn Eval zu spät kommt. Diese kombinierte Engineering- und Praxis-Perspektive ist im DACH-Markt selten.",
+  },
+];
+
+const faqs = [
+  {
+    question:
+      "Was ist der Unterschied zwischen Offline- und Online-Evaluation?",
+    answer:
+      "Offline-Evaluation läuft auf einem festen Test-Set, vor dem Deployment, automatisiert und schnell. Online-Evaluation läuft in Produktion mit echten Nutzern (z. B. via A/B-Test) und misst echte Outcomes - dauert länger, ist aber näher an der Wahrheit. Beides braucht man.",
+  },
+  {
+    question: "Wir nutzen schon ChatGPT API. Brauchen wir trotzdem Evaluation?",
+    answer:
+      "Ja, gerade dann. Wenn Sie kein eigenes Modell trainieren, ist Ihre einzige Kontrolle über Qualität die Evaluation. Sonst merken Sie erst beim Kundengespräch, dass das letzte OpenAI-Modell-Update etwas in Ihrem Prompt kaputt gemacht hat.",
+  },
+  {
+    question: "Wie viele Test-Cases brauchen wir mindestens?",
+    answer:
+      "Faustregel: Mindestens 50 für ein erstes brauchbares Signal, 200+ für statistisch belastbare Aussagen, 1000+ für Edge-Case-Coverage. Wichtiger als die reine Anzahl ist die Qualität - echte Daten aus Ihrem Use-Case, mit guten Labels.",
+  },
+  {
+    question:
+      "Können Sie auch Eval für bestehende Systeme nachträglich aufbauen?",
+    answer:
+      "Ja, das ist sogar einer der häufigsten Aufträge. Viele Teams haben ein produktives KI-System ohne strukturierte Evaluation und merken erst nach Monaten, dass die Qualität schleichend nachlässt. Eval-Frameworks lassen sich auch nachträglich einbauen.",
+  },
+  {
+    question: "Was kostet der Aufbau eines Eval-Frameworks?",
+    answer:
+      "Audit (1-2 Wochen) typischerweise im niedrigen vierstelligen Eurobereich. Vollständiger Framework-Aufbau (3-6 Wochen) im niedrigen bis mittleren fünfstelligen Bereich, abhängig von Komplexität und Test-Set-Größe.",
+  },
+  {
+    question: "Setzen Sie auf bestimmte Tools oder Frameworks?",
+    answer:
+      "Nein. Wir haben keine Affiliate-Verträge - die Tool-Wahl richtet sich nach Ihrem Stack und Ihren Anforderungen.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/llm-evaluation",
+    en: "/en/consulting/llm-evaluation",
+  }}
+  serviceName="LLM Evaluation für Produktivsysteme"
+  metaDescription="LLM Evaluation und Eval-Framework-Aufbau mit Prof. Dr. Kay Rottmann. Damit Sie wissen, ob Ihr AI-System wirklich funktioniert."
+  eyebrow="Leistung · AI Evaluation"
+  headline="AI Evaluation für Produktivsysteme"
+  lead="Wie wissen Sie, ob Ihr LLM-basiertes System wirklich funktioniert? Wir bauen Evaluations-Frameworks, die Ihre KI-Systeme messbar machen - vom Prompt bis zum komplexen Multi-Agent-System. Auf Basis von 15+ Jahren Erfahrung mit produktiven AI-Systemen bei Meta, Bosch und Amazon."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur LLM Evaluation"
+  ctaLabel="Eval-Audit anfragen"
+  bylinePrefix="Beratung und Inhalt:"
+/>

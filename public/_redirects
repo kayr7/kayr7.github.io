@@ -1,0 +1,57 @@
+# Netlify / Cloudflare Pages redirects file.
+#
+# Migration plan from the old Hugo-based kay-rottmann.de to the new
+# Astro site. Based on a Semrush backlink audit (Apr 2026):
+#
+#   - 28 of 50 external backlinks point at the homepage (/) - preserved
+#     automatically because the new site keeps the same root URL.
+#   - The remaining indexed paths come from Hugo theme defaults
+#     (/authors/, /tags/, /post/...) and have 0 external backlinks each.
+#     Redirected defensively for any cached/bookmarked traffic and for
+#     search-engine crawl signals.
+#
+# Format: <from> <to> <status>
+# 301 = permanent. Use 301 (not 302) so link equity transfers.
+
+# --- Old Hugo blog posts ---
+# All old /post/* slugs go to the new /blog hub. Specific slugs can be
+# remapped here if equivalent posts get reauthored on the new site.
+/post                       /blog          301
+/post/                      /blog          301
+/post/*                     /blog          301
+
+# Old categories / tags / publication-type pages from the academic theme
+/categories                 /blog          301
+/categories/                /blog          301
+/categories/*               /blog          301
+/tags                       /blog          301
+/tags/                      /blog          301
+/tags/*                     /blog          301
+/publication_types          /about         301
+/publication_types/         /about         301
+/publication_types/*        /about         301
+
+# Author pages
+/authors                    /about         301
+/authors/                   /about         301
+/authors/*                  /about         301
+
+# Old project pages → consulting hub on new site
+/project                    /consulting    301
+/project/                   /consulting    301
+/project/*                  /consulting    301
+
+# Privacy policy moved to /datenschutz (German) / /en/datenschutz (English)
+/privacy                    /datenschutz   301
+/privacy/                   /datenschutz   301
+
+# One-off legacy demo / experiment pages from earlier versions
+/BodyAssistant              /          301
+/MetalDetector              /          301
+/wakeUp                     /          301
+
+# Cloudflare email-protection wrapper that no longer applies
+/cdn-cgi/l/email-protection /contact       301
+
+# Stray "/kit.edu" link (likely a malformed external link). Send to KIT.
+/kit.edu                    https://www.kit.edu/  301!

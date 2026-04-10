@@ -1,0 +1,84 @@
+---
+// English mirror of /consulting/ki-implementierung.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What does AI implementation in a company actually mean?",
+    body: "AI implementation is the step from a prototype or PoC to a production system that's measured, controllable, and operable by your team. It's the part most AI projects underestimate - and where most of them fail. Getting a model to work in a notebook is easy. Embedding it into your systems so it runs reliably, can be controlled, catches errors, can be updated, and meets your compliance requirements - that's the actual work.",
+  },
+  {
+    title: "When does an AI implementation make sense?",
+    body: "When you have a use case that delivers clear business value, has been proven to work in a prototype, and that you want to run continuously rather than once. Typical signals: you have a working ChatGPT prompt or script that produces good results - but has to be run manually every time. A business unit uses an AI tool ad-hoc and now wants to make it available to 50 colleagues. A PoC from a workshop convinced you, and the next step is a clean implementation.",
+  },
+  {
+    title: "How an AI implementation with r7net works",
+    body: "In four phases. <strong>Architecture</strong> (1 week): how does the AI integrate with your existing system landscape? Which data sources, which APIs, which permissions? <strong>Development</strong> (3 to 8 weeks): we build the production system including error handling, logging, monitoring, and an eval framework. <strong>Test &amp; hardening</strong> (1 to 2 weeks): realistic load tests, edge-case coverage, security review. <strong>Handover &amp; operation</strong>: training your team, documentation, optional ongoing maintenance via r7net GmbH.",
+  },
+  {
+    title: "Three things every good AI implementation includes",
+    body: "Three things that are often forgotten in pilots but cannot be missing in production: <strong>Eval framework</strong> - automated tests that regularly check whether the system still does what it should. Models change, data drifts, requirements shift. Without evals you don't know when it breaks. <strong>Monitoring &amp; alerting</strong> - when the AI service fails or returns absurd answers, you want to know before your customers do. <strong>Fail-safe mechanisms</strong> - what happens when the model is uncertain or a tool doesn't respond? Clear fallbacks instead of hallucinations.",
+  },
+  {
+    title: "Build vs. buy: when does custom development pay off?",
+    body: "Not every use case needs custom implementation. If a standard SaaS (Microsoft Copilot, Notion AI, Zendesk AI) covers 80 % of your use case, buy it. Custom development pays off when: (a) you need the use case integrated with your own data and systems, (b) compliance/data protection rules out external services, (c) the use case is specific enough that no off-the-shelf product fits, or (d) ongoing SaaS costs at your scale make in-house development more economical. In discovery we check exactly these questions - and tell you honestly if build isn't a good idea.",
+  },
+  {
+    title: "Format and investment",
+    body: "Typical engagement: 6 to 12 weeks from architecture workshop to production system, depending on complexity and integrations. Investment typically in the five-figure euro range, broken down by phase. Includes eval framework, monitoring setup, documentation, and handover to your team. On request we provide a concrete quote.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does an AI implementation cost?",
+    answer:
+      "Typically in the five-figure euro range for a production system, depending on complexity, integrations, and whether a prototype already exists. On request we provide a concrete, phase-by-phase quote.",
+  },
+  {
+    question: "How long does an AI implementation take?",
+    answer:
+      "Standard is 6 to 12 weeks from architecture workshop to go-live. Depends on complexity, number of integrations, and availability of your data and APIs.",
+  },
+  {
+    question: "Are you tied to specific technologies or cloud providers?",
+    answer:
+      "We're technology-neutral. In practice we often use OpenAI, Anthropic, Google, or open-source models (Qwen, Gemma, Mistral) - depending on the use case. Cloud: AWS, Azure, GCP, or on-prem. The choice depends on your existing infrastructure and compliance requirements, not on affiliate deals.",
+  },
+  {
+    question: "What happens if the implemented system stops working later?",
+    answer:
+      "That's exactly why every implementation includes an eval framework that regularly checks whether the system still works, plus monitoring and alerting. Optionally, r7net GmbH offers ongoing maintenance - alternatively your team is equipped to operate the system independently after handover.",
+  },
+  {
+    question: "Do we need a prototype or workshop first?",
+    answer:
+      "Not strictly required, but strongly recommended. Without a validated use-case hypothesis, you risk ending up with a technically clean system that nobody uses. If you don't have a prototype yet, we start with an AI workshop or strategy engagement.",
+  },
+  {
+    question: "How are you different from a regular software agency?",
+    answer:
+      "Regular software agencies can integrate API calls but usually don't know the quirks of LLM-based systems - hallucinations, evals, prompt drift, model updates, cost management. We bring 15+ years of AI-specific engineering experience from Meta, Bosch, and Amazon to every engagement.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/ki-implementierung",
+    en: "/en/consulting/ai-implementation",
+  }}
+  serviceName="AI Implementation"
+  metaDescription="AI implementation by r7net GmbH (Prof. Dr. Kay Rottmann). From prototype to production, measurable system in 6-12 weeks. Includes eval, monitoring, and handover."
+  eyebrow="Service · AI Implementation"
+  headline="AI Implementation"
+  lead="Pragmatic AI implementation from prototype to production. With eval framework, monitoring, and clean handover to your team - based on 15+ years of AI engineering at Meta, Bosch, and Amazon."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request implementation"
+  bylinePrefix="Implementation and content:"
+/>

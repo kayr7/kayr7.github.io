@@ -1,0 +1,95 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../lib/site";
+import ConsentManager from "../components/ConsentManager.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+import { personSchema, organizationSchema, webSiteSchema } from "../lib/schema";
+import { getLangFromUrl, useTranslations, switchLangPath } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  /** Override the language detected from the URL. */
+  lang?: Lang;
+  title?: string;
+  description?: string;
+  /**
+   * Optional explicit cross-language alternates. Use this when the DE
+   * and EN versions of a page have different slugs (e.g. service pages
+   * targeting localized keywords). If omitted, alternates are auto-derived
+   * by swapping the locale prefix on the current path.
+   */
+  alternates?: { de?: string; en?: string };
+}
+
+const lang: Lang = Astro.props.lang ?? getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pageTitle = Astro.props.title
+  ? `${Astro.props.title} - ${siteConfig.name}`
+  : t.site.title;
+const pageDescription = Astro.props.description ?? t.site.description;
+
+// Build hreflang URLs so search engines and AI crawlers know there are
+// equivalent translations. If `alternates` is supplied, use those paths
+// directly; otherwise auto-derive from the current pathname.
+const dePath = Astro.props.alternates?.de ?? switchLangPath(Astro.url.pathname, "de");
+const enPath = Astro.props.alternates?.en ?? switchLangPath(Astro.url.pathname, "en");
+const deUrl = new URL(dePath, siteConfig.url).toString();
+const enUrl = new URL(enPath, siteConfig.url).toString();
+
+// The language switcher in the header needs to know where to send
+// visitors when they switch languages.
+const switchLangHref = lang === "de" ? enPath : dePath;
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "de" ? "de_DE" : "en_US"} />
+    <meta
+      property="og:url"
+      content={new URL(Astro.url.pathname, siteConfig.url).toString()}
+    />
+    <meta property="og:image" content={new URL("/og-image.png", siteConfig.url).toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL("/og-image.png", siteConfig.url).toString()} />
+
+    <link rel="alternate" hreflang="de" href={deUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={deUrl} />
+
+    {/* Site-wide JSON-LD: Person, Organization, WebSite. Critical for
+        E-E-A-T and for LLM entity grounding (GEO). */}
+    <JsonLd data={personSchema()} />
+    <JsonLd data={organizationSchema()} />
+    <JsonLd data={webSiteSchema(lang)} />
+
+    <ConsentManager lang={lang} />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header lang={lang} switchLangHref={switchLangHref} />
+    <main class="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

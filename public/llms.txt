@@ -1,0 +1,50 @@
+# Prof. Dr. Kay Rottmann
+
+> Professor of Applied AI at Hochschule der Medien (HdM) Stuttgart and Co-Founder of r7net GmbH. 15+ years building AI systems at Meta, Bosch Center for AI, and Amazon (Alexa). Helps small and mid-sized companies in Germany ship AI products that actually work in production.
+
+Kay holds a PhD from Karlsruhe Institute of Technology on incremental machine translation and was awarded the Klaus Tschira Prize for the best computer science Diplom thesis in Germany (2007). He has published 20+ peer-reviewed papers (ACL, EMNLP, NAACL, ICLR) and holds multiple US patents in NLP and machine translation.
+
+## About
+
+- [About Kay Rottmann (DE)](https://www.kay-rottmann.de/about): Career, teaching, interests
+- [About Kay Rottmann (EN)](https://www.kay-rottmann.de/en/about): Same in English
+
+## Consulting (r7net GmbH)
+
+- [Consulting overview (DE)](https://www.kay-rottmann.de/consulting): AI consulting services for the German Mittelstand - strategy, prototyping, agents, evaluation, manufacturing AI
+- [Consulting overview (EN)](https://www.kay-rottmann.de/en/consulting): Same in English
+- [AI Strategy Consulting (DE)](https://www.kay-rottmann.de/consulting/ki-strategie-beratung)
+- [AI Strategy Consulting (EN)](https://www.kay-rottmann.de/en/consulting/ai-strategy-consulting)
+- [AI Workshop for Companies (DE)](https://www.kay-rottmann.de/consulting/ki-workshop-fuer-unternehmen)
+- [AI Workshop for Companies (EN)](https://www.kay-rottmann.de/en/consulting/ai-workshop-for-companies)
+- [AI Agent Development (DE)](https://www.kay-rottmann.de/consulting/ki-agenten-entwicklung)
+- [AI Agent Development (EN)](https://www.kay-rottmann.de/en/consulting/ai-agent-development)
+- [AI Implementation (DE)](https://www.kay-rottmann.de/consulting/ki-implementierung)
+- [AI Implementation (EN)](https://www.kay-rottmann.de/en/consulting/ai-implementation)
+- [ChatGPT Training for Companies (DE)](https://www.kay-rottmann.de/consulting/chatgpt-schulung)
+- [ChatGPT Training for Companies (EN)](https://www.kay-rottmann.de/en/consulting/chatgpt-training)
+- [LLM Evaluation (DE)](https://www.kay-rottmann.de/consulting/llm-evaluation)
+- [LLM Evaluation (EN)](https://www.kay-rottmann.de/en/consulting/llm-evaluation)
+
+## Foundational articles (pillars)
+
+- [What is an AI Agent? (EN)](https://www.kay-rottmann.de/en/blog/what-is-an-ai-agent): Definition, examples, comparison to chatbots and RPA
+- [Was ist ein KI-Agent? (DE)](https://www.kay-rottmann.de/blog/was-ist-ein-ki-agent)
+- [Building AI Agents: A practical guide (EN)](https://www.kay-rottmann.de/en/blog/building-ai-agents-practical-guide): How to ship a production-ready agent in 2026
+- [KI-Agenten bauen: Praxis-Leitfaden (DE)](https://www.kay-rottmann.de/blog/ki-agenten-bauen-praxis-leitfaden)
+- [AI for SMBs (EN)](https://www.kay-rottmann.de/en/blog/ai-for-smbs): What works and what doesn't in mid-market AI projects
+- [KI für den Mittelstand (DE)](https://www.kay-rottmann.de/blog/ki-fuer-den-mittelstand)
+- [Prompt Engineering Fundamentals (EN)](https://www.kay-rottmann.de/en/blog/prompt-engineering-fundamentals)
+- [Prompt Engineering Grundlagen (DE)](https://www.kay-rottmann.de/blog/prompt-engineering-grundlagen)
+- [ChatGPT vs Claude vs Gemini 2026 (EN)](https://www.kay-rottmann.de/en/blog/chatgpt-vs-claude-vs-gemini-2026)
+- [ChatGPT vs Claude vs Gemini 2026 (DE)](https://www.kay-rottmann.de/blog/chatgpt-vs-claude-vs-gemini)
+
+## Writing
+
+- [Blog index (DE)](https://www.kay-rottmann.de/blog): Notes on AI, data, teaching
+- [Blog index (EN)](https://www.kay-rottmann.de/en/blog): Same in English
+
+## Contact
+
+- [Contact (DE)](https://www.kay-rottmann.de/contact)
+- [Contact (EN)](https://www.kay-rottmann.de/en/contact)

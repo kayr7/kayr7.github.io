@@ -1,0 +1,90 @@
+---
+// Service page targeting "KI Agenten erstellen" (880/mo, KD 28 - Easy)
+// + "ki agent erstellen" (720/mo) + "ki agent" (1.6K/mo, KD 52). Total
+// addressable cluster ~16K/mo.
+//
+// This is the biggest commercial-intent opportunity in the keyword set
+// AND aligns with Kay's actual agentic AI research at HdM.
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was ist ein KI-Agent?",
+    body: "Ein KI-Agent ist ein LLM-basiertes System, welches eigenständig Aufgaben in mehreren Schritten löst. Dazu plant es, ruft Werkzeuge auf (z.B. Datenbanken, APIs, Webseiten, andere Systeme), liest Ergebnisse, korrigiert sich selbst und liefert am Ende ein Ergebnis. Anders als ein einfacher Chatbot, der nur antwortet, <em>agiert</em> ein Agent. Beispiele: ein Vertriebs-Agent, der selbstständig Leads qualifiziert und CRM-Einträge aktualisiert; ein Support-Agent, der selbstständig Tickets klassifiziert und Standardanfragen löst; ein Recherche-Agent, der selbstständig mehrere Quellen vergleicht und einen Bericht schreibt.",
+  },
+  {
+    title: "Warum KI-Agenten in 2026 funktionieren - und wo sie scheitern",
+    body: "Mit den aktuellen LLMs sind KI-Agenten in vielen Aufgaben tatsächlich produktionsreif geworden. Sie funktionieren, wenn die Aufgabe klar abgrenzbar ist, die verfügbaren Werkzeuge definiert und es einen sauberen Bewertungsmechanismus gibt. Sie scheitern, wenn die Aufgabe schlecht spezifiziert ist, die Werkzeuge sich unerwartet verhalten oder niemand misst, ob der Agent seinen Job tatsächlich macht. Genau hier setzen wir an: Wir bauen Agenten so, dass sie messbar funktionieren - nicht so, dass sie nur in einer Demo gut aussehen.",
+  },
+  {
+    title: "Wie wir einen KI-Agenten für Ihr Unternehmen entwickeln",
+    body: "In vier Schritten. <strong>Use-Case-Schärfung</strong>: Wir definieren genau, was der Agent tun soll, an welchen Daten und Werkzeugen, und wie wir messen, ob er die Aufgaben löst. Das Ziel ist dann schnell einen <strong>Prototypen</strong> - einen lauffähigen Agenten - in 2-4 Wochen zu entwickeln, der zeigt, dass die Kern-Aufgabe auf echten Daten gelöst werden kann. <strong>Evaluation</strong>: Aufbau eines Eval-Frameworks, das automatisiert prüft, ob der Agent in echten, repräsentativen Szenarien funktioniert. Hier hilft uns langjährige Erfahrung im Bereich der Evaluation von AI-Systemen. <strong>Inbetriebnahme</strong>: Integration in Ihre Systeme, Monitoring, Fail-Safe-Mechanismen und Übergabe an Ihr Team.",
+  },
+  {
+    title: "Welche KI-Agenten lohnen sich - und welche nicht",
+    body: "Lohnen sich erfahrungsgemäß: Klassifikations- und Routing-Agenten (Tickets, E-Mails, Anfragen), interne Recherche-Assistenten (PDF-Berichte, Wissensdatenbanken), Datenpflege-Agenten (CRM/ERP-Updates), strukturierte Sales-Qualifikation. Lohnen sich oft <em>nicht</em>: 100 % vollautomatisierte Customer-Service-Bots ohne menschlichen Fallback (Reputationsrisiko), Agenten in regulierten Bereichen ohne klare Audit-Trails, Agenten als Ersatz für funktionierende deterministische Workflows. Im Workshop-Teil prüfen wir genau, in welche Kategorie Ihr Use-Case fällt.",
+  },
+  {
+    title: "Multi-Agenten-Systeme - wann sinnvoll, wann nicht",
+    body: "Multi-Agenten-Systeme orchestrieren mehrere spezialisierte Agenten, die zusammen ein größeres Problem lösen. Sie sind sinnvoll, wenn unterschiedliche Schritte auch unterschiedliche Modelle, Werkzeuge oder Berechtigungen brauchen - zum Beispiel ein Recherche-Agent, der einem Schreib-Agenten zuarbeitet. Sie sind <em>nicht</em> sinnvoll, wenn ein einzelner gut spezifizierter Agent denselben Job erledigen kann. Unser Standard-Rat: Fangen Sie mit einem einzelnen Agenten an. Erweitern Sie zu Multi-Agent erst, wenn Sie konkret ein Problem lösen, das ein einzelner Agent nicht lösen kann.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Typisches Engagement: 6-10 Wochen vom Use-Case bis zum produktiven Agenten, abhängig von Komplexität und Integrationen. Investition im niedrigen bis mittleren fünfstelligen Eurobereich für einen ersten produktiven Agenten - deutlich weniger, wenn ein Prototyp ausreichend ist. Inklusive Evaluations-Framework, Dokumentation und Übergabe an Ihr Team. Auf Anfrage erstellen wir ein konkretes Angebot.",
+  },
+];
+
+const faqs = [
+  {
+    question:
+      "Was ist der Unterschied zwischen einem KI-Agenten und einem Chatbot?",
+    answer:
+      "Ein Chatbot beantwortet Ihre Fragen. Ein KI-Agent handelt: Er plant, ruft Werkzeuge auf, liest Ergebnisse, korrigiert sich selbst und liefert am Ende ein Resultat. Ein Agent kann ein Chatbot sein, aber ein einfacher Chatbot ist noch lange kein Agent.",
+  },
+  {
+    question: "Welches LLM nutzen Sie für KI-Agenten?",
+    answer:
+      "Das hängt vom Use-Case ab. Für komplexe Reasoning-Aufgaben aktuell am häufigsten Claude oder GPT. Für hohe Volumina mit einfacheren Aufgaben oder wenn Datenschutz eine große Rolle spielt, oft lokal hostbare Open-Source-Modelle (Gemma, Mistral, Qwen) für deutlich niedrigere Kosten. Da wir selbst nicht an den Tokens verdienen, helfen wir bei einer ehrlichen Auswahl - nicht jeder Use-Case braucht das teuerste Modell.",
+  },
+  {
+    question: "Wie messen Sie, ob ein KI-Agent gut funktioniert?",
+    answer:
+      "Mit einem Eval-Framework, das automatisiert prüft: Erreicht der Agent das Ziel? Hält er sich an Policies? Arbeitet er effizient? Verhält er sich konsistent? Unsere Erfahrung aus der Evaluation produktiver AI-Systeme fließt direkt ein.",
+  },
+  {
+    question: "Was kostet die Entwicklung eines KI-Agenten?",
+    answer:
+      "Typischerweise im niedrigen bis mittleren fünfstelligen Eurobereich für einen ersten produktiven Agenten inklusive Eval-Framework. Ein reiner Prototyp ist deutlich günstiger. Auf Anfrage erstellen wir ein konkretes Angebot.",
+  },
+  {
+    question: "Wie lange dauert es, einen KI-Agenten zu entwickeln?",
+    answer:
+      "Vom Use-Case-Workshop bis zum produktiven Agenten typischerweise 6-10 Wochen, abhängig von Komplexität und Anzahl der Integrationen. Ein erster Prototyp auf echten Daten oft schon nach 2-4 Wochen.",
+  },
+  {
+    question: "Können wir den Agenten danach selbst weiterentwickeln?",
+    answer:
+      "Ja, das ist sogar das Ziel. Übergabe an Ihr Team ist Teil jedes Engagements: Code-Walkthrough, Dokumentation, Eval-Framework, das Sie selbst weiter ausbauen können. Sie sind nicht von uns abhängig.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/ki-agenten-entwicklung",
+    en: "/en/consulting/ai-agent-development",
+  }}
+  serviceName="KI-Agenten Entwicklung"
+  metaDescription="KI-Agenten erstellen mit der r7net GmbH (Prof. Dr. Kay Rottmann). Vom Use-Case zum produktiven Agenten in 6-10 Wochen, mit Eval-Framework."
+  eyebrow="Leistung · KI-Agenten"
+  headline="KI-Agenten erstellen für Unternehmen"
+  lead="Wir entwickeln KI-Agenten, die nicht nur in einer Demo funktionieren, sondern in der echten Welt. Vom ersten Use-Case-Workshop bis zum produktiven, gemessenen Agenten - auf Basis von 15+ Jahren AI-Engineering bei Meta, Bosch und Amazon."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur KI-Agenten Entwicklung"
+  ctaLabel="Agenten-Projekt anfragen"
+  bylinePrefix="Entwicklung und Inhalt:"
+/>

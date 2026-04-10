@@ -1,0 +1,81 @@
+---
+// English version of the KI Workshop service page.
+// Mirrors /consulting/ki-workshop-fuer-unternehmen with native English copy.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What is an AI workshop for companies?",
+    body: "An AI workshop for companies is a 1- or 2-day format where your team learns - together with an AI expert - what AI can practically do today, which use cases make sense in your specific business, and which ones don't. The goal isn't a hype talk; it's a concrete, prioritized use-case list at the end of the day. We combine theory inputs (AI fundamentals, LLMs, agents) with hands-on exercises on real data and processes from your company.",
+  },
+  {
+    title: "Which companies benefit most from an AI workshop?",
+    body: "Especially small and mid-sized businesses that want to take AI seriously but don't yet have a clear roadmap. Typical participants: leadership, business unit heads, IT leads, and key people from sales, service, or production. No prior knowledge required - the workshop meets each participant where they are. The only prerequisite is a willingness to discuss your own processes openly.",
+  },
+  {
+    title: "What you walk away with",
+    body: "Concretely: a prioritized list of 5 to 10 AI use cases for your company, each with a rough effort/value estimate. A shared vocabulary across the team - everyone now knows what an LLM is, what an AI agent can do, where the limits are. A realistic view of which use cases should be prototyped next and which should wait. And a slide deck with all inputs for follow-up.",
+  },
+  {
+    title: "Why this workshop is different",
+    body: "Most AI workshops on the market are marketing events from large consulting firms. Ours comes from 15+ years of real AI engineering at Meta, Bosch, and Amazon. We won't sell you generic use cases from a pitch deck - we'll discuss concrete processes from your business with your team and tell you honestly what works and what doesn't. No buzzword bingo, no hype slides.",
+  },
+  {
+    title: "Format and investment",
+    body: "Standard format: 1 day on-site at your office or remote. Optional day 2 for hands-on prototyping with ChatGPT, Claude, and open-source models. Group size 4 to 12 people. Pricing on request - typically in the low to mid four-figure euro range for a single-day workshop, significantly less than an engagement with a large consulting firm. Includes preparation, follow-up, and the final use-case roadmap.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How long does an AI workshop for companies take?",
+    answer:
+      "Standard format is 1 day (8 hours including breaks). We extend to 2 days when hands-on prototyping is wanted. Half-day formats don't really work - proper use-case prioritization needs enough time for discussion.",
+  },
+  {
+    question: "How much does an AI workshop cost?",
+    answer:
+      "Cost depends on format, duration, and preparation effort. Typically in the low to mid four-figure euro range for a single day. On request we provide a concrete quote.",
+  },
+  {
+    question: "Do participants need prior AI knowledge?",
+    answer:
+      "No. The workshop is structured so that both AI newcomers and experienced people benefit. The only requirement is willingness to discuss your own processes openly.",
+  },
+  {
+    question: "Is the workshop on-site or remote?",
+    answer:
+      "Both work. On-site usually flows a bit better for use-case work because discussions and whiteboard sessions are smoother. Remote is a fully equivalent alternative when travel isn't feasible.",
+  },
+  {
+    question: "How is this different from a ChatGPT training?",
+    answer:
+      "A ChatGPT training mostly teaches tool usage. An AI workshop for companies goes further: it answers where in your business AI actually creates value - and what a roadmap for that looks like. Both can be useful depending on your goal.",
+  },
+  {
+    question: "Do you offer follow-up consulting after the workshop?",
+    answer:
+      "Yes. Through r7net GmbH we help companies implement the prioritized use cases - from prototype to production. The workshop is often the entry point, but it can also stand on its own.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/ki-workshop-fuer-unternehmen",
+    en: "/en/consulting/ai-workshop-for-companies",
+  }}
+  serviceName="AI Workshop for Companies"
+  metaDescription="AI workshop for companies with Prof. Dr. Kay Rottmann (ex-Meta, Bosch, Amazon). 1 to 2 days hands-on, concrete use-case roadmap. Pragmatic, no buzzwords."
+  eyebrow="Service · AI Workshop"
+  headline="AI Workshop for Companies"
+  lead="A 1- to 2-day AI workshop for companies in which your team learns which AI use cases actually work in your business - and which don't. Hands-on, no hype, with a concrete use-case roadmap at the end of the day."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request a workshop"
+  bylinePrefix="Workshop and content:"
+/>

@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/*
+ * Light editorial theme.
+ *
+ * No web fonts on purpose: Google Fonts embedded directly is a known
+ * GDPR risk in Germany (LG München I, 2022). System fonts give us a
+ * polished serif/sans pairing with zero third-party requests.
+ */
+
+:root {
+  /* Warm off-white paper, not pure white */
+  --color-bg: #fbfaf7;
+  --color-bg-elevated: #ffffff;
+  --color-fg: #0b1221;
+  --color-fg-soft: #2b3245;
+  --color-muted: #5b6577;
+  --color-border: #e7e3d8;
+  --color-border-strong: #d6d1c2;
+  --color-accent: #1e3a8a; /* deep ink blue */
+  --color-accent-hover: #1e40af;
+  --color-rule: #1e3a8a;
+
+  --font-serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
+}
+
+/* Headings get the serif voice */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+  color: var(--color-fg);
+}
+
+h1 {
+  font-weight: 600;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-color: rgba(30, 58, 138, 0.25);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+/* Long-form article styling */
+.prose-content {
+  max-width: 68ch;
+  line-height: 1.75;
+  color: var(--color-fg-soft);
+  font-size: 1.0625rem;
+}
+
+.prose-content h1 {
+  font-size: 2.5rem;
+  color: var(--color-fg);
+  margin-bottom: 0.5rem;
+}
+
+.prose-content h2 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-fg);
+}
+
+.prose-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-fg);
+}
+
+.prose-content p {
+  margin-bottom: 1.1rem;
+}
+
+.prose-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.prose-content blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-fg);
+  margin: 1.5rem 0;
+}
+
+/* A short decorative rule used under section eyebrows */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* Subtle paper-grain card */
+.card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.card:hover {
+  border-color: var(--color-border-strong);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--color-fg);
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--color-border-strong);
+  transition: background 150ms ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg-elevated);
+}

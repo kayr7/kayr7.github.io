@@ -1,0 +1,39 @@
+---
+import { siteConfig } from "../lib/site";
+import { useTranslations, localizedPath } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-32 border-t border-[var(--color-border)]">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-10 text-sm text-[var(--color-muted)] sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p>© {year} {siteConfig.name}</p>
+    <nav class="flex flex-wrap gap-6">
+      <a
+        href={localizedPath(lang, "/impressum")}
+        class="no-underline hover:text-[var(--color-accent)]"
+        >{t.footer.impressum}</a
+      >
+      <a
+        href={localizedPath(lang, "/datenschutz")}
+        class="no-underline hover:text-[var(--color-accent)]"
+        >{t.footer.datenschutz}</a
+      >
+      <button
+        type="button"
+        onclick="window.klaro && window.klaro.show(window.klaroConfig)"
+        class="cursor-pointer bg-transparent p-0 text-inherit hover:text-[var(--color-accent)]"
+      >
+        {t.footer.cookieSettings}
+      </button>
+    </nav>
+  </div>
+</footer>

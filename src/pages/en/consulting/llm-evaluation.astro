@@ -1,0 +1,84 @@
+---
+// English mirror of /consulting/llm-evaluation.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Why LLM evaluation is the most underestimated part of any AI project",
+    body: "A model that looks good in a demo isn't a model that works in production. Once you deploy LLMs seriously, you need an answer to: <em>how do we know it's good?</em> And more importantly: <em>how do we know it's <strong>better</strong></em>? This is where most AI projects fail. Not at the model. Not at the prompt. They fail because nobody systematically measures whether the system does what it should. LLM evaluation is the discipline that answers this - and it's just as important as the system itself.",
+  },
+  {
+    title: "What good LLM evaluation includes",
+    body: "Robust LLM evaluation has at least three layers. <strong>Offline evaluation</strong>: test sets with known correct answers, automatically scoreable (accuracy, F1, BLEU, ROUGE - depending on the task). Plus semantic evaluation with LLM-as-a-judge where deterministic metrics fall short. <strong>Online evaluation</strong>: A/B tests in production that measure real user signals - conversion, satisfaction, efficiency. <strong>Monitoring &amp; drift detection</strong>: continuous observation of unexpected changes (model updates, data drift, prompt regressions). Only together do they give you a reliable picture.",
+  },
+  {
+    title: "Evaluation for AI agents - where it gets really hard",
+    body: "For simple LLM tasks (classification, summarization), standard metrics are enough. For <strong>agents</strong> that plan multiple steps, call tools, and self-correct, they're not. You have to measure: does the agent achieve its goal at all? Does it follow policies (e.g. \"always confirm before deleting\")? Does it work efficiently (not 50 tool calls when 5 would do)? Does it behave consistently across comparable requests? Hard-won lessons from real production systems flow directly into our consulting.",
+  },
+  {
+    title: "Frameworks and tools we typically use",
+    body: "Depending on the use case: <strong>DeepEval</strong> for structured LLM tests with semantic metrics. <strong>Langfuse</strong> or <strong>Phoenix (Arize)</strong> for observability and trace analysis in production. <strong>τ²-bench</strong> for agent simulation and policy-conformant evaluation. <strong>Promptfoo</strong> for lightweight A/B testing of prompts. <strong>A custom test set</strong> built from your real data - without it, everything else is worthless. We help you pick the right framework for your situation without locking you into specific vendors.",
+  },
+  {
+    title: "How we help with LLM evaluation",
+    body: "Three typical engagements. <strong>Evaluation audit</strong> (1 to 2 weeks): we review your existing AI system and tell you what your current eval strategy can and can't catch. Output: concrete recommendations with effort estimates. <strong>Eval framework build</strong> (3 to 6 weeks): we build an automated evaluation framework for your specific use case, including test set construction, metric definition, and CI integration. <strong>Eval as part of an implementation</strong>: every AI implementation we deliver includes an eval framework from day one - not as an afterthought.",
+  },
+  {
+    title: "What makes this LLM evaluation consulting different",
+    body: "You get a team that has spent years on the production side of LLM evaluation. We have built production AI systems at Amazon Alexa, Bosch, and Meta - and learned the hard way every time what happens when eval comes too late. That practitioner perspective is rare in the DACH market.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What's the difference between offline and online evaluation?",
+    answer:
+      "Offline evaluation runs on a fixed test set, before deployment, automated and fast. Online evaluation runs in production with real users (e.g. via A/B test) and measures real outcomes - slower but closer to truth. You need both.",
+  },
+  {
+    question: "We just use the ChatGPT API. Do we still need evaluation?",
+    answer:
+      "Yes, especially then. If you don't train your own model, your only quality control is evaluation. Otherwise you'll find out from a customer call that the latest OpenAI model update broke something in your prompt.",
+  },
+  {
+    question: "How many test cases do we need at minimum?",
+    answer:
+      "Rule of thumb: at least 50 for a first useful signal, 200+ for statistically reliable statements, 1000+ for edge-case coverage. More important than raw count is quality - real data from your use case with good labels.",
+  },
+  {
+    question: "Can you build evaluation for an existing system retroactively?",
+    answer:
+      "Yes - that's actually one of the most common engagements. Many teams have a production AI system without structured evaluation and only notice after months that quality is slowly degrading. An eval framework can be added retroactively.",
+  },
+  {
+    question: "How much does building an eval framework cost?",
+    answer:
+      "An audit (1 to 2 weeks) is typically in the low four-figure euro range. A full framework build (3 to 6 weeks) is in the low to mid five-figure range, depending on complexity and test set size.",
+  },
+  {
+    question: "Are you tied to specific tools or frameworks?",
+    answer:
+      "No. We pick per use case from DeepEval, Langfuse, Phoenix, τ²-bench, Promptfoo, or custom builds. We have no affiliate deals - tool choice depends on your stack and requirements.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/llm-evaluation",
+    en: "/en/consulting/llm-evaluation",
+  }}
+  serviceName="LLM Evaluation for Production Systems"
+  metaDescription="LLM evaluation and eval framework setup by r7net GmbH (Prof. Dr. Kay Rottmann). So you actually know whether your LLM system works."
+  eyebrow="Service · LLM Evaluation"
+  headline="LLM Evaluation for Production Systems"
+  lead="How do you know your LLM-based system actually works? We build evaluation frameworks that make your AI systems measurable - from prompts to complex multi-agent systems."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request an eval audit"
+  bylinePrefix="Consulting and content:"
+/>

@@ -1,0 +1,68 @@
+---
+// In static Astro builds, only ONE 404 page is emitted at the root
+// (dist/404.html). Most hosts (Cloudflare Pages, Netlify, Vercel) will
+// serve this same file for ANY unmatched URL - including /en/* paths.
+//
+// To handle both languages with a single file, we render German first
+// (the default locale) and English below it as a fallback. Visitors
+// see whichever they understand.
+import Layout from "../layouts/Layout.astro";
+import { useTranslations, localizedPath } from "../i18n/utils";
+
+const tDe = useTranslations("de");
+const tEn = useTranslations("en");
+
+const suggestionsDe = [
+  { href: "/", label: tDe.nav.home },
+  { href: "/about", label: tDe.nav.about },
+  { href: "/consulting", label: tDe.nav.consulting },
+  { href: "/blog", label: tDe.nav.blog },
+];
+
+const suggestionsEn = [
+  { href: "/en/", label: tEn.nav.home },
+  { href: "/en/about", label: tEn.nav.about },
+  { href: "/en/consulting", label: tEn.nav.consulting },
+  { href: "/en/blog", label: tEn.nav.blog },
+];
+---
+
+<Layout lang="de" title={tDe.notFound.title} alternates={{ de: "/", en: "/en/" }}>
+  <section class="py-20 text-center">
+    <p class="eyebrow justify-center" style="display:inline-flex;">404</p>
+    <h1 class="mt-6 text-5xl sm:text-6xl">{tDe.notFound.headline}</h1>
+
+    <p class="mx-auto mt-8 max-w-xl text-lg text-[var(--color-fg-soft)]">
+      {tDe.notFound.lead}
+    </p>
+    <ul class="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
+      {
+        suggestionsDe.map((s) => (
+          <li>
+            <a href={s.href} class="btn-secondary">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <hr class="mx-auto my-16 max-w-sm border-[var(--color-border)]" />
+
+    <h2 class="text-3xl">{tEn.notFound.headline}</h2>
+    <p class="mx-auto mt-4 max-w-xl text-[var(--color-fg-soft)]">
+      {tEn.notFound.lead}
+    </p>
+    <ul class="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
+      {
+        suggestionsEn.map((s) => (
+          <li>
+            <a href={s.href} class="btn-secondary">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

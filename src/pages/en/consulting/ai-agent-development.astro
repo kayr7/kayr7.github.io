@@ -1,0 +1,84 @@
+---
+// English mirror of /consulting/ki-agenten-entwicklung.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What is an AI agent?",
+    body: "An AI agent is an LLM-based system that solves multi-step tasks autonomously - it plans, calls tools (databases, APIs, other systems), reads results, corrects itself, and delivers an outcome. Unlike a simple chatbot that just responds, an agent <em>acts</em>. Examples: a sales agent that qualifies leads and updates CRM entries; a support agent that classifies tickets and resolves standard requests; a research agent that compares multiple sources and writes a report.",
+  },
+  {
+    title: "Why AI agents work in 2026 - and where they fail",
+    body: "With current LLMs (GPT-5, Claude 4.6, Gemini 2.5), AI agents have actually become production-ready for many tasks. They work when the task is clearly bounded, the available tools are unambiguously defined, and there's a clean evaluation mechanism. They fail when the task is poorly specified, tools behave unexpectedly, or no one measures whether the agent actually does its job. That's exactly where we focus: we build agents to be measurably good, not to look good in a demo.",
+  },
+  {
+    title: "How we develop an AI agent for your company",
+    body: "In four steps. <strong>Use-case scoping</strong>: we define exactly what the agent should do, with which data and tools, and how we measure whether it works. <strong>Prototype</strong>: a working agent in 2 to 4 weeks that solves the core task on real data. <strong>Evaluation</strong>: we build an eval framework that automatically checks whether the agent works in representative scenarios. <strong>Production</strong>: integration into your systems, monitoring, fail-safe mechanisms, handover to your team.",
+  },
+  {
+    title: "Which AI agents are worth building - and which aren't",
+    body: "Worth building: classification and routing agents (tickets, emails, requests), internal research assistants (PDF reports, knowledge bases), data-maintenance agents (CRM/ERP updates), structured sales qualification. Often <em>not</em> worth it: fully automated customer-service bots without human fallback (reputation risk), agents in regulated areas without clear audit trails, agents replacing already-working deterministic workflows. In the workshop phase we check exactly which category your use case falls into.",
+  },
+  {
+    title: "Multi-agent systems - when sensible, when not",
+    body: "Multi-agent systems orchestrate several specialized agents that solve a larger problem together. They make sense when different steps need different models, tools, or permissions - for example a research agent feeding a writing agent. They <em>don't</em> make sense when a single well-specified agent could do the same job. Our standard advice: start with a single agent. Move to multi-agent only when you concretely hit a problem one agent can't solve.",
+  },
+  {
+    title: "Format and investment",
+    body: "Typical engagement: 6 to 10 weeks from use case to production agent, depending on complexity and integrations. Investment in the low to mid five-figure euro range for a first production agent - significantly less if a prototype is enough. Includes eval framework, documentation, and handover to your team. On request we provide a concrete quote.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What's the difference between an AI agent and a chatbot?",
+    answer:
+      "A chatbot answers questions. An AI agent acts: it plans, calls tools, reads results, corrects itself, and delivers an outcome. An agent can be a chatbot, but a simple chatbot is not yet an agent.",
+  },
+  {
+    question: "Which LLM do you use for AI agents?",
+    answer:
+      "It depends on the use case. For complex reasoning tasks, currently most often Claude or GPT. For high volume with simpler tasks, often open-source models (Gemma, Mistral, Qwen) for significantly lower cost. We don't earn anything on tokens, so we help with honest model selection - not every use case needs the most expensive model.",
+  },
+  {
+    question: "How do you measure whether an AI agent actually works?",
+    answer:
+      "With an eval framework that automatically checks: does the agent achieve its goal? Does it follow policies? Is it efficient? Does it behave consistently? Lessons from real production agents flow directly into this approach.",
+  },
+  {
+    question: "How much does developing an AI agent cost?",
+    answer:
+      "Typically in the low to mid five-figure euro range for a first production agent including eval framework. A pure prototype is significantly cheaper. On request we provide a concrete quote.",
+  },
+  {
+    question: "How long does it take to develop an AI agent?",
+    answer:
+      "From use-case workshop to production agent typically 6 to 10 weeks, depending on complexity and number of integrations. A first prototype on real data often within 2 to 4 weeks.",
+  },
+  {
+    question: "Can we maintain and extend the agent ourselves afterwards?",
+    answer:
+      "Yes - that's the goal. Handover to your team is part of every engagement: code walkthrough, documentation, an eval framework you can extend yourself. You're not locked in.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/ki-agenten-entwicklung",
+    en: "/en/consulting/ai-agent-development",
+  }}
+  serviceName="AI Agent Development"
+  metaDescription="Build AI agents with r7net GmbH (Prof. Dr. Kay Rottmann). From use case to production agent in 6 to 10 weeks, with eval framework."
+  eyebrow="Service · AI Agents"
+  headline="AI Agent Development for Companies"
+  lead="We build AI agents that don't just work in a demo but in the real world. From the first use-case workshop to a production-ready, measured agent - based on 15+ years of AI engineering at Meta, Bosch, and Amazon."
+  lastUpdated="2026-04-10"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions"
+  ctaLabel="Request an agent project"
+  bylinePrefix="Development and content:"
+/>
