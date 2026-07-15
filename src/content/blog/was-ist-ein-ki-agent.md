@@ -2,6 +2,7 @@
 title: "Was ist ein KI-Agent? Eine Definition aus der Praxis"
 description: "Eine klare, praxisnahe Definition von KI-Agenten - was sie sind, wie sie sich von Chatbots unterscheiden, wann sie funktionieren und wann nicht. Geschrieben von einem Professor für Angewandte KI."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: de
 slug: was-ist-ein-ki-agent
 translationKey: what-is-an-ai-agent
@@ -10,9 +11,9 @@ tags: ["ki-agenten", "pillar", "grundlagen"]
 
 > **Kurzantwort:** Ein KI-Agent ist ein LLM-basiertes System, das eigenständig mehrstufige Aufgaben löst, indem es plant, Werkzeuge aufruft, Ergebnisse liest, sich selbst korrigiert und am Ende ein Resultat liefert. Im Gegensatz zu einem Chatbot, der nur antwortet, *handelt* ein KI-Agent.
 
-Diesen Artikel hat **Prof. Dr. Kay Rottmann** geschrieben, Professor für Angewandte KI an der HdM Stuttgart und ehemaliger Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta. Aktuell forscht er an der HdM zur Online-Evaluation agentischer KI-Systeme.
+Geschrieben von **Prof. Dr. Kay Rottmann**. Ich bin Professor für Angewandte KI an der HdM Stuttgart und forsche dort aktuell zur Online-Evaluation agentischer KI-Systeme; vorher war ich Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta.
 
-Stand: 10. April 2026.
+Erstveröffentlicht im April 2026, zuletzt aktualisiert am 15. Juli 2026.
 
 ## Die kurze Definition
 
@@ -86,7 +87,7 @@ Das Programm-Gerüst, das den Ablauf orchestriert: *„Frage das Modell nach dem
 
 ## Wann lohnt sich ein KI-Agent - und wann nicht?
 
-Aus meiner Beratungspraxis bei [r7net GmbH](/consulting): KI-Agenten lohnen sich, wenn **alle drei** folgenden Bedingungen erfüllt sind:
+Aus meiner Projektpraxis: KI-Agenten lohnen sich, wenn **alle drei** folgenden Bedingungen erfüllt sind:
 
 1. **Die Aufgabe besteht aus mehreren Schritten**, die voneinander abhängen.
 2. **Die genaue Sequenz steht vorher nicht fest** - sie hängt von Zwischenergebnissen ab.
@@ -98,7 +99,7 @@ KI-Agenten lohnen sich **nicht**, wenn:
 - Es keine klare Definition von Erfolg gibt → Sie können nicht messen, ob der Agent funktioniert (siehe [LLM Evaluation](/consulting/llm-evaluation)).
 - Die Konsequenz von Fehlern hoch ist und es keinen menschlichen Fallback gibt → das Risiko übersteigt den Nutzen.
 
-Das letzte Punkt ist besonders wichtig in regulierten Branchen: Vollautonome Agenten ohne Audit-Trail sind in vielen B2B-Kontexten nicht produktionsreif.
+Der letzte Punkt ist besonders wichtig in regulierten Branchen: Vollautonome Agenten ohne Audit-Trail sind in vielen B2B-Kontexten nicht produktionsreif.
 
 ## Wie misst man, ob ein KI-Agent gut ist?
 
@@ -138,6 +139,9 @@ Vom Use-Case-Workshop bis zum produktiven Agenten typischerweise 6–10 Wochen. 
 
 ## Weiterlesen
 
+- [Agentic AI im Unternehmen](/blog/agentic-ai-unternehmen) - was Agenten organisatorisch bedeuten und wie Sie sich vorbereiten
+- [KI-Agenten bauen: Praxis-Leitfaden](/blog/ki-agenten-bauen-praxis-leitfaden) - die technische Umsetzung Schritt für Schritt
 - [KI-Agenten Entwicklung](/consulting/ki-agenten-entwicklung) - wenn Sie konkret einen KI-Agenten bauen lassen wollen
-- [LLM Evaluation](/consulting/llm-evaluation) - wie wir messen, ob ein Agent wirklich funktioniert
-- [KI Strategie Beratung](/consulting/ki-strategie-beratung) - wenn Sie noch nicht wissen, ob ein Agent für Ihren Use-Case der richtige Ansatz ist
+- [LLM Evaluation](/consulting/llm-evaluation) - wie man misst, ob ein Agent wirklich funktioniert
+
+*Transparenz: Beratungs- und Schulungsangebote, auf die dieser Artikel verlinkt, erbringe ich über die r7net GmbH - unabhängig von meiner Tätigkeit an der Hochschule der Medien Stuttgart.*

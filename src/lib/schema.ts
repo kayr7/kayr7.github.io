@@ -53,6 +53,8 @@ export function personSchema() {
     ],
     knowsAbout: [
       "Applied Artificial Intelligence",
+      "AI Transformation",
+      "Agentic AI",
       "Large Language Models",
       "Multi-Agent Systems",
       "LLM Evaluation",
@@ -60,6 +62,7 @@ export function personSchema() {
       "AI in Manufacturing",
       "Marketing Analytics",
       "Prompt Engineering",
+      "AI Literacy Training",
     ],
     knowsLanguage: ["de", "en"],
     sameAs: [
@@ -89,8 +92,10 @@ export function organizationSchema() {
     description:
       "AI consulting for the German Mittelstand - strategy, prototyping, agents, evaluation, and manufacturing AI. Pragmatic, affordable, measurable.",
     serviceType: [
+      "AI Transformation Consulting",
       "AI Strategy Consulting",
       "AI Implementation",
+      "Corporate AI Training",
       "Custom Chatbot Development",
       "Multi-Agent Systems",
       "LLM Evaluation",

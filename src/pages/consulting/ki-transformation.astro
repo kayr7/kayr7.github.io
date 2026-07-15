@@ -1,0 +1,77 @@
+---
+// Service page targeting "KI Transformation" / "KI Transformation Unternehmen".
+// Positions the transformation engagement as the umbrella offering above the
+// individual services (strategy, workshop, agents, implementation, training).
+
+import ServicePage from "../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "Was KI-Transformationsbegleitung bedeutet",
+    body: "KI-Transformation ist keine Tool-Einführung, sondern eine Organisationsaufgabe: Werkzeuge bereitstellen, Mitarbeitende befähigen, Prozesse neu schneiden - in dieser Reihenfolge. Die Transformationsbegleitung ist die Klammer um unsere einzelnen Leistungen: Statt eines einzelnen Workshops oder Projekts begleiten wir Ihr Unternehmen über 6 bis 18 Monate durch den gesamten Weg - vom ersten Pilotprojekt über den Kompetenzaufbau in der Breite bis zu produktiven Systemen und agentischer KI. Sie behalten dabei das Steuer; wir bringen Erfahrung, Methodik und ehrliche Einschätzungen mit.",
+  },
+  {
+    title: "Wie die Begleitung abläuft",
+    body: "<strong>Bestandsaufnahme</strong> (2-4 Wochen): Wo stehen Sie bei Daten, Prozessen, Menschen, IT und Spielregeln? Daraus folgt der individuelle Einstiegspunkt - nicht jedes Unternehmen sollte gleich anfangen. <strong>Pilot</strong> (ca. 3 Monate): Ein klar abgegrenzter Use-Case mit messbarem Nutzen, der intern etwas beweist. <strong>Kompetenz in die Breite</strong> (3-6 Monate): Rollenbasierte Schulungen, Champions in den Abteilungen, geteilte Prompt-Bibliotheken - und damit nebenbei die KI-Kompetenz-Pflicht aus Artikel 4 des EU AI Act sauber erfüllt. <strong>Prozesse umbauen</strong> (ab Monat 6): Die besten Use-Cases aus der entstandenen Pipeline werden produktive Systeme, inklusive Eval-Framework und Monitoring. Parallel entstehen leichtgewichtige Strukturen für Priorisierung und Governance.",
+  },
+  {
+    title: "Was Sie davon haben",
+    body: "Nach zwölf Monaten haben Sie: mindestens ein produktives KI-System mit gemessenem Nutzen, eine geschulte Belegschaft, die eigene Use-Case-Ideen produziert, klare Spielregeln, die auf eine Seite passen, und intern aufgebautes Wissen, das Ihnen erlaubt, den Weg ohne uns weiterzugehen. Genau das ist das erklärte Ziel: Wir machen uns planmäßig überflüssig. Transformationsbegleitung, die Abhängigkeit erzeugt, ist gescheitert.",
+  },
+  {
+    title: "Für wen das gedacht ist - und für wen nicht",
+    body: "Gedacht für mittelständische Unternehmen, die es ernst meinen: Die Geschäftsführung will das Thema treiben, es gibt Bereitschaft, Arbeitszeit für Lernen freizugeben, und die Erwartung ist realistisch - spürbare Veränderung in Monaten, nicht Magie in Wochen. Nicht gedacht für Unternehmen, die ein Feigenblatt für den Beirat suchen oder hoffen, dass ein externer Dienstleister die Veränderung „liefert“, ohne dass sich intern etwas bewegt. Das sagen wir auch im Erstgespräch so - es spart beiden Seiten Zeit.",
+  },
+  {
+    title: "Format und Investition",
+    body: "Typisches Format: ein fester Tag pro Woche oder alle zwei Wochen vor Ort bzw. remote, plus punktuelle Workshops und Umsetzungsunterstützung nach Bedarf. Die Investition hängt von Intensität und Dauer ab; als Größenordnung: monatlich im niedrigen bis mittleren vierstelligen Bereich für die Begleitung, Umsetzungsprojekte je nach Umfang separat. Einzelne Bausteine - <a href='/consulting/ki-strategie-beratung'>Strategie</a>, <a href='/consulting/ki-workshop-fuer-unternehmen'>Workshop</a>, <a href='/consulting/chatgpt-schulung'>Schulung</a>, <a href='/consulting/ki-agenten-entwicklung'>Agenten-Entwicklung</a> - sind auch einzeln buchbar, wenn Sie nur ein Stück des Wegs Unterstützung brauchen.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Wie unterscheidet sich das von einer KI-Strategie-Beratung?",
+    answer:
+      "Die Strategie-Beratung liefert in 3-4 Wochen eine Roadmap - ein Dokument und einen Plan. Die Transformationsbegleitung ist die Umsetzung dieses Plans über Monate, inklusive Pilot, Schulung und Prozessumbau. Viele Kunden starten mit der Strategie und entscheiden danach, wie viel Begleitung sie für die Umsetzung wollen.",
+  },
+  {
+    question: "Müssen wir schon KI-Erfahrung haben?",
+    answer:
+      "Nein. Die Bestandsaufnahme am Anfang holt Sie genau dort ab, wo Sie stehen - auch bei null. Wichtiger als Vorerfahrung ist, dass die Geschäftsführung das Thema ernsthaft treiben will.",
+  },
+  {
+    question: "Wie viele Personen von r7net arbeiten dabei mit uns?",
+    answer:
+      "Sie arbeiten direkt mit Kay Rottmann, bei Umsetzungsprojekten ergänzt um Entwickler aus dem Netzwerk. Keine Junior-Pyramide, keine wechselnden Ansprechpartner.",
+  },
+  {
+    question: "Deckt das auch die Anforderungen des EU AI Act ab?",
+    answer:
+      "Die für die meisten Mittelständler relevanten Pflichten - Transparenz, Kennzeichnung, KI-Kompetenz der Mitarbeitenden nach Artikel 4 - werden im Rahmen der Begleitung systematisch mit abgedeckt und dokumentiert. Für Hochrisiko-Anwendungsfälle ziehen wir bei Bedarf spezialisierte Rechtsberatung hinzu; Rechtsberatung selbst erbringen wir nicht.",
+  },
+  {
+    question: "Was passiert, wenn sich unterwegs herausstellt, dass ein Vorhaben nichts bringt?",
+    answer:
+      "Dann wird es gestoppt - und zwar von uns vorgeschlagen, nicht von Ihnen erkämpft. Ehrliche Abbruchempfehlungen gehören zur Begleitung. Ein gestopptes Projekt nach vier Wochen ist billiger als ein gescheitertes nach zwölf Monaten.",
+  },
+];
+---
+
+<ServicePage
+  lang="de"
+  alternates={{
+    de: "/consulting/ki-transformation",
+    en: "/en/consulting/ai-transformation",
+  }}
+  serviceName="KI-Transformationsbegleitung"
+  metaDescription="KI-Transformationsbegleitung für den Mittelstand: über 6-18 Monate vom ersten Pilot über Mitarbeiter-Schulung bis zu produktiven KI-Systemen und agentischer KI. Pragmatisch, messbar, mit dem Ziel, uns überflüssig zu machen."
+  eyebrow="Leistung · KI-Transformation"
+  headline="KI-Transformationsbegleitung"
+  lead="KI-Transformation ist keine Tool-Einführung, sondern ein Weg über Monate: Werkzeuge, Kompetenz, Prozesse - in der richtigen Reihenfolge. Wir begleiten Ihr Unternehmen auf diesem Weg, vom ersten Pilotprojekt bis zu agentischer KI im produktiven Betrieb."
+  lastUpdated="2026-07-15"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Häufige Fragen zur KI-Transformationsbegleitung"
+  ctaLabel="Transformationsbegleitung anfragen"
+  bylinePrefix="Beratung und Inhalt:"
+/>

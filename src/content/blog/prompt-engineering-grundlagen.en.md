@@ -2,6 +2,7 @@
 title: "Prompt Engineering: The fundamentals that actually matter"
 description: "A compact, field-tested guide to prompt engineering - the techniques that make a real difference in real projects, without buzzword hype. From a Professor of Applied AI at HdM Stuttgart."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: en
 slug: prompt-engineering-fundamentals
 translationKey: prompt-engineering-fundamentals
@@ -10,9 +11,9 @@ tags: ["prompt-engineering", "fundamentals", "pillar"]
 
 > **Short answer:** Good prompt engineering in 2026 has six building blocks: a clear role, a precise task, the right amount of context, examples where needed, structured output, and a feedback loop that holds the prompt against a test set. Everything else - "prompt tricks", buzzword lists, "magic phrases" - is mostly folklore. What works is discipline.
 
-This article was written by **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart and former Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta.
+Some background: I (**Prof. Dr. Kay Rottmann**) teach "Introduction to Prompt Engineering" and "Generative AI Practice" at HdM Stuttgart, among other courses - this article is essentially the first third of those lectures. Before that I was a Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta.
 
-Last updated: April 10, 2026.
+First published April 2026, last updated July 15, 2026.
 
 ## What prompt engineering actually is
 
@@ -148,7 +149,7 @@ If more than one person writes prompts, you need a few simple rules:
 3. **One person is responsible** - not the whole team. Anyone can propose, one person merges.
 4. **Prompts are documented** - not stories, but: what does this prompt do, with what assumptions, against what eval set?
 
-That sounds like a lot. But it's exactly what separates "we play with ChatGPT" from "we run LLMs in production." More on this in the [ChatGPT Training](/en/consulting/chatgpt-training) I offer for teams making exactly that jump.
+That sounds like a lot. But it's exactly what separates "we play with ChatGPT" from "we run LLMs in production" - and it's the core of what good [team training](/en/blog/ai-training-for-employees) should deliver.
 
 ## Frequently asked questions
 
@@ -169,7 +170,9 @@ Honestly: books in this field go stale in three to six months. More reliable are
 
 ## Read next
 
+- [AI training for employees](/en/blog/ai-training-for-employees) - how to bring these fundamentals to a whole organization
 - [What is an AI Agent?](/en/blog/what-is-an-ai-agent) - if you want to know how good prompts become acting systems
 - [Building AI Agents: A practical guide](/en/blog/building-ai-agents-practical-guide) - the next step after good prompts
 - [LLM Evaluation for Production Systems](/en/consulting/llm-evaluation) - how to measure whether your prompts actually work
-- [ChatGPT Training for Companies](/en/consulting/chatgpt-training) - structured prompt engineering training for whole teams
+
+*Transparency note: consulting and training services linked from this article are provided through r7net GmbH - independent of my role at Hochschule der Medien Stuttgart.*

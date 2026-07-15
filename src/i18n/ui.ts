@@ -65,7 +65,7 @@ export const ui = {
       headlinePre: "Angewandte",
       headlineAccent: "AI & Analytics",
       headlinePost: ", von der Forschung in die Produktion.",
-      lead: "Ich bin Kay Rottmann. Ich lehre habe eine Professur für angewandte KI an der HdM Stuttgart und helfe Unternehmen, mit r7net GmbH AI-Lösungen zu entwickeln und in Produktion zu bringen.",
+      lead: "Ich bin Kay Rottmann. Ich habe eine Professur für Angewandte KI an der HdM Stuttgart und begleite mit der r7net GmbH Unternehmen durch die KI-Transformation - von der Strategie über die Schulung der Teams bis zum produktiven System.",
       ctaPrimary: "Mit mir arbeiten",
       ctaSecondary: "Über mich",
       portraitLabel: "Portrait von Kay Rottmann",
@@ -84,7 +84,7 @@ export const ui = {
       forCompanies: "Für Unternehmen",
       forCompaniesTitle: "AI- & Daten-Consulting",
       forCompaniesBody:
-        "Mit r7net GmbH helfe ich Unternehmen dabei, AI-Use-Cases zu schärfen, überzeugende Prototypen zu bauen und Produkte in den Live-Betrieb zu bringen - pragmatisch, bezahlbar, messbar.",
+        "Mit r7net GmbH begleite ich Unternehmen durch die KI-Transformation: Use-Cases schärfen, Prototypen bauen, Mitarbeitende fit machen und Lösungen in den Live-Betrieb bringen - pragmatisch, bezahlbar, messbar.",
       forCompaniesLink: "Leistungen ansehen →",
       pillarsEyebrow: "Grundlagen",
       pillarsTitle: "Wenn Sie nur drei Texte lesen",
@@ -168,7 +168,7 @@ export const ui = {
       teachingEyebrow: "Lehre",
       teachingTitle: "Was ich an der HdM unterrichte.",
       teachingLead:
-        "Mein prinzip ist „Hands-on und Theorie im Dialog\": praktische Anwendungen der Theorie um das Gelernte zu vertiefen und anwendbar zu machen, aktive Diskussion, Discovery und Erleben anstelle von reinem Frontalunterricht.",
+        "Mein Prinzip ist „Hands-on und Theorie im Dialog\": praktische Anwendungen der Theorie um das Gelernte zu vertiefen und anwendbar zu machen, aktive Diskussion, Discovery und Erleben anstelle von reinem Frontalunterricht.",
       teaching: [
         "Applied AI",
         "Introduction to Prompt Engineering",
@@ -197,7 +197,7 @@ export const ui = {
       headlinePre: "AI für",
       headlineAccent: "Unternehmen",
       headlinePost: ".",
-      lead: "Pragmatisch, bezahlbar, messbar. Wir helfen Unternehmen, AI-Use-Cases zu finden, Prototypen zu bauen und Lösungen in den produktiven Betrieb zu bringen.",
+      lead: "Pragmatisch, bezahlbar, messbar. Wir begleiten Unternehmen durch die KI-Transformation: vom ersten Use-Case über die Schulung der Teams bis zum produktiven Betrieb - auch für agentische KI.",
       ctaTop: "Anfrage senden",
       heroImageLabel: "Abstrakt-technisches Bild oder Workshop-Szene",
       heroImageHint:
@@ -207,36 +207,42 @@ export const ui = {
       services: [
         {
           n: "01",
+          title: "KI-Transformationsbegleitung",
+          body: "Die Klammer um alles andere: Wir begleiten Ihr Unternehmen über 6-18 Monate durch die KI-Transformation - vom ersten Pilot über den Kompetenzaufbau in der Breite bis zu neu geschnittenen Prozessen und agentischer KI.",
+          href: "/consulting/ki-transformation",
+        },
+        {
+          n: "02",
           title: "KI-Strategie Beratung",
           body: "Analyse Ihrer Geschäftsprozesse, Identifikation von KI-Use-Cases mit hohem ROI, pragmatische Roadmap und Technologieauswahl. Eine ehrliche Antwort darauf, wo KI in Ihrem Unternehmen wirklich Wert schafft.",
           href: "/consulting/ki-strategie-beratung",
         },
         {
-          n: "02",
+          n: "03",
           title: "KI-Workshop für Unternehmen",
           body: "1- bis 2-tägiger Hands-on-Workshop für Ihr Team. Am Ende: priorisierte Use-Case-Liste, geteilte Sprache im Team, klare nächste Schritte. Ohne Buzzword-Bingo.",
           href: "/consulting/ki-workshop-fuer-unternehmen",
         },
         {
-          n: "03",
+          n: "04",
           title: "KI-Agenten Entwicklung",
           body: "Wir bauen KI-Agenten, die nicht nur in der Demo funktionieren. Vom Use-Case zum produktiven Agenten in 6-10 Wochen, inklusive Eval-Framework.",
           href: "/consulting/ki-agenten-entwicklung",
         },
         {
-          n: "04",
+          n: "05",
           title: "KI-Implementierung",
           body: "Vom Prototyp zum produktiven, gemessenen System in 6-12 Wochen. Mit Eval-Framework, Monitoring und sauberer Übergabe an Ihr Team.",
           href: "/consulting/ki-implementierung",
         },
         {
-          n: "05",
+          n: "06",
           title: "ChatGPT Schulung",
           body: "Praxisnahe Schulung, in der Ihre Mitarbeitenden ChatGPT &amp; Co. wirklich produktiv nutzen lernen. Mit Datenschutz-Fokus und konkreten Use-Cases pro Rolle.",
           href: "/consulting/chatgpt-schulung",
         },
         {
-          n: "06",
+          n: "07",
           title: "LLM Evaluation",
           body: "Wir bauen Evaluations-Frameworks, die Ihre KI-Systeme messbar machen - vom Prompt bis zum Multi-Agent-System.",
           href: "/consulting/llm-evaluation",
@@ -262,6 +268,8 @@ export const ui = {
       ctaBody:
         "Schreiben Sie uns kurz, woran Sie arbeiten - wir melden uns innerhalb weniger Tage zurück.",
       ctaButton: "Kontakt aufnehmen",
+      disclosure:
+        "Hinweis: Alle Beratungs- und Schulungsleistungen auf diesen Seiten erbringt die r7net GmbH. Sie sind unabhängig von der Lehr- und Forschungstätigkeit von Kay Rottmann an der Hochschule der Medien Stuttgart; die Hochschule ist an diesen Leistungen nicht beteiligt.",
     },
 
     contact: {
@@ -383,7 +391,7 @@ export const ui = {
       headlinePre: "Applied",
       headlineAccent: "AI & Data",
       headlinePost: ", from research to production.",
-      lead: "I'm Kay Rottmann. I am a professor for applied AI at HdM Stuttgart and help companies develop AI solutions and bring them to production through r7net GmbH.",
+      lead: "I'm Kay Rottmann. I hold a professorship for Applied AI at HdM Stuttgart, and through r7net GmbH I guide companies through their AI transformation - from strategy and team training to systems in production.",
       ctaPrimary: "Work with me",
       ctaSecondary: "About me",
       portraitLabel: "Portrait of Kay Rottmann",
@@ -402,7 +410,7 @@ export const ui = {
       forCompanies: "For companies",
       forCompaniesTitle: "AI & data consulting",
       forCompaniesBody:
-        "Through r7net GmbH, I help companies scope AI use cases, build convincing prototypes, and ship products into live operation - pragmatic, affordable, measurable.",
+        "Through r7net GmbH, I guide companies through their AI transformation: scoping use cases, building prototypes, training teams, and shipping solutions into live operation - pragmatic, affordable, measurable.",
       forCompaniesLink: "See services →",
       pillarsEyebrow: "Foundations",
       pillarsTitle: "If you only read three pieces",
@@ -514,7 +522,7 @@ export const ui = {
       headlinePre: "AI for",
       headlineAccent: "companies",
       headlinePost: ".",
-      lead: "Pragmatic, affordable, measurable. We help companies find AI use cases, build prototypes, and ship solutions into production.",
+      lead: "Pragmatic, affordable, measurable. We guide companies through their AI transformation: from the first use case through team training to systems in production - including agentic AI.",
       ctaTop: "Send a request",
       heroImageLabel: "Abstract tech or workshop scene",
       heroImageHint:
@@ -524,36 +532,42 @@ export const ui = {
       services: [
         {
           n: "01",
+          title: "AI transformation",
+          body: "The bracket around everything else: we accompany your company through its AI transformation over 6-18 months - from the first pilot through broad skill-building to redesigned processes and agentic AI.",
+          href: "/en/consulting/ai-transformation",
+        },
+        {
+          n: "02",
           title: "AI strategy consulting",
           body: "Analysis of your business processes, identification of high-ROI use cases, pragmatic roadmap, and technology selection. An honest answer to where AI actually creates value in your business.",
           href: "/en/consulting/ai-strategy-consulting",
         },
         {
-          n: "02",
+          n: "03",
           title: "AI workshop for companies",
           body: "1- to 2-day hands-on workshop for your team. End result: prioritized use-case list, shared vocabulary, clear next steps. No buzzword bingo.",
           href: "/en/consulting/ai-workshop-for-companies",
         },
         {
-          n: "03",
+          n: "04",
           title: "AI agent development",
           body: "We build AI agents that don't just work in a demo. From use case to production agent in 6 to 10 weeks, including eval framework, monitoring, and clean handover.",
           href: "/en/consulting/ai-agent-development",
         },
         {
-          n: "04",
+          n: "05",
           title: "AI implementation",
           body: "From prototype to production-ready, measured system in 6 to 12 weeks. With eval framework, monitoring, and clean handover to your team.",
           href: "/en/consulting/ai-implementation",
         },
         {
-          n: "05",
+          n: "06",
           title: "ChatGPT training",
           body: "Hands-on training where your employees learn to use ChatGPT &amp; co. productively. With a data protection focus and concrete use cases per role.",
           href: "/en/consulting/chatgpt-training",
         },
         {
-          n: "06",
+          n: "07",
           title: "LLM evaluation",
           body: "We build evaluation frameworks that make your AI systems measurable - from prompts to multi-agent systems. So you actually know whether your LLM system works.",
           href: "/en/consulting/llm-evaluation",
@@ -579,6 +593,8 @@ export const ui = {
       ctaBody:
         "Drop us a short note about what you're working on - we'll get back to you within a few days.",
       ctaButton: "Get in touch",
+      disclosure:
+        "Note: All consulting and training services on these pages are provided by r7net GmbH. They are independent of Kay Rottmann's teaching and research at Hochschule der Medien Stuttgart; the university is not involved in these services.",
     },
 
     contact: {

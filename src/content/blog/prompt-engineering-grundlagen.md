@@ -2,6 +2,7 @@
 title: "Prompt Engineering: Die Grundlagen, die wirklich zählen"
 description: "Ein kompakter, praxiserprobter Leitfaden zu Prompt Engineering - die Techniken, die in echten Projekten den Unterschied machen, ohne Buzzword-Hype. Von einem Professor für Angewandte KI an der HdM Stuttgart."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: de
 slug: prompt-engineering-grundlagen
 translationKey: prompt-engineering-fundamentals
@@ -10,9 +11,9 @@ tags: ["prompt-engineering", "grundlagen", "pillar"]
 
 > **Kurzantwort:** Gutes Prompt Engineering besteht 2026 aus sechs Bausteinen: klare Rolle, präziser Auftrag, Kontext im richtigen Umfang, Beispiele wo nötig, strukturierte Ausgabe und ein Feedback-Loop, der den Prompt gegen ein Test-Set absichert. Alles andere - „Prompt-Tricks", lange Buzzword-Listen, „magische Phrasen" - ist meist Folklore. Was funktioniert, ist Disziplin.
 
-Diesen Artikel hat **Prof. Dr. Kay Rottmann** geschrieben, Professor für Angewandte KI an der HdM Stuttgart. Er lehrt dort unter anderem die Vorlesungen „Einführung in Prompt Engineering" und „Generative AI Practice". Vorher war er Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta.
+Zum Hintergrund: Ich (**Prof. Dr. Kay Rottmann**) unterrichte an der HdM Stuttgart unter anderem „Einführung in Prompt Engineering" und „Generative AI Practice" - dieser Artikel ist im Kern das erste Drittel dieser Vorlesungen. Davor war ich Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta.
 
-Stand: 10. April 2026.
+Erstveröffentlicht im April 2026, zuletzt aktualisiert am 15. Juli 2026.
 
 ## Was Prompt Engineering eigentlich ist
 
@@ -148,7 +149,7 @@ Wenn Sie mehr als eine Person haben, die Prompts schreibt, brauchen Sie ein paar
 3. **Eine Person ist verantwortlich** - nicht das ganze Team. Jeder darf vorschlagen, eine Person merged.
 4. **Prompts werden dokumentiert** - nicht Geschichten erzählt, sondern: Was tut dieser Prompt, mit welcher Annahme, gegen welches Eval-Set?
 
-Das klingt nach viel. Es ist aber genau das, was den Unterschied zwischen „wir spielen mit ChatGPT" und „wir betreiben LLMs in Produktion" ausmacht. Mehr dazu in der [ChatGPT Schulung](/consulting/chatgpt-schulung), die ich unter anderem für Teams anbiete, die genau diesen Sprung machen wollen.
+Das klingt nach viel. Es ist aber genau das, was den Unterschied zwischen „wir spielen mit ChatGPT" und „wir betreiben LLMs in Produktion" ausmacht - und der Kern dessen, was eine gute [Team-Schulung](/blog/ki-schulung-mitarbeiter) vermitteln sollte.
 
 ## Häufige Fragen
 
@@ -169,7 +170,9 @@ Ehrlich: Bücher veralten in diesem Feld in drei bis sechs Monaten. Zuverlässig
 
 ## Weiterlesen
 
+- [KI-Schulung für Mitarbeitende](/blog/ki-schulung-mitarbeiter) - wie man diese Grundlagen in die Breite eines Unternehmens bringt
 - [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent) - wenn Sie wissen wollen, wie aus guten Prompts handelnde Systeme werden
 - [KI-Agenten bauen: Praxis-Leitfaden](/blog/ki-agenten-bauen-praxis-leitfaden) - die nächste Stufe nach guten Prompts
 - [LLM Evaluation für Produktivsysteme](/consulting/llm-evaluation) - wie Sie messen, ob Ihre Prompts wirklich funktionieren
-- [ChatGPT Schulung für Unternehmen](/consulting/chatgpt-schulung) - strukturierte Prompt-Engineering-Schulung für ganze Teams
+
+*Transparenz: Beratungs- und Schulungsangebote, auf die dieser Artikel verlinkt, erbringe ich über die r7net GmbH - unabhängig von meiner Tätigkeit an der Hochschule der Medien Stuttgart.*

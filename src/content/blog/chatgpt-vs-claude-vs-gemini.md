@@ -2,6 +2,7 @@
 title: "ChatGPT vs. Claude vs. Gemini 2026: Welches Modell für welchen Zweck?"
 description: "Ein nüchterner Vergleich der drei führenden KI-Modelle 2026 - ChatGPT (GPT-5), Claude 4.6 und Gemini 2.5 - mit klaren Empfehlungen für typische Einsatzszenarien. Geschrieben von einem Professor für Angewandte KI mit Praxiserfahrung in allen drei Modellfamilien."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: de
 slug: chatgpt-vs-claude-vs-gemini
 translationKey: chatgpt-vs-claude-vs-gemini
@@ -10,9 +11,9 @@ tags: ["llm-vergleich", "modelle", "pillar"]
 
 > **Kurzantwort:** Im Jahr 2026 gibt es keinen klaren „Sieger". **GPT-5** ist der vielseitigste Allrounder mit dem besten Ökosystem. **Claude 4.6** ist die beste Wahl für Coding, Agenten, lange Kontexte und alles, wo Verlässlichkeit zählt. **Gemini 2.5 Pro** ist führend bei multimodalen Aufgaben (Bild, Video, Audio) und großen Kontextfenstern. Wenn Sie nur eines wählen können: GPT-5 für die meisten Endanwender, Claude 4.6 für Entwickler und Anwendungs-Builder, Gemini 2.5 für stark visuelle Workflows.
 
-Diesen Vergleich hat **Prof. Dr. Kay Rottmann** geschrieben, Professor für Angewandte KI an der HdM Stuttgart und ehemaliger Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta. Er nutzt alle drei Modellfamilien aktiv in eigenen Projekten und in der Beratung über die [r7net GmbH](/consulting).
+Diesen Vergleich habe ich, **Kay Rottmann**, geschrieben - Professor für Angewandte KI an der HdM Stuttgart, vorher Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta. Alle drei Modellfamilien nutze ich laufend in eigenen Projekten und in der Lehre.
 
-Stand: 10. April 2026.
+Erstveröffentlicht im April 2026, zuletzt aktualisiert am 15. Juli 2026.
 
 ## Warum dieser Vergleich anders ist
 
@@ -168,5 +169,7 @@ Nein. Es kommt immer ein neues Modell. Wer wartet, baut nichts. Bauen Sie heute 
 
 - [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent) - wenn Sie wissen wollen, wie aus diesen Modellen handelnde Systeme werden
 - [Prompt Engineering Grundlagen](/blog/prompt-engineering-grundlagen) - was unabhängig vom Modell zählt
+- [KI-Transformation im Unternehmen](/blog/ki-transformation-unternehmen) - wenn die Modellwahl Teil einer größeren Entscheidung ist
 - [LLM Evaluation für Produktivsysteme](/consulting/llm-evaluation) - wie Sie *für Ihren Use-Case* messen, welches Modell wirklich gewinnt
-- [KI-Strategie Beratung](/consulting/ki-strategie-beratung) - wenn die Modellwahl Teil einer größeren Entscheidung ist
+
+*Transparenz: Beratungs- und Schulungsangebote, auf die dieser Artikel verlinkt, erbringe ich über die r7net GmbH - unabhängig von meiner Tätigkeit an der Hochschule der Medien Stuttgart.*

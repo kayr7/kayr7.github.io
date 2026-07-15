@@ -2,6 +2,7 @@
 title: "KI-Agenten bauen: Ein Praxis-Leitfaden für 2026"
 description: "Ein konkreter, technischer Leitfaden, wie man einen produktionstauglichen KI-Agenten baut - von der Use-Case-Auswahl über den ersten Prototyp bis zum Eval-Framework. Mit Code-Beispielen und Entscheidungshilfen aus echten Projekten."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: de
 slug: ki-agenten-bauen-praxis-leitfaden
 translationKey: building-ai-agents-practical-guide
@@ -10,9 +11,9 @@ tags: ["ki-agenten", "praxis", "pillar"]
 
 > **Kurzantwort:** Einen produktionstauglichen KI-Agenten bauen Sie 2026 in dieser Reihenfolge: (1) klar abgegrenzten Use-Case wählen, (2) Werkzeuge und Datenquellen identifizieren, (3) Eval-Set vor dem Code aufbauen, (4) minimalen Agent-Loop in 100 Zeilen schreiben, (5) iterativ verbessern, bis das Eval grün wird, (6) menschliches Reviewing einbauen, (7) ausrollen. Wer Schritte überspringt - vor allem das Eval - baut keinen Agenten, sondern eine Demo.
 
-Diesen Leitfaden hat **Prof. Dr. Kay Rottmann** geschrieben, Professor für Angewandte KI an der HdM Stuttgart und ehemaliger Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta. Der Artikel ist die praktische Fortsetzung von [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent).
+Dieser Leitfaden ist die praktische Fortsetzung von [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent). Geschrieben habe ich (**Kay Rottmann**) ihn aus der Erfahrung mehrerer produktiver Agenten-Projekte; hauptberuflich bin ich Professor für Angewandte KI an der HdM Stuttgart, davor Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta.
 
-Stand: 10. April 2026.
+Erstveröffentlicht im April 2026, zuletzt aktualisiert am 15. Juli 2026.
 
 ## Wer ist die Zielgruppe dieses Artikels?
 
@@ -182,6 +183,8 @@ Mit Tools wie n8n, Make oder Zapier können Sie einfache Agent-ähnliche Workflo
 ## Weiterlesen
 
 - [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent) - die Definitions-Grundlage
+- [Agentic AI im Unternehmen](/blog/agentic-ai-unternehmen) - die organisatorische Seite: Governance, Rollen, Vorbereitung
 - [KI für den Mittelstand](/blog/ki-fuer-den-mittelstand) - wenn Sie nicht sicher sind, ob ein Agent für Ihren Anwendungsfall der richtige Ansatz ist
-- [KI-Agenten Entwicklung](/consulting/ki-agenten-entwicklung) - wenn Sie einen Agenten bauen lassen wollen
 - [LLM Evaluation](/consulting/llm-evaluation) - wie Sie messen, ob Ihr Agent wirklich funktioniert
+
+*Transparenz: Beratungs- und Schulungsangebote, auf die dieser Artikel verlinkt, erbringe ich über die r7net GmbH - unabhängig von meiner Tätigkeit an der Hochschule der Medien Stuttgart.*

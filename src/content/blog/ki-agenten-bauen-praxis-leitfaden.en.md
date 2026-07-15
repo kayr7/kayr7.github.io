@@ -2,6 +2,7 @@
 title: "Building AI Agents: A practical guide for 2026"
 description: "A concrete, technical guide to building a production-ready AI agent - from use-case selection to the first prototype to the eval framework. With code examples and decision aids from real projects."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: en
 slug: building-ai-agents-practical-guide
 translationKey: building-ai-agents-practical-guide
@@ -10,9 +11,9 @@ tags: ["ai-agents", "practice", "pillar"]
 
 > **Short answer:** You build a production-ready AI agent in 2026 in this order: (1) pick a narrow use case, (2) identify tools and data sources, (3) build the eval set *before* the code, (4) write a minimal agent loop in 100 lines, (5) iterate until eval is green, (6) add human review, (7) ship. Skipping steps - especially eval - doesn't get you an agent. It gets you a demo.
 
-This guide was written by **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart and former Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta. It's the practical sequel to [What is an AI Agent?](/en/blog/what-is-an-ai-agent).
+This guide is the practical sequel to [What is an AI Agent?](/en/blog/what-is-an-ai-agent). I (**Kay Rottmann**) wrote it out of the experience of several production agent projects; my day job is Professor of Applied AI at HdM Stuttgart, before that Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta.
 
-Last updated: April 10, 2026.
+First published April 2026, last updated July 15, 2026.
 
 ## Who is this article for?
 
@@ -182,6 +183,8 @@ With tools like n8n, Make, or Zapier you can click together simple agent-ish wor
 ## Read next
 
 - [What is an AI Agent?](/en/blog/what-is-an-ai-agent) - the definitional foundation
+- [Agentic AI for companies](/en/blog/agentic-ai-for-companies) - the organizational side: governance, roles, preparation
 - [AI for SMBs](/en/blog/ai-for-smbs) - if you're not sure whether an agent is the right approach for your case
-- [AI Agent Development](/en/consulting/ai-agent-development) - if you want to have an agent built
 - [LLM Evaluation](/en/consulting/llm-evaluation) - how to measure whether your agent actually works
+
+*Transparency note: consulting and training services linked from this article are provided through r7net GmbH - independent of my role at Hochschule der Medien Stuttgart.*

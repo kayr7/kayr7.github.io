@@ -2,6 +2,7 @@
 title: "AI for SMBs: What actually works (and what doesn't)"
 description: "A hands-on guide for small and mid-sized businesses: which AI use cases pay off today, which don't - and how to get started without buzzword bullshit. Written by a Professor of Applied AI with 15+ years of industry experience."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: en
 slug: ai-for-smbs
 translationKey: ai-for-smbs
@@ -10,9 +11,9 @@ tags: ["ai-strategy", "smb", "pillar"]
 
 > **Short answer:** For SMBs in 2026, AI pays off in three places: *structured research and writing tasks*, *processing unstructured data* (emails, documents, tickets), and *narrowly scoped agents* with measurable success. What does **not** pay off: fully autonomous systems without human review, "AI strategies" with no concrete first use case, and model-tinkering when the data foundation is missing.
 
-This article was written by **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart and former Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta. He advises mid-market companies - particularly in the Stuttgart region - on AI strategy and implementation through [r7net GmbH](/en/consulting).
+About the author: I'm **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart. Before that I spent 15 years building AI systems in industry - at Amazon Alexa, the Bosch Center for AI, and Meta - and I still work regularly with mid-market companies, particularly in the Stuttgart region.
 
-Last updated: April 10, 2026.
+First published April 2026, last updated July 15, 2026.
 
 ## Where SMBs stand in 2026
 
@@ -137,7 +138,10 @@ Three questions: (1) Does manual processing cost more than 30 minutes per case? 
 
 ## Read next
 
+- [AI transformation: What to do now](/en/blog/ai-transformation-for-companies) - the bigger picture: from first use cases to a changed organization
+- [Is your company ready for AI?](/en/blog/ai-readiness-check) - the honest self-check before you start
 - [What is an AI Agent?](/en/blog/what-is-an-ai-agent) - the definition and practical context for the agentic variant
 - [AI Strategy Consulting](/en/consulting/ai-strategy-consulting) - if you want to find out structurally where to start
 - [AI Workshop for Companies](/en/consulting/ai-workshop-for-companies) - the fastest way from "we should do something" to "we know what to do"
-- [AI Implementation](/en/consulting/ai-implementation) - when the use case is clear and it's about delivery
+
+*Transparency note: consulting and training services linked from this article are provided through r7net GmbH - independent of my role at Hochschule der Medien Stuttgart.*

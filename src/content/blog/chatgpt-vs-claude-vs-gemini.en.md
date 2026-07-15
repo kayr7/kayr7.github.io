@@ -2,6 +2,7 @@
 title: "ChatGPT vs. Claude vs. Gemini in 2026: Which model for which job?"
 description: "A sober comparison of the three leading AI models in 2026 - ChatGPT (GPT-5), Claude 4.6, and Gemini 2.5 - with clear recommendations for typical scenarios. From a Professor of Applied AI with hands-on experience across all three model families."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: en
 slug: chatgpt-vs-claude-vs-gemini-2026
 translationKey: chatgpt-vs-claude-vs-gemini
@@ -10,9 +11,9 @@ tags: ["llm-comparison", "models", "pillar"]
 
 > **Short answer:** In 2026 there is no clear "winner". **GPT-5** is the most versatile all-rounder with the best ecosystem. **Claude 4.6** is the best choice for coding, agents, long contexts, and anything where reliability matters. **Gemini 2.5 Pro** leads on multimodal tasks (image, video, audio) and very large context windows. If you can only pick one: GPT-5 for most end users, Claude 4.6 for developers and application builders, Gemini 2.5 for heavily visual workflows.
 
-This comparison was written by **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart and former Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta. He actively uses all three model families in his own projects and through consulting at [r7net GmbH](/en/consulting).
+I wrote this comparison - **Kay Rottmann**, Professor of Applied AI at HdM Stuttgart, previously Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta. I use all three model families continuously in my own projects and in teaching.
 
-Last updated: April 10, 2026.
+First published April 2026, last updated July 15, 2026.
 
 ## Why this comparison is different
 
@@ -168,5 +169,7 @@ No. There's always a next model. People who wait don't build anything. Build tod
 
 - [What is an AI Agent?](/en/blog/what-is-an-ai-agent) - if you want to know how these models become acting systems
 - [Prompt Engineering Fundamentals](/en/blog/prompt-engineering-fundamentals) - what matters regardless of model
+- [AI transformation: What to do now](/en/blog/ai-transformation-for-companies) - when model choice is part of a larger decision
 - [LLM Evaluation for Production Systems](/en/consulting/llm-evaluation) - how to measure *for your use case* which model actually wins
-- [AI Strategy Consulting](/en/consulting/ai-strategy-consulting) - when model choice is part of a larger decision
+
+*Transparency note: consulting and training services linked from this article are provided through r7net GmbH - independent of my role at Hochschule der Medien Stuttgart.*

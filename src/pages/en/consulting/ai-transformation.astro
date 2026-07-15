@@ -1,0 +1,76 @@
+---
+// Service page targeting "AI transformation" / "AI transformation consulting".
+// English counterpart of /consulting/ki-transformation.
+
+import ServicePage from "../../../components/pages/ServicePage.astro";
+
+const sections = [
+  {
+    title: "What AI transformation guidance means",
+    body: "AI transformation is not a tool rollout - it's an organizational task: provide the tools, build capability in your people, redesign processes - in that order. This engagement is the bracket around our individual services: instead of a single workshop or project, we accompany your company over 6 to 18 months through the whole journey - from the first pilot through broad skill-building to production systems and agentic AI. You keep the steering wheel; we bring experience, method, and honest assessments.",
+  },
+  {
+    title: "How the engagement works",
+    body: "<strong>Assessment</strong> (2-4 weeks): Where do you stand on data, processes, people, IT, and ground rules? This determines your individual entry point - not every company should start the same way. <strong>Pilot</strong> (about 3 months): one narrowly scoped use case with measurable value that proves something internally. <strong>Skills into the organization</strong> (3-6 months): role-based training, champions in the departments, shared prompt libraries - which also cleanly covers the AI literacy obligation of Article 4 of the EU AI Act. <strong>Rebuilding processes</strong> (from month 6): the best use cases from the emerging pipeline become production systems, including eval framework and monitoring. In parallel, lightweight structures for prioritization and governance take shape.",
+  },
+  {
+    title: "What you get out of it",
+    body: "After twelve months you have: at least one production AI system with measured value, a trained workforce that produces its own use-case ideas, ground rules that fit on one page, and internal know-how that lets you continue the journey without us. That is the stated goal: we plan to make ourselves redundant. Transformation guidance that creates dependency has failed.",
+  },
+  {
+    title: "Who this is for - and who it isn't",
+    body: "For mid-sized companies that are serious: leadership wants to drive the topic, there's willingness to free up working time for learning, and expectations are realistic - tangible change in months, not magic in weeks. Not for companies looking for a fig leaf for the board, or hoping an external provider will 'deliver' the change without anything moving internally. We say that in the first conversation, too - it saves both sides time.",
+  },
+  {
+    title: "Format and investment",
+    body: "Typical format: one fixed day per week or every two weeks, on site or remote, plus targeted workshops and implementation support as needed. The investment depends on intensity and duration; as an order of magnitude: low to mid four figures per month for the guidance, implementation projects priced separately by scope. Individual building blocks - <a href='/en/consulting/ai-strategy-consulting'>strategy</a>, <a href='/en/consulting/ai-workshop-for-companies'>workshop</a>, <a href='/en/consulting/chatgpt-training'>training</a>, <a href='/en/consulting/ai-agent-development'>agent development</a> - can also be booked on their own if you only need support for part of the journey.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How is this different from AI strategy consulting?",
+    answer:
+      "Strategy consulting delivers a roadmap in 3-4 weeks - a document and a plan. Transformation guidance is the execution of that plan over months, including pilot, training, and process redesign. Many clients start with the strategy and then decide how much guidance they want for execution.",
+  },
+  {
+    question: "Do we need prior AI experience?",
+    answer:
+      "No. The assessment at the start meets you exactly where you are - including at zero. More important than prior experience is that leadership genuinely wants to drive the topic.",
+  },
+  {
+    question: "How many people from r7net work with us?",
+    answer:
+      "You work directly with Kay Rottmann, complemented by developers from the network for implementation projects. No junior pyramid, no rotating contacts.",
+  },
+  {
+    question: "Does this also cover the EU AI Act requirements?",
+    answer:
+      "The obligations relevant to most mid-sized companies - transparency, labeling, staff AI literacy under Article 4 - are systematically covered and documented as part of the engagement. For high-risk use cases we bring in specialized legal counsel where needed; we do not provide legal advice ourselves.",
+  },
+  {
+    question: "What happens if an initiative turns out not to be worth it?",
+    answer:
+      "It gets stopped - proposed by us, not fought for by you. Honest kill recommendations are part of the guidance. A project stopped after four weeks is cheaper than one that fails after twelve months.",
+  },
+];
+---
+
+<ServicePage
+  lang="en"
+  alternates={{
+    de: "/consulting/ki-transformation",
+    en: "/en/consulting/ai-transformation",
+  }}
+  serviceName="AI Transformation"
+  metaDescription="AI transformation guidance for mid-sized companies: 6-18 months from the first pilot through employee training to production AI systems and agentic AI. Pragmatic, measurable, with the goal of making ourselves redundant."
+  eyebrow="Service · AI Transformation"
+  headline="AI Transformation"
+  lead="AI transformation is not a tool rollout - it's a journey over months: tools, skills, processes, in the right order. We accompany your company along that journey, from the first pilot project to agentic AI in production."
+  lastUpdated="2026-07-15"
+  sections={sections}
+  faqs={faqs}
+  faqTitle="Frequently asked questions about AI transformation"
+  ctaLabel="Ask about transformation guidance"
+  bylinePrefix="Consulting and content:"
+/>

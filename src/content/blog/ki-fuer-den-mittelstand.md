@@ -2,6 +2,7 @@
 title: "KI für den Mittelstand: Was wirklich funktioniert (und was nicht)"
 description: "Ein praxisnaher Leitfaden für mittelständische Unternehmen: Welche KI-Use-Cases lohnen sich heute, welche nicht - und wie Sie ohne Buzzword-Bullshit anfangen. Von einem Professor für Angewandte KI mit 15+ Jahren Industrie-Erfahrung."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: de
 slug: ki-fuer-den-mittelstand
 translationKey: ai-for-smbs
@@ -10,9 +11,9 @@ tags: ["ki-strategie", "mittelstand", "pillar"]
 
 > **Kurzantwort:** Im Mittelstand lohnt sich KI heute (Stand April 2026) vor allem an drei Stellen: bei *strukturierten Recherche- und Schreibaufgaben*, bei der *Auswertung unstrukturierter Daten* (E-Mails, Dokumente, Tickets) und bei *einfachen, klar abgrenzbaren Agenten* mit messbarem Erfolg. Was sich **nicht** lohnt: vollautonome Systeme ohne menschliches Reviewing, "KI-Strategien" ohne konkreten ersten Use-Case, und Modell-Bastelei, wenn die Datengrundlage fehlt.
 
-Diesen Artikel hat **Prof. Dr. Kay Rottmann** geschrieben, Professor für Angewandte KI an der HdM Stuttgart und ehemaliger Senior Applied Scientist bei Amazon Alexa, Sr. Manager AI für Manufacturing am Bosch Center for AI und Engineering Manager bei Meta. Er berät über die [r7net GmbH](/consulting) mittelständische Unternehmen - vor allem in der Region Stuttgart - bei KI-Strategie und Implementierung.
+Zum Autor: Ich bin **Prof. Dr. Kay Rottmann**, Professor für Angewandte KI an der HdM Stuttgart. Davor habe ich 15 Jahre KI-Systeme in der Industrie gebaut - bei Amazon Alexa, am Bosch Center for AI und bei Meta - und ich arbeite bis heute regelmäßig mit Mittelständlern, vor allem in der Region Stuttgart.
 
-Stand: 10. April 2026.
+Erstveröffentlicht im April 2026, zuletzt aktualisiert am 15. Juli 2026.
 
 ## Die Ausgangslage im Mittelstand 2026
 
@@ -137,7 +138,10 @@ Drei Fragen: (1) Kostet die manuelle Erledigung mehr als 30 Minuten pro Vorgang?
 
 ## Weiterlesen
 
+- [KI-Transformation im Unternehmen](/blog/ki-transformation-unternehmen) - das größere Bild: von den ersten Use-Cases zur veränderten Organisation
+- [Ist Ihr Unternehmen bereit für KI?](/blog/ki-readiness-check) - der ehrliche Selbsttest vor dem Start
 - [Was ist ein KI-Agent?](/blog/was-ist-ein-ki-agent) - die Definition und der Praxisbezug für die agentische Variante
 - [KI Strategie Beratung](/consulting/ki-strategie-beratung) - wenn Sie strukturiert herausfinden wollen, wo Sie anfangen sollten
 - [KI Workshop für Unternehmen](/consulting/ki-workshop-fuer-unternehmen) - der schnellste Weg von „wir sollten was machen" zu „wir wissen, was wir tun"
-- [KI Implementierung](/consulting/ki-implementierung) - wenn der Use-Case schon klar ist und es um die Umsetzung geht
+
+*Transparenz: Beratungs- und Schulungsangebote, auf die dieser Artikel verlinkt, erbringe ich über die r7net GmbH - unabhängig von meiner Tätigkeit an der Hochschule der Medien Stuttgart.*

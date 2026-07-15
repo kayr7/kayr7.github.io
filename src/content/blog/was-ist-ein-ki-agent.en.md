@@ -2,6 +2,7 @@
 title: "What is an AI Agent? A definition from practice"
 description: "A clear, hands-on definition of AI agents - what they are, how they differ from chatbots, when they work and when they don't. Written by a Professor of Applied AI."
 pubDate: 2026-04-10
+updatedDate: 2026-07-15
 lang: en
 slug: what-is-an-ai-agent
 translationKey: what-is-an-ai-agent
@@ -10,9 +11,9 @@ tags: ["ai-agents", "pillar", "fundamentals"]
 
 > **Short answer:** An AI agent is an LLM-based system that solves multi-step tasks on its own - it plans, calls tools, reads results, self-corrects, and finally returns a result. Where a chatbot only *responds*, an AI agent *acts*.
 
-This article was written by **Prof. Dr. Kay Rottmann**, Professor of Applied AI at HdM Stuttgart and former Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta.
+Written by **Prof. Dr. Kay Rottmann**. I'm a Professor of Applied AI at HdM Stuttgart, where my current research includes online evaluation of agentic AI systems; before that I was a Senior Applied Scientist at Amazon Alexa, Sr. Manager AI for Manufacturing at the Bosch Center for AI, and Engineering Manager at Meta.
 
-Last updated: April 10, 2026.
+First published April 2026, last updated July 15, 2026.
 
 ## The short definition
 
@@ -86,7 +87,7 @@ The scaffolding that orchestrates the flow: *"ask the model what to do next → 
 
 ## When does an AI agent make sense - and when not?
 
-From my consulting practice at [r7net GmbH](/en/consulting): AI agents pay off when **all three** of these conditions are met:
+From my project experience: AI agents pay off when **all three** of these conditions are met:
 
 1. **The task has multiple steps** that depend on each other.
 2. **The exact sequence isn't known up front** - it depends on intermediate results.
@@ -138,6 +139,9 @@ From use-case workshop to production agent typically 6 to 10 weeks. A first prot
 
 ## Read next
 
+- [Agentic AI for companies](/en/blog/agentic-ai-for-companies) - what agents mean organizationally and how to prepare
+- [Building AI agents: a practical guide](/en/blog/building-ai-agents-practical-guide) - the technical implementation, step by step
 - [AI Agent Development](/en/consulting/ai-agent-development) - if you want to have an agent built
-- [LLM Evaluation](/en/consulting/llm-evaluation) - how we measure whether an agent actually works
-- [AI Strategy Consulting](/en/consulting/ai-strategy-consulting) - if you don't yet know whether an agent is the right approach for your use case
+- [LLM Evaluation](/en/consulting/llm-evaluation) - how to measure whether an agent actually works
+
+*Transparency note: consulting and training services linked from this article are provided through r7net GmbH - independent of my role at Hochschule der Medien Stuttgart.*

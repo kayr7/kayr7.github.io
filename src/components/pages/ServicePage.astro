@@ -158,7 +158,13 @@ const updatedLabel = new Date(lastUpdated).toLocaleDateString(updatedLocale, {
           >Prof. Dr. Kay Rottmann</a
         >
       </p>
-      <p>Professor of Applied AI · HdM Stuttgart · ex-Meta, Bosch, Amazon</p>
+      <p>
+        {
+          lang === "de"
+            ? "r7net GmbH · 15+ Jahre KI in Industrie & Forschung · ex-Meta, Bosch Center for AI, Amazon"
+            : "r7net GmbH · 15+ years of AI in industry & research · ex-Meta, Bosch Center for AI, Amazon"
+        }
+      </p>
       <p>
         {lang === "de" ? "Stand: " : "Last updated: "}
         <time datetime={lastUpdated}>{updatedLabel}</time>
