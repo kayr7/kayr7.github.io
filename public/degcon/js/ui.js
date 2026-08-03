@@ -2,7 +2,8 @@
 // end screen.
 import { REGIONS, REGION_IDS, NEIGHBORS, ACTIONS, STANCES, actionCost, canBuy,
   degconLevel, DEGCON_COLORS, scoreOf, worldOutcome, fmtPop, fmtDeaths, END_YEAR,
-  mostVulnerable, hottestRivalry, worldEmissions, projectTemp2100, pairKey } from './sim.js';
+  mostVulnerable, hottestRivalry, worldEmissions, projectTemp2100, pairKey,
+  credibility, soloEffect } from './sim.js';
 import { personalityLabel } from './ai.js';
 import { sfx } from './audio.js';
 
@@ -82,6 +83,7 @@ export class UI {
     const wrap = $('actions');
     wrap.innerHTML = '';
     $('budgetVal').textContent = r.budget;
+    if (this.tab === 'mit') this.renderDilemmaCard(wrap, r);
     if (this.tab === 'dip') this.renderStanceCard(wrap, r);
     for (const [key, a] of Object.entries(ACTIONS)) {
       if (a.tab !== this.tab) continue;
@@ -101,6 +103,9 @@ export class UI {
       } else if (key === 'peace') {
         const { other, tension } = hottestRivalry(g, g.playerId);
         if (other) lvlHtml = `<div class="a-lvl">HOTTEST: ${REGIONS[other].short} (${Math.round(tension)})</div>`;
+      } else if (key === 'summit') {
+        const cred = credibility(g, g.playerId);
+        lvlHtml = `<div class="a-lvl">POWER: ×${cred.toFixed(1)} ${cred < 0.5 ? '— CUT AT HOME FIRST' : cred > 1 ? '— THEY LISTEN TO YOU' : ''}</div>`;
       }
       btn.innerHTML = `
         <div class="ico">${a.ico}</div>
@@ -113,6 +118,37 @@ export class UI {
       wrap.appendChild(btn);
     }
     if (this.tab === 'dip') this.renderTensions(wrap);
+  }
+
+  // The tragedy of the commons, spelled out: your cuts alone barely move the
+  // thermometer — but the world copies what its leaders do.
+  renderDilemmaCard(wrap, r) {
+    const g = this.g;
+    const world = worldEmissions(g);
+    const yours = Math.max(0, r.em - r.capture);
+    const share = Math.round((yours / Math.max(0.1, world)) * 100);
+    const solo = soloEffect(g, g.playerId);
+    const cred = credibility(g, g.playerId);
+    const credPct = Math.round(Math.min(1, cred / 1.2) * 100);
+    const coopPct = Math.round(g.coop * 100);
+    const coopLabel = g.coop < 0.25 ? 'EVERYONE DEFECTS' : g.coop < 0.5 ? 'HESITANT' : g.coop < 0.75 ? 'MOVING' : 'ALL IN';
+    const bar = (v, color) =>
+      `<div class="bar" style="--bc:${color}"><i style="width:${Math.min(100, v)}%"></i></div>`;
+    const div = document.createElement('div');
+    div.className = 'action-card stance-card';
+    div.innerHTML = `
+      <div class="a-body">
+        <div class="a-name">THE COMMONS PROBLEM</div>
+        <div class="a-desc">Your emissions: <b style="color:var(--eco)">${yours.toFixed(1)} Gt</b> — ${share}% of the world.
+          Going fully clean <i>alone</i> buys ≈ <b>${solo < 0.05 ? '<0.1' : solo.toFixed(1)}°C</b> by 2100.
+          The other ${100 - share}% follow example, pressure and panic — not your sacrifice.</div>
+        <div class="a-lvl" style="margin-top:6px">WORLD RESOLVE — ${coopLabel}</div>
+        ${bar(coopPct, coopPct < 40 ? '#ff9a3c' : '#38d879')}
+        <div class="a-lvl">YOUR CREDIBILITY — ${credPct < 35 ? 'HYPOCRITE DISCOUNT' : credPct < 65 ? 'HEARD' : 'LEADING BY EXAMPLE'}</div>
+        ${bar(credPct, credPct < 35 ? '#ff4a5e' : '#b48cff')}
+        <div class="a-desc" style="margin-top:4px">Resolve is contagious: cut and others cut; free-ride and they free-ride too. Credibility decides whether your SUMMITS move anyone.</div>
+      </div>`;
+    wrap.appendChild(div);
   }
 
   renderStanceCard(wrap, r) {

@@ -1,7 +1,7 @@
 // AI region governments. Each has a personality; all react to a warming world,
 // their own casualties, rising tensions and diplomatic pressure.
 import { REGION_IDS, REGIONS, NEIGHBORS, ACTIONS, buy, canBuy, degconLevel,
-  hottestRivalry, pairKey } from './sim.js';
+  hottestRivalry, pairKey, credibility } from './sim.js';
 
 const PERSONALITIES = {
   industrialist: { mit: 0.08, ada: 0.2, eco: 0.56, dip: 0.16, stance: 'selective', aggression: 1.15, label: 'growth first' },
@@ -43,9 +43,11 @@ export function aggressionOf(g, id) {
 
 export function applyDiplomacy(g) {
   const summits = g.regions[g.playerId].spent.summit || 0;
+  // a summit is only as strong as the host's example — hypocrisy is discounted
+  const cred = credibility(g, g.playerId);
   for (const id of REGION_IDS) {
     if (id === g.playerId) continue;
-    g.ai[id].pressure = Math.min(1.2, g.ai[id].pressure * 0.5 + summits * 0.3);
+    g.ai[id].pressure = Math.min(1.2, g.ai[id].pressure * 0.5 + summits * 0.3 * cred);
   }
 }
 
@@ -65,7 +67,10 @@ export function aiTakeTurns(g) {
     const ai = g.ai[id];
     const p = { ...PERSONALITIES[ai.personality] };
 
-    // panic: a hot world radicalizes even industrialists
+    // conditional cooperation: nobody wants to be the only one paying.
+    // High world resolve multiplies mitigation appetite; defection collapses it.
+    p.mit *= 0.45 + 1.1 * g.coop;
+    // panic: a hot world radicalizes even industrialists (self-interest, not trust)
     const panic = { 5: 0, 4: 0.05, 3: 0.16, 2: 0.38, 1: 0.6 }[dc];
     p.mit += panic * (g.difficulty === 'hard' ? 0.55 : g.difficulty === 'easy' ? 1.25 : 1);
     if (r.turnDeaths > r.pop * 0.004) p.ada += 0.3;

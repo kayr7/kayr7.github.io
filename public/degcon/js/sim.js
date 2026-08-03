@@ -140,7 +140,7 @@ export const ACTIONS = {
   peace:   { tab: 'dip', ico: '☮', name: 'PEACE TALKS', cost: 2, max: 99, perTurn: 2,
     desc: 'Defuse your most dangerous rivalry before it becomes a war.' },
   summit:  { tab: 'dip', ico: '◉', name: 'CLIMATE SUMMIT', cost: 3, max: 99, perTurn: 1,
-    desc: 'Convene the world: every region leans harder into mitigation.' },
+    desc: 'Convene the world. Its power scales with your credibility — cut at home or be ignored.' },
   aid:     { tab: 'dip', ico: '✚', name: 'CLIMATE AID', cost: 2, max: 99, perTurn: 3,
     desc: 'Fund the most vulnerable region — and earn their lasting goodwill.' },
 };
@@ -158,6 +158,7 @@ export function newGame(playerId, difficulty) {
     temp: 1.3, co2: 425, tech: 0, seaLevel: 0,   // seaLevel in cm above 2025
     worldDeaths: 0, doom: false, over: false,
     tension: {}, wars: [], tipped: {},
+    coop: 0.35,          // world resolve: how much everyone is mitigating (0..1)
     vmod: {}, log: [], regions: {},
   };
   for (const id of REGION_IDS) g.vmod[id] = { heat: 1, food: 1, coast: 1, storm: 1 };
@@ -181,8 +182,25 @@ export function newGame(playerId, difficulty) {
     const k = pairKey(a, b);
     if (!(k in g.tension)) g.tension[k] = 8 + rnd() * 8;
   }
-  for (const id of REGION_IDS) g.regions[id].budget = budgetFor(g, id);
+  for (const id of REGION_IDS) {
+    g.regions[id].budget = budgetFor(g, id);
+    g.regions[id].budget0 = g.regions[id].budget;
+  }
   return g;
+}
+
+// How seriously the world takes YOUR summits: lead by example or be ignored.
+export function credibility(g, id) {
+  const r = g.regions[id];
+  const avgClean = REGION_IDS.reduce((s, i) => s + g.regions[i].clean, 0) / REGION_IDS.length;
+  return clamp(0.35 + (r.clean - avgClean) * 2.2 + r.lvl.capture * 0.05, 0.1, 1.5);
+}
+
+// Emissions a full solo decarbonization would spare the century, in °C.
+export function soloEffect(g, id) {
+  const r = g.regions[id];
+  const remaining = Math.max(0, (END_YEAR - g.year) / YEARS_PER_TURN);
+  return Math.max(0, r.em - r.capture) * remaining * YEARS_PER_TURN * 0.00053;
 }
 
 export function budgetFor(g, id) {
@@ -273,9 +291,12 @@ export function buy(g, id, key) {
       }
       return 'NO RIVALRY TO DEFUSE';
     }
-    case 'summit':
+    case 'summit': {
       r.summits++;
-      return 'THE WORLD LEANS GREENER THIS TURN';
+      const cred = credibility(g, id);
+      r.summitCred = (r.summitCred || 0) + cred;   // history remembers real leadership
+      return cred < 0.5 ? 'SUMMIT HELD — BUT WHO LISTENS TO A LAGGARD?' : 'THE WORLD LEANS GREENER THIS TURN';
+    }
     case 'aid': {
       const target = mostVulnerable(g, id);
       if (target) {
@@ -333,6 +354,16 @@ export function resolveTurn(g) {
   const stress = Math.max(0, g.temp - 0.8);
   // every round is worse than the last: hazard escalation with time AND heat
   const escal = (1 + (g.turn - 1) * 0.05) * (1 + Math.max(0, g.temp - 1.3) * 0.55);
+
+  // 0. world resolve: everyone watches what everyone spent on the climate.
+  // Cooperation is contagious — and so is defection.
+  const efforts = REGION_IDS.filter(id => !g.regions[id].failed).map(id => {
+    const r = g.regions[id];
+    const mitBuys = (r.spent.renew || 0) + (r.spent.capture || 0) + (r.spent.industry || 0) + (r.spent.research || 0);
+    return Math.min(1, mitBuys / Math.max(2, (r.budget0 || 8) * 0.45));
+  });
+  const coopRaw = efforts.reduce((s, e) => s + e, 0) / Math.max(1, efforts.length);
+  g.coop = clamp(g.coop * 0.6 + coopRaw * 0.5, 0.05, 1);
 
   // 1. economy & emissions drift
   const diffEm = { easy: 0.78, normal: 1.05, hard: 1.5 }[g.difficulty] || 1;
@@ -611,7 +642,7 @@ export function resolveTurn(g) {
   if (g.year >= END_YEAR) g.over = true;
   if (!g.over) for (const id of REGION_IDS) {
     const r = g.regions[id];
-    r.budget = budgetFor(g, id); r.spent = {};
+    r.budget = budgetFor(g, id); r.budget0 = r.budget; r.spent = {};
   }
   ev.forEach(e => g.log.push(`[${g.year}] ${e.text}`));
   return ev;
@@ -633,7 +664,8 @@ export function scoreOf(g, id) {
   const r = g.regions[id];
   const survival = r.pop / (r.pop0 + r.absorbed * 0.5);
   const lostCities = r.cities.filter(c => c.state === 'lost').length;
-  let s = survival * 55 + Math.sqrt(r.gdp) * 3.5 + r.absorbed * 0.06 + r.aidGiven * 4 + r.summits * 3
+  let s = survival * 55 + Math.sqrt(r.gdp) * 3.5 + r.absorbed * 0.06
+    + Math.sqrt(r.aidGiven) * 6 + (r.summitCred || 0) * 2.5   // diplomacy counts when it's real
     - (r.deaths / r.pop0) * 90 + (r.stability - 50) * 0.12
     - lostCities * 6 - r.warsFought * 8
     + Math.max(0, r.clean - 0.25) * 40;             // clean transition is legacy
