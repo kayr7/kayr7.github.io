@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#04080f">
+<title>DEGCON — Degrees of Consequence</title>
+<meta name="description" content="A climate strategy game. Prepare your region for a warming world — and slow the warming itself. An homage to DEFCON, where this time everybody can live.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='none' stroke='%23ff9a3c' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%23ff4a5e'/></svg>">
+</head>
+<body>
+
+<!-- ============ INTRO / TITLE SCREEN ============ -->
+<div id="intro" class="overlay visible">
+  <div class="intro-inner">
+    <div class="intro-title">
+      <h1>DEGCON</h1>
+      <div class="intro-sub">DEGREES&nbsp;OF&nbsp;CONSEQUENCE</div>
+      <div class="intro-tag">an homage to <em>“DEFCON — everybody dies”</em><br>
+      this time, everybody can live. <span class="dim">maybe.</span></div>
+    </div>
+
+    <div class="intro-section">
+      <div class="intro-label">// SELECT YOUR REGION</div>
+      <div id="regionPick" class="region-pick"></div>
+    </div>
+
+    <div class="intro-section">
+      <div class="intro-label">// WORLD TEMPERAMENT</div>
+      <div id="difficultyPick" class="diff-pick">
+        <button class="diff-btn" data-diff="easy">COOPERATIVE<span>AIs listen to reason</span></button>
+        <button class="diff-btn selected" data-diff="normal">REALISTIC<span>AIs follow interests</span></button>
+        <button class="diff-btn" data-diff="hard">CARBON&nbsp;RUSH<span>AIs chase growth</span></button>
+      </div>
+    </div>
+
+    <button id="startBtn" class="start-btn" disabled>SELECT A REGION TO BEGIN</button>
+    <button id="introHelpBtn" class="link-btn">how to play</button>
+    <div class="intro-credit">2025 → 2100 · turn-based · playable by touch</div>
+  </div>
+</div>
+
+<!-- ============ HELP OVERLAY ============ -->
+<div id="help" class="overlay">
+  <div class="help-inner panel-box">
+    <h2>// BRIEFING</h2>
+    <p>The world is warming. You govern one region of Earth until <b>2100</b>. Each turn is <b>5 years</b>. You have two jobs, and they pull at each other:</p>
+    <p><b class="c-mit">MITIGATE</b> — cut emissions, build clean energy, capture carbon. Warming is driven by <i>everyone's</i> emissions, so use <b class="c-dip">DIPLOMACY</b> to move the other regions too. A ton of CO₂ saved abroad counts just as much as one saved at home.</p>
+    <p><b class="c-ada">ADAPT</b> — sea walls, heat shelters, food &amp; water security, migration readiness. Warming already under way <i>will</i> hit; preparation decides whether people live.</p>
+    <p><b class="c-eco">ECONOMY</b> — growth funds everything but can raise emissions. Green research makes clean energy cheaper for the whole planet.</p>
+    <p>The <b>DEGCON level</b> tracks global warming: DEGCON 5 is caution, DEGCON 1 is catastrophe. Beyond <b>+4.0&nbsp;°C</b> civilization does not make it. <b>Then everybody dies</b> — and nobody wins.</p>
+    <p>When regions fail, their people move. Migration arcs cross the map: regions that prepared gain workforce and trust; regions that didn't gain instability. There is no wall high enough — only readiness.</p>
+    <p class="dim">Score = people kept alive &amp; thriving + a world that is still standing. You can win the century and still lose the planet. Don't.</p>
+    <button id="helpClose" class="start-btn">UNDERSTOOD</button>
+  </div>
+</div>
+
+<!-- ============ GAME ============ -->
+<div id="game" class="hidden">
+  <canvas id="map"></canvas>
+
+  <!-- top HUD -->
+  <div id="hud">
+    <div class="hud-cell hud-left">
+      <div class="hud-year" id="hudYear">2025</div>
+      <div class="hud-mini" id="hudTurn">TURN 1/15</div>
+    </div>
+    <div class="hud-cell hud-center">
+      <div id="degcon" class="degcon">
+        <div class="degcon-label">DEGCON</div>
+        <div class="degcon-segs">
+          <span data-l="5">5</span><span data-l="4">4</span><span data-l="3">3</span><span data-l="2">2</span><span data-l="1">1</span>
+        </div>
+      </div>
+    </div>
+    <div class="hud-cell hud-right">
+      <div class="hud-temp" id="hudTemp">+1.3°C</div>
+      <div class="hud-mini" id="hudCo2">425 PPM CO₂</div>
+    </div>
+  </div>
+
+  <!-- event ticker -->
+  <div id="ticker"><div id="tickerText"></div></div>
+
+  <!-- bottom action dock -->
+  <div id="dock">
+    <div id="dockHead">
+      <div id="budget" class="budget"><b id="budgetVal">0</b> POLICY PTS</div>
+      <div id="dockTabs">
+        <button class="tab c-mit selected" data-tab="mit">MITIGATE</button>
+        <button class="tab c-ada" data-tab="ada">ADAPT</button>
+        <button class="tab c-eco" data-tab="eco">ECONOMY</button>
+        <button class="tab c-dip" data-tab="dip">DIPLOMACY</button>
+      </div>
+      <button id="dockToggle" aria-label="collapse">▾</button>
+    </div>
+    <div id="actions"></div>
+    <button id="endTurn" class="end-turn">EXECUTE TURN&nbsp;<span class="et-year"></span></button>
+  </div>
+
+  <!-- region info sheet -->
+  <div id="sheet" class="sheet">
+    <div class="sheet-head">
+      <div id="sheetTitle">REGION</div>
+      <button id="sheetClose">✕</button>
+    </div>
+    <div id="sheetBody"></div>
+  </div>
+
+  <!-- degcon flash banner -->
+  <div id="flash" class="flash hidden"></div>
+
+  <!-- corner buttons -->
+  <div id="cornerBtns">
+    <button id="btnHelp" title="briefing">?</button>
+    <button id="btnMute" title="sound">♪</button>
+  </div>
+</div>
+
+<!-- ============ END SCREEN ============ -->
+<div id="end" class="overlay">
+  <div class="end-inner panel-box">
+    <h2 id="endTitle">2100</h2>
+    <div id="endWorld" class="end-world"></div>
+    <div id="endStats"></div>
+    <div id="endBoard"></div>
+    <button id="againBtn" class="start-btn">PLAY AGAIN</button>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
