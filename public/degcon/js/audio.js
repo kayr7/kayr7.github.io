@@ -38,6 +38,8 @@ export const sfx = {
     [0, 300, 600].forEach(d => setTimeout(() => tone(880, 0.22, 'square', 0.06, 660), d));
   },
   doom: () => { tone(220, 2.2, 'sawtooth', 0.09, 40); },
+  war: () => { tone(60, 0.8, 'sawtooth', 0.1, 35); setTimeout(() => tone(50, 1.0, 'sawtooth', 0.08, 30), 350); },
+  knell: () => { [0, 700, 1400].forEach(d => setTimeout(() => tone(196, 1.1, 'sine', 0.09, 190), d)); },
   win: () => { [523, 659, 784, 1046].forEach((f, i) => setTimeout(() => tone(f, 0.35, 'sine', 0.06), i * 160)); },
 };
 

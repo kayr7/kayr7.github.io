@@ -134,10 +134,50 @@ body::after {
   transition: all 0.3s;
 }
 .degcon-segs span.active { color: #04080f; background: var(--dc, var(--accent)); border-color: var(--dc, var(--accent)); box-shadow: 0 0 16px var(--dc, var(--accent)); }
+.hud-deaths {
+  margin-top: 3px; font-size: 11px; letter-spacing: 0.14em; color: var(--bad);
+  text-shadow: 0 0 8px rgba(255,74,94,0.6);
+}
+.hud-deaths .hd-label { color: var(--dim); font-size: 9px; }
+.hud-deaths.bump { animation: deathBump 0.5s; }
+@keyframes deathBump { 30% { transform: scale(1.22); filter: brightness(1.6); } }
+.hud-proj { color: var(--warn); white-space: nowrap; }
 @media (max-width: 480px) {
   .hud-year, .hud-temp { font-size: 17px; }
   .degcon-segs span { width: 26px; height: 22px; line-height: 22px; font-size: 12px; }
 }
+
+/* purchase impact toast */
+.toast {
+  position: absolute; z-index: 45; left: 50%; transform: translateX(-50%);
+  bottom: 46%; pointer-events: none; text-align: center;
+  font-size: 13px; letter-spacing: 0.14em; color: var(--accent);
+  text-shadow: 0 0 12px currentColor; opacity: 0; white-space: nowrap; max-width: 94vw;
+}
+.toast.show { animation: toastUp 1.6s ease forwards; }
+@keyframes toastUp {
+  0% { opacity: 0; transform: translate(-50%, 12px); }
+  15% { opacity: 1; transform: translate(-50%, 0); }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -14px); }
+}
+
+/* border stance selector */
+.stance-card { flex-wrap: wrap; }
+.stance-card .a-body { flex: 1 1 100%; }
+.stance-btns { display: flex; gap: 6px; width: 100%; margin-top: 4px; }
+.stance-btns button {
+  flex: 1; padding: 9px 4px; font-size: 10px; letter-spacing: 0.1em;
+  border: 1px solid var(--line); color: var(--dim); min-height: 38px;
+}
+.stance-btns button.sel { border-color: var(--dip); color: var(--dip); box-shadow: 0 0 10px rgba(180,140,255,0.3); }
+
+/* tension meter rows (diplomacy tab) */
+.tension-row { display: flex; align-items: center; gap: 8px; padding: 4px 2px; font-size: 10px; letter-spacing: 0.08em; }
+.tension-row .tn { width: 84px; color: var(--dim); }
+.tension-row .bar { flex: 1; margin: 0; }
+.tension-row .tv { width: 34px; text-align: right; }
+.tension-row.war .tv, .tension-row.war .tn { color: var(--bad); }
 
 /* ============ ticker ============ */
 #ticker {

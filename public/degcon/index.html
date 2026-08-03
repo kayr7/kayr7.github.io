@@ -49,9 +49,10 @@
     <p><b class="c-mit">MITIGATE</b> — cut emissions, build clean energy, capture carbon. Warming is driven by <i>everyone's</i> emissions, so use <b class="c-dip">DIPLOMACY</b> to move the other regions too. A ton of CO₂ saved abroad counts just as much as one saved at home.</p>
     <p><b class="c-ada">ADAPT</b> — sea walls, heat shelters, food &amp; water security, migration readiness. Warming already under way <i>will</i> hit; preparation decides whether people live.</p>
     <p><b class="c-eco">ECONOMY</b> — growth funds everything but can raise emissions. Green research makes clean energy cheaper for the whole planet.</p>
-    <p>The <b>DEGCON level</b> tracks global warming: DEGCON 5 is caution, DEGCON 1 is catastrophe. Beyond <b>+4.0&nbsp;°C</b> civilization does not make it. <b>Then everybody dies</b> — and nobody wins.</p>
-    <p>When regions fail, their people move. Migration arcs cross the map: regions that prepared gain workforce and trust; regions that didn't gain instability. There is no wall high enough — only readiness.</p>
-    <p class="dim">Score = people kept alive &amp; thriving + a world that is still standing. You can win the century and still lose the planet. Don't.</p>
+    <p>The <b>DEGCON level</b> tracks global warming: DEGCON 5 is caution, DEGCON 1 is catastrophe. Every round hits harder than the last, and past certain degrees the Earth crosses <b>tipping points</b> that cannot be undone. Beyond <b>+4.0&nbsp;°C</b> civilization does not make it. <b>Then everybody dies</b> — and nobody wins.</p>
+    <p>Watch the top of the screen: the <b class="c-eco">Gt/yr → +°C 2100</b> projection shows where the world is headed <i>right now</i> — buy clean energy and watch it fall. The red <b style="color:#ff4a5e">death counter</b> shows what hesitation costs. <b>Cities can be lost</b> — to the sea, to the heat, to war — permanently.</p>
+    <p>When regions fail, their people move. Set your <b class="c-dip">border stance</b>: open doors need capacity, closed doors kill at the fence and breed <b style="color:#ff4a5e">tension</b>. Past the breaking point, tension becomes <b style="color:#ff4a5e">war</b> — cities burn, refugees multiply, emissions climb. Armed forces deter, peace talks defuse; choose.</p>
+    <p class="dim">You can't afford everything — a strategy is what you choose not to build. Score = people kept alive &amp; thriving + a world that is still standing. You can win the century and still lose the planet. Don't.</p>
     <button id="helpClose" class="start-btn">UNDERSTOOD</button>
   </div>
 </div>
@@ -72,13 +73,18 @@
         <div class="degcon-segs">
           <span data-l="5">5</span><span data-l="4">4</span><span data-l="3">3</span><span data-l="2">2</span><span data-l="1">1</span>
         </div>
+        <div class="hud-deaths"><span class="hd-label">DEAD</span> <span id="hudDeaths">0</span></div>
       </div>
     </div>
     <div class="hud-cell hud-right">
       <div class="hud-temp" id="hudTemp">+1.3°C</div>
       <div class="hud-mini" id="hudCo2">425 PPM CO₂</div>
+      <div class="hud-mini hud-proj" id="hudProj"></div>
     </div>
   </div>
+
+  <!-- purchase impact toast -->
+  <div id="toast" class="toast"></div>
 
   <!-- event ticker -->
   <div id="ticker"><div id="tickerText"></div></div>

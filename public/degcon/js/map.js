@@ -181,8 +181,85 @@ export class WorldMap {
 
     this._grid(cx);
     this._countries(cx);
+    this._cities(cx);
+    this._wars(cx);
     this._labels(cx);
     this._drawEffects(cx, dt);
+  }
+
+  // cities: living dots, crisis flicker, lost crosses — the human stakes on the map
+  _cities(cx) {
+    const g = this.gameRef;
+    if (!g) return;
+    const showNames = this.view.k >= 1.6;
+    const fs = Math.max(7, Math.min(10, 7 * Math.sqrt(this.view.k)));
+    cx.textAlign = 'left';
+    cx.font = `400 ${fs}px ui-monospace, Menlo, Consolas, monospace`;
+    for (const rid of REGION_IDS) {
+      const r = g.regions[rid];
+      const col = REGIONS[rid].color;
+      for (const c of r.cities) {
+        const [x, y] = this.lonLatToScreen(c.lon, c.lat);
+        if (x < -20 || x > this.w + 20 || y < -20 || y > this.h + 20) continue;
+        if (c.state === 'lost') {
+          cx.strokeStyle = 'rgba(255,74,94,0.75)';
+          cx.lineWidth = 1.4;
+          cx.beginPath();
+          cx.moveTo(x - 3.5, y - 3.5); cx.lineTo(x + 3.5, y + 3.5);
+          cx.moveTo(x + 3.5, y - 3.5); cx.lineTo(x - 3.5, y + 3.5);
+          cx.stroke();
+          if (showNames) { cx.fillStyle = 'rgba(255,74,94,0.6)'; cx.fillText(c.name, x + 6, y + 3); }
+        } else if (c.state === 'crisis') {
+          const bl = 0.45 + 0.55 * Math.abs(Math.sin(this.time * 3.2 + c.lon));
+          cx.fillStyle = `rgba(255,154,60,${bl})`;
+          cx.shadowBlur = 7; cx.shadowColor = '#ff9a3c';
+          cx.beginPath(); cx.arc(x, y, 2.6, 0, Math.PI * 2); cx.fill();
+          cx.shadowBlur = 0;
+          if (showNames) { cx.fillStyle = `rgba(255,154,60,${bl})`; cx.fillText('⚠ ' + c.name, x + 6, y + 3); }
+        } else {
+          cx.fillStyle = hexA(col, 0.85);
+          cx.beginPath(); cx.arc(x, y, 1.7, 0, Math.PI * 2); cx.fill();
+          if (showNames) { cx.fillStyle = hexA(col, 0.55); cx.fillText(c.name, x + 5, y + 3); }
+        }
+      }
+    }
+  }
+
+  // active wars: jagged burning front between the two regions
+  _wars(cx) {
+    const g = this.gameRef;
+    if (!g || !g.wars) return;
+    for (const w of g.wars) {
+      if (w.over) continue;
+      const a = REGIONS[w.a].label, b = REGIONS[w.b].label;
+      const [x1, y1] = this.lonLatToScreen(a[0], a[1]);
+      const [x2, y2] = this.lonLatToScreen(b[0], b[1]);
+      const segs = 9;
+      const pulse = 0.55 + 0.45 * Math.sin(this.time * 5);
+      cx.strokeStyle = `rgba(255,74,94,${0.75 * pulse})`;
+      cx.lineWidth = 1.8;
+      cx.shadowBlur = 10; cx.shadowColor = '#ff4a5e';
+      cx.beginPath();
+      cx.moveTo(x1, y1);
+      for (let i = 1; i < segs; i++) {
+        const t = i / segs;
+        const nx = x1 + (x2 - x1) * t, ny = y1 + (y2 - y1) * t;
+        const off = Math.sin(i * 7.13 + this.time * 6) * 7;
+        const px = -(y2 - y1), py = (x2 - x1);
+        const len = Math.hypot(px, py) || 1;
+        cx.lineTo(nx + (px / len) * off, ny + (py / len) * off);
+      }
+      cx.lineTo(x2, y2);
+      cx.stroke();
+      cx.shadowBlur = 0;
+      const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      cx.textAlign = 'center';
+      cx.font = `700 ${12 + 3 * pulse}px ui-monospace, Menlo, Consolas, monospace`;
+      cx.fillStyle = `rgba(255,74,94,${0.6 + 0.4 * pulse})`;
+      cx.shadowBlur = 12; cx.shadowColor = '#ff4a5e';
+      cx.fillText('✕', mx, my + 4);
+      cx.shadowBlur = 0;
+    }
   }
 
   _grid(cx) {

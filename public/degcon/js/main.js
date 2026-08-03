@@ -59,6 +59,7 @@ function startGame() {
 
   map = new WorldMap($('map'));
   map.playerId = g.playerId;
+  map.gameRef = g;
   map.fitWorld();
   map.onTapRegion = rid => {
     if (rid) { sfx.tap(); map.selected = rid; ui.openSheet(rid); }
@@ -69,11 +70,23 @@ function startGame() {
   ui.setGame(g);
   ui.onBuy = (key, card) => {
     if (g.phase !== 'plan') return;
-    if (buy(g, g.playerId, key)) {
-      sfx.buy(); ui.flashBought(card); ui.renderActions();
+    const impact = buy(g, g.playerId, key);
+    if (impact !== null) {
+      sfx.buy(); ui.flashBought(card); ui.renderActions(); ui.updateProjection();
+      if (impact) ui.toast(impact, key === 'military' ? '#ff9a3c' : undefined);
       if (key === 'aid' && g.lastAidTarget) map.addArc(g.playerId, g.lastAidTarget, '#b48cff');
+      if (key === 'peace' && g.lastPeaceTarget) map.addArc(g.playerId, g.lastPeaceTarget, '#38d879');
       if (key === 'summit') map.addPulse(g.playerId, '#b48cff');
     } else { sfx.deny(); }
+  };
+  ui.onStance = stance => {
+    if (g.phase !== 'plan') return;
+    g.regions[g.playerId].stance = stance;
+    sfx.tap();
+    ui.renderActions();
+    ui.toast(stance === 'closed' ? 'BORDERS SEALED — THE DESPERATE WILL STILL COME'
+      : stance === 'open' ? 'BORDERS OPEN — PREPARE ARRIVAL CAPACITY'
+      : 'SELECTIVE ENTRY — CAPACITY DECIDES', '#b48cff');
   };
   ui.onEndTurn = runTurn;
   ui.updateHUD();
@@ -87,7 +100,6 @@ function loop(t) {
   const dt = Math.min(0.05, (t - lastT) / 1000 || 0.016);
   lastT = t;
   if (map) {
-    // stress tint follows warming + vulnerability, eases the map into crisis
     const stress = Math.max(0, g.temp - 1.2);
     for (const id of REGION_IDS) {
       const m = REGIONS[id], r = g.regions[id];
@@ -110,20 +122,54 @@ async function runTurn() {
   ui.closeSheet(); map.selected = null;
   sfx.turn();
   const prevDegcon = degconLevel(g.temp);
+  const deathsBefore = g.worldDeaths;
 
   aiTakeTurns(g);
   const events = resolveTurn(g);
   ui.updateHUD();
+  ui.setDeaths(deathsBefore, false);   // tick up as the events play out
 
-  // choreograph the 5 years passing
-  const perEvent = Math.min(700, Math.max(320, 4200 / Math.max(1, events.length)));
+  const perEvent = Math.min(650, Math.max(300, 4600 / Math.max(1, events.length)));
+  let running = deathsBefore;
   for (const e of events) {
     if (e.kind === 'disaster') {
       map.addBlast(e.lon, e.lat, EFFECT_COLORS[e.type] || '#ff4a5e');
       sfx.disaster();
+      running += e.deaths || 0;
     } else if (e.kind === 'migration') {
-      map.addArc(e.from, e.to, '#ffd24f');
+      map.addArc(e.from, e.to, e.ok ? '#46d68c' : '#ffd24f');
       sfx.migration();
+    } else if (e.kind === 'border') {
+      map.addArc(e.from, e.to, '#ff4a5e');
+      map.addPulse(e.to, '#ff4a5e');
+      sfx.deny();
+      running += e.dead || 0;
+    } else if (e.kind === 'cityCrisis') {
+      map.addBlast(e.lon, e.lat, '#ff9a3c');
+      sfx.alarm();
+    } else if (e.kind === 'citySaved') {
+      map.addBlast(e.lon, e.lat, '#38d879');
+    } else if (e.kind === 'cityLost') {
+      map.addBlast(e.lon, e.lat, '#ff4a5e');
+      sfx.knell();
+      running = null; // big hit — show full number immediately below
+      if (e.region === g.playerId) {
+        ui.flash(`${e.city} IS LOST`, e.war ? 'DESTROYED IN THE FIGHTING' : 'THE MAP JUST GOT SMALLER', '#ff4a5e');
+        await sleep(1400);
+      }
+    } else if (e.kind === 'warStart') {
+      sfx.war();
+      ui.flash('WAR', `${REGIONS[e.a].short} ✕ ${REGIONS[e.b].short}`, '#ff4a5e');
+      await sleep(1500);
+    } else if (e.kind === 'warRage') {
+      sfx.disaster();
+    } else if (e.kind === 'warEnd') {
+      ui.flash('CEASEFIRE', `${REGIONS[e.a].short} / ${REGIONS[e.b].short}`, '#38d879');
+      await sleep(1200);
+    } else if (e.kind === 'tipping') {
+      sfx.doom();
+      ui.flash('TIPPING POINT', e.text.replace('TIPPING POINT: ', ''), '#ff9a3c');
+      await sleep(2000);
     } else if (e.kind === 'collapse') {
       map.addPulse(e.region, '#ff4a5e');
       sfx.alarm();
@@ -131,8 +177,11 @@ async function runTurn() {
       map.addPulse(e.region, '#38d879');
     }
     ui.pushTicker(e.text);
+    if (running === null) { ui.setDeaths(g.worldDeaths); running = g.worldDeaths; }
+    else ui.setDeaths(Math.min(running, g.worldDeaths));
     await sleep(perEvent);
   }
+  ui.setDeaths(g.worldDeaths);
   if (!events.length) {
     ui.pushTicker(`${g.year}: A QUIET FIVE YEARS. THE OCEAN KEEPS COUNTING.`);
     await sleep(600);
@@ -159,7 +208,6 @@ async function runTurn() {
     return;
   }
 
-  // player region failed? you can keep playing (rump government) but warn once
   const you = g.regions[g.playerId];
   if (you.failed && !g.warnedFailed) {
     g.warnedFailed = true;

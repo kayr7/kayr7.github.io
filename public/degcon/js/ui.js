@@ -1,6 +1,8 @@
-// DOM layer: HUD, action dock, region sheet, ticker, flash banners, end screen.
-import { REGIONS, REGION_IDS, ACTIONS, actionCost, canBuy, degconLevel, DEGCON_COLORS,
-  scoreOf, worldOutcome, fmtPop, fmtDeaths, END_YEAR, mostVulnerable } from './sim.js';
+// DOM layer: HUD, action dock, region sheet, ticker, flash banners, toasts,
+// end screen.
+import { REGIONS, REGION_IDS, NEIGHBORS, ACTIONS, STANCES, actionCost, canBuy,
+  degconLevel, DEGCON_COLORS, scoreOf, worldOutcome, fmtPop, fmtDeaths, END_YEAR,
+  mostVulnerable, hottestRivalry, worldEmissions, projectTemp2100, pairKey } from './sim.js';
 import { personalityLabel } from './ai.js';
 import { sfx } from './audio.js';
 
@@ -10,7 +12,8 @@ export class UI {
   constructor() {
     this.tab = 'mit';
     this.tickerItems = [];
-    this.onBuy = null; this.onEndTurn = null;
+    this.shownDeaths = 0;
+    this.onBuy = null; this.onEndTurn = null; this.onStance = null;
     $('dockTabs').addEventListener('click', e => {
       const b = e.target.closest('.tab'); if (!b) return;
       this.tab = b.dataset.tab;
@@ -24,12 +27,14 @@ export class UI {
     $('endTurn').addEventListener('click', () => { if (this.onEndTurn) this.onEndTurn(); });
     $('sheetClose').addEventListener('click', () => this.closeSheet());
     $('actions').addEventListener('click', e => {
-      const card = e.target.closest('.action-card'); if (!card) return;
+      const st = e.target.closest('.stance-btns button');
+      if (st) { if (this.onStance) this.onStance(st.dataset.stance); return; }
+      const card = e.target.closest('.action-card'); if (!card || !card.dataset.key) return;
       if (this.onBuy) this.onBuy(card.dataset.key, card);
     });
   }
 
-  setGame(g) { this.g = g; }
+  setGame(g) { this.g = g; this.shownDeaths = g.worldDeaths; }
 
   // ---- HUD ----
   updateHUD() {
@@ -47,6 +52,28 @@ export class UI {
       if (active) s.style.setProperty('--dc', col);
     });
     $('endTurn').querySelector('.et-year').textContent = `→ ${Math.min(g.year + 5, END_YEAR)}`;
+    this.updateProjection();
+    this.setDeaths(g.worldDeaths, false);
+  }
+
+  // the visible payoff of mitigation: world emissions + where we're headed
+  updateProjection() {
+    const g = this.g;
+    const proj = projectTemp2100(g);
+    const em = Math.round(worldEmissions(g) * 10) / 10;
+    $('hudProj').textContent = g.over ? '' : `${em}GT → +${proj.toFixed(1)}° IN 2100`;
+    $('hudProj').style.color = proj < 2 ? '#38d879' : proj < 2.6 ? '#ffd24f' : proj < 3.2 ? '#ff9a3c' : '#ff4a5e';
+  }
+
+  setDeaths(v, bump = true) {
+    const el = $('hudDeaths');
+    const prev = this.shownDeaths;
+    this.shownDeaths = v;
+    el.textContent = fmtDeaths(Math.max(0.0001, v));
+    if (bump && v > prev + 0.05) {
+      const wrap = el.parentElement;
+      wrap.classList.remove('bump'); void wrap.offsetWidth; wrap.classList.add('bump');
+    }
   }
 
   // ---- action dock ----
@@ -55,6 +82,7 @@ export class UI {
     const wrap = $('actions');
     wrap.innerHTML = '';
     $('budgetVal').textContent = r.budget;
+    if (this.tab === 'dip') this.renderStanceCard(wrap, r);
     for (const [key, a] of Object.entries(ACTIONS)) {
       if (a.tab !== this.tab) continue;
       const lvl = r.lvl[key] !== undefined ? r.lvl[key] : r.adapt[key];
@@ -70,6 +98,9 @@ export class UI {
       } else if (key === 'aid') {
         const t = mostVulnerable(g, g.playerId);
         if (t) lvlHtml = `<div class="a-lvl">TARGET: ${REGIONS[t].short}</div>`;
+      } else if (key === 'peace') {
+        const { other, tension } = hottestRivalry(g, g.playerId);
+        if (other) lvlHtml = `<div class="a-lvl">HOTTEST: ${REGIONS[other].short} (${Math.round(tension)})</div>`;
       }
       btn.innerHTML = `
         <div class="ico">${a.ico}</div>
@@ -81,10 +112,50 @@ export class UI {
         <div class="a-cost">${cost}◆</div>`;
       wrap.appendChild(btn);
     }
+    if (this.tab === 'dip') this.renderTensions(wrap);
+  }
+
+  renderStanceCard(wrap, r) {
+    const div = document.createElement('div');
+    div.className = 'action-card stance-card';
+    div.innerHTML = `
+      <div class="a-body">
+        <div class="a-name">BORDERS: <span style="color:var(--dip)">${r.stance.toUpperCase()}</span></div>
+        <div class="a-desc">Free choice, heavy consequences. Closed borders turn refugees back — people die, and your neighbors remember.</div>
+        <div class="stance-btns">
+          ${STANCES.map(s => `<button data-stance="${s}" class="${r.stance === s ? 'sel' : ''}">${s.toUpperCase()}</button>`).join('')}
+        </div>
+      </div>`;
+    wrap.appendChild(div);
+  }
+
+  renderTensions(wrap) {
+    const g = this.g;
+    const div = document.createElement('div');
+    div.className = 'action-card stance-card';
+    const rows = NEIGHBORS[g.playerId].map(n => {
+      const t = g.tension[pairKey(g.playerId, n)] || 0;
+      const atWar = g.wars.some(w => !w.over && ((w.a === g.playerId && w.b === n) || (w.b === g.playerId && w.a === n)));
+      const col = atWar ? '#ff4a5e' : t > 55 ? '#ff9a3c' : t > 30 ? '#ffd24f' : '#38d879';
+      return `<div class="tension-row${atWar ? ' war' : ''}">
+        <span class="tn">${REGIONS[n].short}</span>
+        <div class="bar" style="--bc:${col}"><i style="width:${Math.min(100, t)}%"></i></div>
+        <span class="tv" style="color:${col}">${atWar ? 'WAR' : Math.round(t)}</span></div>`;
+    }).join('');
+    div.innerHTML = `<div class="a-body"><div class="a-name">FRONTIER TENSIONS</div>${rows}
+      <div class="a-desc" style="margin-top:4px">Past 68 a rivalry can ignite. Peace talks cool the hottest one.</div></div>`;
+    wrap.appendChild(div);
   }
 
   flashBought(card) {
     card.classList.remove('bought'); void card.offsetWidth; card.classList.add('bought');
+  }
+
+  toast(text, color) {
+    const t = $('toast');
+    t.textContent = text;
+    t.style.color = color || '';
+    t.classList.remove('show'); void t.offsetWidth; t.classList.add('show');
   }
 
   setPlanning(on) {
@@ -105,22 +176,31 @@ export class UI {
     const g = this.g, r = g.regions[rid], m = REGIONS[rid];
     const isYou = rid === g.playerId;
     $('sheet').style.setProperty('--rc', m.color);
-    $('sheetTitle').textContent = (isYou ? '★ ' : '') + m.name + (r.failed ? ' — FAILED STATE' : '');
+    $('sheetTitle').textContent = (isYou ? '★ ' : '') + m.name + (r.failed ? ' — FAILED STATE' : r.atWar ? ' — AT WAR' : '');
     const bar = (v, max, color) =>
       `<div class="bar" style="--bc:${color}"><i style="width:${Math.min(100, v / max * 100)}%"></i></div>`;
     const row = (k, v) => `<div class="stat-row"><span class="dim">${k}</span><span class="sv">${v}</span></div>`;
+    const cities = r.cities.map(c => {
+      const mark = c.state === 'lost' ? '✕' : c.state === 'crisis' ? '⚠' : '●';
+      const col = c.state === 'lost' ? '#ff4a5e' : c.state === 'crisis' ? '#ff9a3c' : m.color;
+      return `<span style="color:${col};white-space:nowrap">${mark} ${c.name}</span>`;
+    }).join(' &nbsp;');
     $('sheetBody').innerHTML =
       row('GOVERNMENT', isYou ? 'YOU' : personalityLabel(g, rid).toUpperCase()) +
+      row('BORDERS', r.stance.toUpperCase()) +
       row('POPULATION', fmtPop(r.pop)) +
       row('ECONOMY', r.gdp.toFixed(1) + ' T$') +
       row('EMISSIONS', Math.max(0, r.em - r.capture).toFixed(1) + ' Gt/yr') +
       row('CLEAN ENERGY', Math.round(r.clean * 100) + '%') +
+      row('MILITARY', '▰'.repeat(r.lvl.military) + '▱'.repeat(10 - r.lvl.military)) +
       row('CLIMATE DEATHS', fmtDeaths(r.deaths || 0.0001)) +
       row('REFUGEES TAKEN IN', fmtPop(r.absorbed)) +
       `<div style="margin-top:10px" class="dim">STABILITY</div>` + bar(r.stability, 100, r.stability > 40 ? m.color : '#ff4a5e') +
       `<div class="dim">DEFENSES — COAST / HEAT / FOOD / MIGRATION</div>` +
       bar(r.adapt.coast, 10, '#4fc3f7') + bar(r.adapt.heat, 10, '#ff9a3c') +
       bar(r.adapt.food, 10, '#ffd24f') + bar(r.adapt.migrate, 10, '#b48cff') +
+      `<div class="dim" style="margin-top:6px">CITIES</div>
+       <div style="line-height:2;font-size:11px">${cities}</div>` +
       `<div class="sheet-note">${m.desc}. Vulnerability — heat ${pct(m.vuln.heat)}, food ${pct(m.vuln.food)}, coast ${pct(m.vuln.coast)}.</div>`;
     $('sheet').classList.add('open');
   }
@@ -144,13 +224,20 @@ export class UI {
     ew.textContent = out.title;
     ew.className = 'end-world' + (out.cls === 'doom' ? ' doom' : '');
     ew.style.setProperty('--wc', { good: '#38d879', ok: '#b8e04a', bad: '#ff9a3c', doom: '#ff4a5e' }[out.cls]);
-    const totalDeaths = REGION_IDS.reduce((s, id) => s + g.regions[id].deaths, 0);
     const totalRefugees = REGION_IDS.reduce((s, id) => s + g.regions[id].refugees, 0);
     const worldPop = REGION_IDS.reduce((s, id) => s + g.regions[id].pop, 0);
+    const lostCities = REGION_IDS.reduce((s, id) => s + g.regions[id].cities.filter(c => c.state === 'lost').length, 0);
+    const wars = g.wars.length;
+    const by = g.deathBy || {};
+    const bySrc = ['disaster', 'border', 'war', 'city']
+      .filter(k => by[k] > 0.05)
+      .map(k => `${{ disaster: 'climate', border: 'borders', war: 'wars', city: 'lost cities' }[k]} ${fmtDeaths(by[k])}`)
+      .join(' · ');
     $('endStats').innerHTML =
       `${out.text}<br>` +
-      `World population <b>${fmtPop(worldPop)}</b> · climate deaths <b>${fmtDeaths(Math.max(0.001, totalDeaths))}</b> · ` +
-      `displaced <b>${fmtPop(totalRefugees)}</b> · CO₂ <b>${g.co2} ppm</b>`;
+      `World population <b>${fmtPop(worldPop)}</b> · dead <b>${fmtDeaths(Math.max(0.001, g.worldDeaths))}</b>` +
+      (bySrc ? ` <span class="dim">(${bySrc})</span>` : '') + `<br>` +
+      `displaced <b>${fmtPop(totalRefugees)}</b> · cities lost <b>${lostCities}</b> · wars <b>${wars}</b> · CO₂ <b>${g.co2} ppm</b>`;
     const board = REGION_IDS.map(id => ({ id, s: scoreOf(g, id) })).sort((a, b) => b.s - a.s);
     $('endBoard').innerHTML = board.map((e, i) => {
       const m = REGIONS[e.id]; const r = g.regions[e.id];
